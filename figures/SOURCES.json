@@ -1,0 +1,160 @@
+{
+  "schema": "mcp-host-matrix-figures/1",
+  "binding_kind": "label_verification",
+  "inputs": [
+    {
+      "id": "matrix",
+      "repository_file": "matrix/RESULTS.json",
+      "sha256": "154dca0125ebd5c9c53935b63640949cab3e87aea983032045dd9187e3c643d1"
+    },
+    {
+      "id": "lifecycle",
+      "repository_file": "disconnect/bench/RESULTS.json",
+      "sha256": "2920343f43543e374d990faf9c4159aff73ce0d0a0a879b2a1466ccdf739f701"
+    },
+    {
+      "id": "update",
+      "repository_file": "disconnect/bench/UPDATE-RESULTS.json",
+      "sha256": "245cad0ad7ef03441e398a07f2355a48863389cdcea1fd9f732c1e9c5e838898"
+    }
+  ],
+  "figures": [
+    {
+      "id": "coverage",
+      "kind": "coverage",
+      "verification_inputs": [
+        "matrix"
+      ],
+      "source_fields": [
+        "cases[].id",
+        "cases[].native_hosts",
+        "cases[].components"
+      ],
+      "formats": [
+        {
+          "repository_file": "figures/09-coverage/09-coverage.en.png",
+          "sha256": "bffad5f3984776a676078a6374a5048dd5e984965b9728c9ced223a5dda5c2c8"
+        },
+        {
+          "repository_file": "figures/09-coverage/09-coverage.en.svg",
+          "sha256": "1419614c2b7fcd4962e47aa9f7a95d89cc77199ff087c6cffda91ac8d8087426"
+        },
+        {
+          "repository_file": "figures/09-coverage/09-coverage.en.excalidraw",
+          "sha256": "9adb5248b5f46bcdf239966e060985446167a21e3c8181c45ed8d6ec5b95fe04"
+        }
+      ]
+    },
+    {
+      "id": "disconnect",
+      "kind": "measured_case",
+      "verification_inputs": [
+        "matrix",
+        "lifecycle"
+      ],
+      "source_fields": [
+        "R01.counts/observations/controls/limits/versions",
+        "base_cells[]",
+        "operation_variants[]"
+      ],
+      "formats": [
+        {
+          "repository_file": "figures/02-disconnect-is-not-revoke/02-disconnect-is-not-revoke.en.png",
+          "sha256": "5d8de0d6a04b45e5ee414c2195fae627395964b21f72e61576256c48c8511bb8"
+        },
+        {
+          "repository_file": "figures/02-disconnect-is-not-revoke/02-disconnect-is-not-revoke.en.svg",
+          "sha256": "fbfbf3c95b49406494d6b032afc2e0e6bfe2c50db1d50b6ac5f61d47a3392517"
+        },
+        {
+          "repository_file": "figures/02-disconnect-is-not-revoke/02-disconnect-is-not-revoke.en.excalidraw",
+          "sha256": "4ecfb40251fb94262b930bebd1ba03532162dbed0288b71781e827fceedcd01e"
+        }
+      ]
+    },
+    {
+      "id": "replacement",
+      "kind": "measured_case",
+      "verification_inputs": [
+        "matrix",
+        "update"
+      ],
+      "source_fields": [
+        "R06",
+        "cells[].versions/first_connection/native_old_refresh_reused/controller_http_before_after"
+      ],
+      "formats": [
+        {
+          "repository_file": "figures/02b-update-is-not-revoke/02b-update-is-not-revoke.en.png",
+          "sha256": "3c3f4442f411e57c647db69aff57c19ee5d338b4d405790b3492e48a262657bc"
+        },
+        {
+          "repository_file": "figures/02b-update-is-not-revoke/02b-update-is-not-revoke.en.svg",
+          "sha256": "1416fabf2fc8f7a30d1f57f748a9cde2bd097b9a0aa5348b43d3454cbd115b7e"
+        },
+        {
+          "repository_file": "figures/02b-update-is-not-revoke/02b-update-is-not-revoke.en.excalidraw",
+          "sha256": "9f76c02873fc27bef7de9c29dbb2f411a9fc42f36ccb376dc175c58f05e36440"
+        }
+      ]
+    },
+    {
+      "id": "cache",
+      "kind": "measured_case",
+      "verification_inputs": [
+        "matrix"
+      ],
+      "source_fields": [
+        "R02 F01",
+        "R02.versions/observations/controls/limits",
+        "author-held F01 profile receipt"
+      ],
+      "formats": [
+        {
+          "repository_file": "figures/07-cache-after-remove/07-cache-after-remove.en.png",
+          "sha256": "c12c65e75648640c5609b50dcf9194c9c1dea1a9f55a234fd4519543b8341caa"
+        },
+        {
+          "repository_file": "figures/07-cache-after-remove/07-cache-after-remove.en.svg",
+          "sha256": "15f2b30718e59e56bb0b893712f70948b947267ab30f0033ef43c3c8cb39a3b7"
+        },
+        {
+          "repository_file": "figures/07-cache-after-remove/07-cache-after-remove.en.excalidraw",
+          "sha256": "9758033118425fb0c2b489c8ea12742e501d325b245c241f3d159817676c93be"
+        }
+      ]
+    },
+    {
+      "id": "redirect",
+      "kind": "measured_case",
+      "verification_inputs": [
+        "matrix"
+      ],
+      "source_fields": [
+        "R05.native_triggers/automatic_refresh_posts/body/bootstrap_access_existed/new_refresh_stage_access_issued/limits"
+      ],
+      "formats": [
+        {
+          "repository_file": "figures/08-refresh-redirect/08-refresh-redirect.en.png",
+          "sha256": "129cc9319b902b51a615d34ecdd61390fe939eea6ff274d9902c725b50125116"
+        },
+        {
+          "repository_file": "figures/08-refresh-redirect/08-refresh-redirect.en.svg",
+          "sha256": "7b6eb46039696bcb097f8086006d80c2b333e24310310e2e104d4476fd1ee35b"
+        },
+        {
+          "repository_file": "figures/08-refresh-redirect/08-refresh-redirect.en.excalidraw",
+          "sha256": "1300ea834f825e95d42765757983404c89d27eca0ad3d926c1d7cda3d96ed590"
+        }
+      ]
+    }
+  ],
+  "author_held_sources": [
+    {
+      "id": "F01-profile",
+      "role": "F01 native bridge profile: PUBLIC-NODCR",
+      "sha256": "45d627e1519be1a814eedac3520d5b0e0a27a4d43523686a0349b8f921d6ffd6",
+      "availability": "author-held source; not bundled"
+    }
+  ]
+}

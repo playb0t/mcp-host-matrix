@@ -1,0 +1,54 @@
+{
+  "rows": [
+    {
+      "profile": "PUBLIC-NODCR",
+      "argv": [
+        "-y",
+        "mcp-remote",
+        "http://127.0.0.1:53822/mcp"
+      ],
+      "bridge_executed": false,
+      "initial_status": 401,
+      "guard_sha256": "b714d408fe07ccf516570613e873eee62ca117fe928263ae1a0a400d3c8ee7a1"
+    },
+    {
+      "profile": "CONFIDENTIAL-NODCR",
+      "argv": [
+        "-y",
+        "mcp-remote",
+        "http://127.0.0.1:53856/mcp"
+      ],
+      "bridge_executed": false,
+      "initial_status": 401,
+      "guard_sha256": "c4b2f7666b1717d9bfe9005d46d978f476813e322803a8d7bb35e4884fe3580b"
+    },
+    {
+      "profile": "CIMD-NODCR",
+      "argv": [
+        "-y",
+        "mcp-remote",
+        "http://127.0.0.1:56633/mcp"
+      ],
+      "bridge_executed": false,
+      "initial_status": 401,
+      "guard_sha256": "5fbb92977f400bc07a7bb0e7cf4939af3d966eaf83a254d639b216b09432eba4"
+    },
+    {
+      "profile": "DCR-ON",
+      "argv": [
+        "-y",
+        "mcp-remote",
+        "http://127.0.0.1:56659/mcp"
+      ],
+      "bridge_executed": false,
+      "initial_status": 401,
+      "guard_sha256": "3117e0a3d3189be64553dc4347580999b1072713810512bcd5cb21792f0e6bc1"
+    }
+  ],
+  "installed_source_sha256": "500cf1ae9637ba397fcb5ae0856fdd31b9ad49ba45a32e277477452be196e5d6",
+  "auth_predicate_offset": 6619029,
+  "bridge_fallback_offset": 6624934,
+  "predicate": "Recognized transport errors with code 401 or 405, or an Error message containing 401, 405 or Unauthorized; the bridge branch additionally requires !isHeadless",
+  "version_pin_in_argv": false,
+  "client_id_or_secret_flags_in_argv": false
+}

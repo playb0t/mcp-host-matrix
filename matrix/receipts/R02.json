@@ -1,0 +1,378 @@
+{
+  "schema": "mcp-host-matrix-receipt/1",
+  "case_id": "R02",
+  "kind": "deidentified saved-evidence excerpts",
+  "versions": {
+    "mcp-remote": "0.15.2",
+    "Node.js": "24.20.0"
+  },
+  "sources": [
+    {
+      "id": "r02.f01.raw",
+      "sha256": "45d627e1519be1a814eedac3520d5b0e0a27a4d43523686a0349b8f921d6ffd6",
+      "format": "JSON"
+    },
+    {
+      "id": "r02.f02.raw",
+      "sha256": "abe1432b992add68e7d00ef4d6f28935a6e10d485d097d46dad95f2a63e659a0",
+      "format": "JSON"
+    }
+  ],
+  "excerpts": [
+    {
+      "source_id": "r02.f01.raw",
+      "source_pointer": "",
+      "fields": {
+        "status": "partial_or_execution_error",
+        "acl_unchanged_by_remove": true,
+        "config_name_absent_after_remove": true,
+        "reader_pid_attributed_by_provider": true,
+        "one_A_grant_no_extra_grant": true
+      },
+      "label": "F01"
+    },
+    {
+      "source_id": "r02.f01.raw",
+      "source_pointer": "/A_native",
+      "fields": {
+        "tools_list": true,
+        "tool_call": true,
+        "natural_exit": 0
+      }
+    },
+    {
+      "source_id": "r02.f01.raw",
+      "source_pointer": "/claude_remove",
+      "fields": {
+        "argv_redacted": [
+          "claude",
+          "mcp",
+          "remove",
+          "--scope",
+          "user"
+        ],
+        "exit": 0
+      }
+    },
+    {
+      "source_id": "r02.f01.raw",
+      "source_pointer": "/token_file",
+      "fields": {
+        "sha256_after_A": "d2579e07343e6a17b3d3ec4240e4fd2bf898dcfbab4342111cacea01507abcb9",
+        "sha256_after_remove": "d2579e07343e6a17b3d3ec4240e4fd2bf898dcfbab4342111cacea01507abcb9",
+        "bytes": 326,
+        "retained_after_remove": true
+      }
+    },
+    {
+      "source_id": "r02.f01.raw",
+      "source_pointer": "/reader_process",
+      "fields": {
+        "exit": 0,
+        "http_status": 200,
+        "error": null,
+        "raw_token_emitted": false,
+        "separate_process": true
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "r02-cross-sid-r2-target",
+        "native_bridge_version": "0.15.2",
+        "real_default_profile_contents_read": false,
+        "window_seconds": 2.578,
+        "revoke_control_http": 200
+      },
+      "label": "F02"
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/variants/inherited",
+      "fields": {
+        "CLI_remove_exit": 0,
+        "config_name_absent": true,
+        "cache_unchanged_by_remove": true,
+        "ACL_unchanged_by_remove": true
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/A_after_B/inherited",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/variants/default_projection",
+      "fields": {
+        "CLI_remove_exit": 0,
+        "config_name_absent": true,
+        "cache_unchanged_by_remove": true,
+        "ACL_unchanged_by_remove": true
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/A_after_B/default_projection",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_inherited/process/identity",
+      "fields": {
+        "is_elevated": false,
+        "is_enabled_administrator": false
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_inherited/reader",
+      "fields": {
+        "raw_token_emitted": false,
+        "refresh_sent": true
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_inherited/reader/file_read",
+      "fields": {
+        "ok": true,
+        "bytes": 326,
+        "sha256": "e4920d732c00113f310eda93e8b85451fd5f1b6866d84972a5c6d2ac76d3a5ce"
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_inherited/reader/refresh",
+      "fields": {
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_default/process/identity",
+      "fields": {
+        "is_elevated": false,
+        "is_enabled_administrator": false
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_default/reader",
+      "fields": {
+        "raw_token_emitted": false,
+        "refresh_sent": false
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_default/reader/file_read",
+      "fields": {
+        "ok": false,
+        "error": "EPERM"
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_invalid/process/identity",
+      "fields": {
+        "is_elevated": false,
+        "is_enabled_administrator": false
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_invalid/reader",
+      "fields": {
+        "raw_token_emitted": false,
+        "refresh_sent": true
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_invalid/reader/file_read",
+      "fields": {
+        "ok": true,
+        "bytes": 63,
+        "sha256": "5872cdb8a6aa22f7a257487297b3e3423b5880aee8895783976959ce780dd753"
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_invalid/reader/refresh",
+      "fields": {
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_fresh_before/process/identity",
+      "fields": {
+        "is_elevated": false,
+        "is_enabled_administrator": false
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_fresh_before/reader",
+      "fields": {
+        "raw_token_emitted": false,
+        "refresh_sent": true
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_fresh_before/reader/file_read",
+      "fields": {
+        "ok": true,
+        "bytes": 221,
+        "sha256": "bc2d7a72e138923de393d6b2702d09fd1d8f6b442b344f0260c995a8bb259bcd"
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_fresh_before/reader/refresh",
+      "fields": {
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_inherited_after_revoke/process/identity",
+      "fields": {
+        "is_elevated": false,
+        "is_enabled_administrator": false
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_inherited_after_revoke/reader",
+      "fields": {
+        "raw_token_emitted": false,
+        "refresh_sent": true
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_inherited_after_revoke/reader/file_read",
+      "fields": {
+        "ok": true,
+        "bytes": 326,
+        "sha256": "e4920d732c00113f310eda93e8b85451fd5f1b6866d84972a5c6d2ac76d3a5ce"
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_inherited_after_revoke/reader/refresh",
+      "fields": {
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_fresh_after_revoke/process/identity",
+      "fields": {
+        "is_elevated": false,
+        "is_enabled_administrator": false
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_fresh_after_revoke/reader",
+      "fields": {
+        "raw_token_emitted": false,
+        "refresh_sent": true
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_fresh_after_revoke/reader/file_read",
+      "fields": {
+        "ok": true,
+        "bytes": 221,
+        "sha256": "bc2d7a72e138923de393d6b2702d09fd1d8f6b442b344f0260c995a8bb259bcd"
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/B_fresh_after_revoke/reader/refresh",
+      "fields": {
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r02.f02.raw",
+      "source_pointer": "/reader_qualification/reader",
+      "fields": {
+        "own_read/ok": true,
+        "denied_read/ok": false,
+        "denied_read/error": "EPERM",
+        "network/loopback": true,
+        "network/denied": true
+      }
+    }
+  ],
+  "derived_checks": [
+    {
+      "label": "F01: same Windows account",
+      "source_id": "r02.f01.raw",
+      "operation": "all equal",
+      "source_pointers": [
+        "/operator_sid",
+        "/reader_process/sid"
+      ],
+      "result": true
+    },
+    {
+      "label": "F01: unchanged cache bytes",
+      "source_id": "r02.f01.raw",
+      "operation": "all equal",
+      "source_pointers": [
+        "/token_file/sha256_after_A",
+        "/token_file/sha256_after_remove"
+      ],
+      "result": true
+    },
+    {
+      "label": "F02: distinct Windows accounts",
+      "source_id": "r02.f02.raw",
+      "operation": "all distinct",
+      "source_pointers": [
+        "/parent_identity/sid",
+        "/B_inherited/process/identity/sid"
+      ],
+      "result": true
+    },
+    {
+      "label": "F02: inherited reader obtained unchanged cache bytes",
+      "source_id": "r02.f02.raw",
+      "operation": "all equal",
+      "source_pointers": [
+        "/variants/inherited/cache_sha256_before",
+        "/variants/inherited/cache_sha256_after",
+        "/B_inherited/reader/file_read/sha256"
+      ],
+      "result": true
+    }
+  ],
+  "limits": [
+    "F01 is an A-only same-SID known-path reader after claude mcp remove. The store belongs to the bridge, not native Claude Code.",
+    "Only the demonstrated retained-file subcase is extracted from the F01 source run. Its overall status is not presented as a successful full run.",
+    "F02 is one completed target with inherited permissions on a secondary data drive and a synthetic default-cache effective DACL projection. Real default-profile runtime access, native B discovery and file writes were not measured.",
+    "The denied target retained EPERM in the stat/read path. The exact syscall is unknown; a separate qualification canary does not establish it."
+  ]
+}

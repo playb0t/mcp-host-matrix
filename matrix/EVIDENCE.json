@@ -1,0 +1,241 @@
+{
+  "schema": "mcp-host-matrix-evidence/1",
+  "snapshot_date": "2026-10-25",
+  "raw_artifacts_bundled": false,
+  "fixture_implementation_bundled": false,
+  "reading_rule": "Original-source SHA identifies author-held bytes; it does not prove truth or provide a self-contained rerun. Deidentified excerpts and other public projections have separate repository fingerprints.",
+  "artifact_request_url": "https://github.com/playb0t/mcp-host-matrix/issues",
+  "artifacts": [
+    {
+      "id": "r01.report",
+      "sha256": "6a18d3b409448b9b0d2e9c573663f5d97a848fc70c8a185e5ebd8d9f44fc52dc",
+      "role": "Lifecycle observations with selected-window and operation limits",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r01.traffic",
+      "sha256": "134b4c44be2e30208fb7ad6c35123b675416a146a8a8182f1380fa971a287ea2",
+      "role": "VS Code native/controller traffic attribution for one closed journal",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r02.ordinary",
+      "sha256": "cdc45baad743723528f563a0edad87adb0e7dcee44bdad8f267d1ece5950fb80",
+      "role": "Ordinary alternative URL before consent",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r02.alias_and_retained_file",
+      "sha256": "2f64a9893ee58abc34657fdcfd7e29e5eaa648e570cca2a9ee3acf4fa75468a7",
+      "role": "Same-origin cache alias and same-SID retained-file observations; resource binding is covered by the qualified comparison",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r02.resource",
+      "sha256": "c969c8a533ce9c4f3c06cd6f0c56a3b2d79186bb1362635942f8fd05d5cb896c",
+      "role": "Qualified A-positive then B-resource comparison",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r02.cross_sid",
+      "sha256": "5d15b3d12f340c28ce6ad2fdfecf1222f9fe04c0eb14e1be57e1e4892dfb94d4",
+      "role": "Completed two-ACL synthetic cross-SID observation",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r02.cross_sid_scope",
+      "sha256": "7ef2f0f7481887a3debb6465351f77a290122f656cb17c5042690f2b544f4c5e",
+      "role": "Cross-SID observation scope and evidence-capture limits",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r02.syscall_limit",
+      "sha256": "aa05aaf7f7168872d539207b2ad7ece69e4540f0292028e013bcecef68240ef3",
+      "role": "Projection syscall capture limit",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r03.report",
+      "sha256": "8b6050c8f0009e4fcf8ecd4cbfb908b1b2564f60123f97bcff9428147eb07c28",
+      "role": "Selected native same-session schema change",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r03.verification",
+      "sha256": "efe47870a467e64792f49b87da3d8789aef03a64dfd4cb9e86c243ba4933020c",
+      "role": "Saved schema/call/identity checks",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r03.protocol_scope",
+      "sha256": "a6d5c4e31ef88fe9c3116de11f04a388d3fd528626c4f081bd10959e0e06d609",
+      "role": "Runtime and reference protocol-version scope",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r04.report",
+      "sha256": "11514c5e15d8671425805cc98df66c25172041d9eb6ff36c62090918fcddbba3",
+      "role": "Native Windows pair with inert executable instrumentation",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r04.verification",
+      "sha256": "2e57704a8b7563abe98e2dcb2cc0542199024e26fa82cebcb904aba129118362",
+      "role": "Saved native metadata/argv/PID/creation/stack joins",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r04.diagnosis",
+      "sha256": "ce8d4b2efd9e06609380350893b1d60c2ec1a281337980dd19c568399037610d",
+      "role": "Inert-recorder instrumentation control",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r04.timing",
+      "sha256": "509cae12c6223e9f53195e2c40944461921e5c1c079ca2748663a47035bc98e0",
+      "role": "Opener success while the child was running; child exit 0 occurred later",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r04.recorder_control",
+      "sha256": "390f73f21e07f5ea3d9690ba3bfcf59c5dee3b00e968f2ab4d124792c93ea6bd",
+      "role": "Ancillary recorder qualification evidence; not a target URI result",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r05.verdict",
+      "sha256": "429f08c36445a9514c0465ddd865c1cc6dcb2fc52787115ea4d654feee87726a",
+      "role": "One trigger with three automatic HTTP 307 refresh attempts",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r05.verification",
+      "sha256": "a0f1fc53813b8b9ed48ea92e9f5f0193aec4681133d70394892082f04d15b3f4",
+      "role": "Body/PID/TCP correspondence",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r05.qualifications",
+      "sha256": "d2d73b017a44d673330719d22c9346b6d3d178fb81e0c671356c9a7253ec4d33",
+      "role": "Grant linkage/body/stage/index/cleanup qualifications",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r06.synthesis",
+      "sha256": "971285dbfdf4c30e124c367bc956d18b817f3f13bad2cafc4e1e0764ae54957e",
+      "role": "Eight-cell synthesis with measurement limits",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r06.raw.bridge-public-upgrade-r1",
+      "sha256": "f7592da703dd877b29cc15abf1f5cc96213d3b4f61bd79a6d2bc2aad777b2a46",
+      "role": "Raw selected update verdict; identity hash only",
+      "availability": "author-held raw; not bundled"
+    },
+    {
+      "id": "r06.raw.bridge-dcr-upgrade-r1",
+      "sha256": "64c7e2ffed4564623aa6a86c5a625601aa3bc38cc8d9245cde1ecafc70f831e7",
+      "role": "Raw selected update verdict; identity hash only",
+      "availability": "author-held raw; not bundled"
+    },
+    {
+      "id": "r06.raw.bridge-unpinned-public-r3",
+      "sha256": "516e012c7a8f42e339e94f516d0a4db559efe3c4b48eff9440c40aad9abe4276",
+      "role": "Raw selected update verdict; identity hash only",
+      "availability": "author-held raw; not bundled"
+    },
+    {
+      "id": "r06.raw.bridge-unpinned-dcr-r1",
+      "sha256": "5602fe6abe046cc941782c8b6873821f841d19ae7f8246292ceac3f906cbd093",
+      "role": "Raw selected update verdict; identity hash only",
+      "availability": "author-held raw; not bundled"
+    },
+    {
+      "id": "r06.raw.native-claude-public-r2",
+      "sha256": "4a28889478fc93a68b6970af9bfab6c3c05fa6a82ca5105b84938a289b4009bd",
+      "role": "Raw selected update verdict; identity hash only",
+      "availability": "author-held raw; not bundled"
+    },
+    {
+      "id": "r06.raw.native-claude-dcr-r1",
+      "sha256": "b24e22b86130a5c1af744feba24ab1e199e8605603f7e8a6cd8a3d3370a768b4",
+      "role": "Raw selected update verdict; identity hash only",
+      "availability": "author-held raw; not bundled"
+    },
+    {
+      "id": "r06.raw.vscode-public-upgrade-r2",
+      "sha256": "05d918f237797b258f42e00b23ba31d64f5f8078dbd43774dd874f2c01529d6e",
+      "role": "Raw selected update verdict; identity hash only",
+      "availability": "author-held raw; not bundled"
+    },
+    {
+      "id": "r06.raw.vscode-dcr-upgrade-r1",
+      "sha256": "e536b8c326ac74d83e963cf579c3fd42bed7e4ea6f6311f4b03391e729560b14",
+      "role": "Raw selected update verdict; identity hash only",
+      "availability": "author-held raw; not bundled"
+    },
+    {
+      "id": "r06.public",
+      "sha256": "245cad0ad7ef03441e398a07f2355a48863389cdcea1fd9f732c1e9c5e838898",
+      "role": "Curated eight-cell update projection",
+      "availability": "curated projection in repository",
+      "repository_file": "disconnect/bench/UPDATE-RESULTS.json"
+    },
+    {
+      "id": "r06.traffic.vscode_public",
+      "role": "VS Code PUBLIC-NODCR update report: closed-window native refresh traffic and separate controller replay",
+      "sha256": "1a574a16a592c01e28f4e4dd6a9dad70f5f2ca8b237c1e9ba79a2e4380c4d780",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r06.traffic.vscode_dcr",
+      "role": "VS Code DCR-ON update report: closed-window native refresh traffic and separate controller replay",
+      "sha256": "23e8d5b5413d33a516872e51aab6078bdee76a927829edb89a7d13de4079caf8",
+      "availability": "author-held source; not bundled"
+    },
+    {
+      "id": "r01.receipt",
+      "sha256": "bd101439af7cbe3edbc808a00360f59fce6a04f40cbdf40a002c0e3a02af04af",
+      "role": "Selected saved R01 observations and controls; deidentified field-level excerpts",
+      "availability": "deidentified excerpts in repository",
+      "repository_file": "disconnect/bench/receipts/R01.json"
+    },
+    {
+      "id": "r02.receipt",
+      "sha256": "88097f36938a85a451dc5def1843d5b6a6fe6a0044f85fb0291851603d2cfa4b",
+      "role": "Selected saved R02 observations and controls; deidentified field-level excerpts",
+      "availability": "deidentified excerpts in repository",
+      "repository_file": "matrix/receipts/R02.json"
+    },
+    {
+      "id": "r03.receipt",
+      "sha256": "a76dbe9acb825eb8366254368250188f2a761b6d8375f6f53fcfdb0716e119ae",
+      "role": "Selected saved R03 observations and controls; deidentified field-level excerpts",
+      "availability": "deidentified excerpts in repository",
+      "repository_file": "matrix/receipts/R03.json"
+    },
+    {
+      "id": "r04.receipt",
+      "sha256": "ded3df5fc6fd0e3ff98ed492d942d23f0fbc653c79b9e9037f965a55c9ae4615",
+      "role": "Selected saved R04 observations and controls; deidentified field-level excerpts",
+      "availability": "deidentified excerpts in repository",
+      "repository_file": "matrix/receipts/R04.json"
+    },
+    {
+      "id": "r05.receipt",
+      "sha256": "3427537c25414641707d1e198af592e7be6aad91660662a10d573b4c4f907393",
+      "role": "Selected saved R05 observations and controls; deidentified field-level excerpts",
+      "availability": "deidentified excerpts in repository",
+      "repository_file": "matrix/receipts/R05.json"
+    },
+    {
+      "id": "r06.receipt",
+      "sha256": "cad71baae650c78d77d3043e7111e22089a5d1de1f33f89075e94128d6c73733",
+      "role": "Selected saved R06 observations and controls; deidentified field-level excerpts",
+      "availability": "deidentified excerpts in repository",
+      "repository_file": "disconnect/bench/receipts/R06.json"
+    }
+  ],
+  "deidentified_receipts_bundled": true,
+  "receipt_index": "matrix/receipts/README.md"
+}

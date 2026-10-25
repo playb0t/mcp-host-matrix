@@ -1,0 +1,320 @@
+{
+  "schema": "mcp-update-bench-public/1",
+  "date": "2026-10-24",
+  "projection": "Allowlisted outcomes; raw credentials, paths, process trees and registration handles omitted.",
+  "official_update_tested": false,
+  "conceptual_rows": 4,
+  "selected_cells": 8,
+  "authority_survival_rows": 4,
+  "compound_native_reuse_rows": 2,
+  "cells": [
+    {
+      "row": "bridge_explicit_pin",
+      "profile": "PUBLIC-NODCR",
+      "status": "measured_with_limits",
+      "run_id": "bridge-public-upgrade-r1",
+      "first_connection": "new_authorize_requested",
+      "old_refresh_after": "token issued",
+      "controller_http_before_after": [
+        200,
+        200
+      ],
+      "native_old_refresh_reused": false,
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "old_registration_after": "n/a",
+      "new_registration_during_update": false,
+      "versions": [
+        "0.1.38",
+        "0.15.2"
+      ],
+      "store_summary": {
+        "state": "old directory kept beside new",
+        "schema": "mcp-remote-0.1.37 -> mcp-remote-v1",
+        "old_cache_files_unchanged": 3,
+        "old_refresh_in_own_observed_files": true
+      },
+      "attempts": {
+        "completed_update_trials": 1,
+        "independent_replications": 0
+      },
+      "after_store_timing": {
+        "timing": "After at least 60 s observation and separate controller replay; not immediate first connection",
+        "immediate_snapshot_time_measured": false
+      },
+      "raw_verdict_sha256": "f7592da703dd877b29cc15abf1f5cc96213d3b4f61bd79a6d2bc2aad777b2a46"
+    },
+    {
+      "row": "bridge_explicit_pin",
+      "profile": "DCR-ON",
+      "status": "measured_with_limits",
+      "run_id": "bridge-dcr-upgrade-r1",
+      "first_connection": "new_authorize_requested",
+      "old_refresh_after": "token issued",
+      "controller_http_before_after": [
+        200,
+        200
+      ],
+      "native_old_refresh_reused": false,
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "old_registration_after": "active",
+      "new_registration_during_update": true,
+      "versions": [
+        "0.1.38",
+        "0.15.2"
+      ],
+      "store_summary": {
+        "state": "old directory kept beside new",
+        "schema": "mcp-remote-0.1.37 -> mcp-remote-v1",
+        "old_cache_files_unchanged": 4,
+        "old_refresh_in_own_observed_files": true
+      },
+      "attempts": {
+        "completed_update_trials": 1,
+        "independent_replications": 0
+      },
+      "after_store_timing": {
+        "timing": "After at least 60 s observation and separate controller replay; not immediate first connection",
+        "immediate_snapshot_time_measured": false
+      },
+      "raw_verdict_sha256": "64c7e2ffed4564623aa6a86c5a625601aa3bc38cc8d9245cde1ecafc70f831e7"
+    },
+    {
+      "row": "bridge_local_latest",
+      "profile": "PUBLIC-NODCR",
+      "status": "measured_with_limits",
+      "run_id": "bridge-unpinned-public-r3",
+      "first_connection": "new_authorize_requested",
+      "old_refresh_after": "token issued",
+      "controller_http_before_after": [
+        200,
+        200
+      ],
+      "native_old_refresh_reused": false,
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "old_registration_after": "n/a",
+      "new_registration_during_update": false,
+      "versions": [
+        "0.1.38",
+        "0.15.2"
+      ],
+      "store_summary": {
+        "state": "old directory kept beside new",
+        "schema": "mcp-remote-0.1.37 -> mcp-remote-v1",
+        "old_cache_files_unchanged": 3,
+        "old_refresh_in_own_observed_files": true
+      },
+      "attempts": {
+        "completed_update_trials": 1,
+        "independent_replications": 0
+      },
+      "after_store_timing": {
+        "timing": "After at least 60 s observation and separate controller replay; not immediate first connection",
+        "immediate_snapshot_time_measured": false
+      },
+      "raw_verdict_sha256": "516e012c7a8f42e339e94f516d0a4db559efe3c4b48eff9440c40aad9abe4276"
+    },
+    {
+      "row": "bridge_local_latest",
+      "profile": "DCR-ON",
+      "status": "measured_with_limits",
+      "run_id": "bridge-unpinned-dcr-r1",
+      "first_connection": "new_authorize_requested",
+      "old_refresh_after": "token issued",
+      "controller_http_before_after": [
+        200,
+        200
+      ],
+      "native_old_refresh_reused": false,
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "old_registration_after": "active",
+      "new_registration_during_update": true,
+      "versions": [
+        "0.1.38",
+        "0.15.2"
+      ],
+      "store_summary": {
+        "state": "old directory kept beside new",
+        "schema": "mcp-remote-0.1.37 -> mcp-remote-v1",
+        "old_cache_files_unchanged": 4,
+        "old_refresh_in_own_observed_files": true
+      },
+      "attempts": {
+        "completed_update_trials": 1,
+        "independent_replications": 0
+      },
+      "after_store_timing": {
+        "timing": "After at least 60 s observation and separate controller replay; not immediate first connection",
+        "immediate_snapshot_time_measured": false
+      },
+      "raw_verdict_sha256": "5602fe6abe046cc941782c8b6873821f841d19ae7f8246292ceac3f906cbd093"
+    },
+    {
+      "row": "native_Claude_Code",
+      "profile": "PUBLIC-NODCR",
+      "status": "measured_with_limits",
+      "run_id": "native-claude-public-r2",
+      "first_connection": "reused_refresh",
+      "old_refresh_after": "token issued",
+      "controller_http_before_after": [
+        200,
+        200
+      ],
+      "native_old_refresh_reused": true,
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "old_registration_after": "n/a",
+      "new_registration_during_update": false,
+      "versions": [
+        "2.1.306",
+        "2.1.310"
+      ],
+      "store_summary": {
+        "state": "replaced in place",
+        "schema": "same .credentials.json path and mcpOAuth key",
+        "old_refresh_present": true,
+        "native_access_saved": true
+      },
+      "attempts": {
+        "completed_update_trials": 1,
+        "independent_replications": 0
+      },
+      "after_store_timing": {
+        "timing": "After at least 60 s observation and separate controller replay; not immediate first connection",
+        "immediate_snapshot_time_measured": false
+      },
+      "raw_verdict_sha256": "4a28889478fc93a68b6970af9bfab6c3c05fa6a82ca5105b84938a289b4009bd"
+    },
+    {
+      "row": "native_Claude_Code",
+      "profile": "DCR-ON",
+      "status": "measured_with_limits",
+      "run_id": "native-claude-dcr-r1",
+      "first_connection": "reused_refresh",
+      "old_refresh_after": "token issued",
+      "controller_http_before_after": [
+        200,
+        200
+      ],
+      "native_old_refresh_reused": true,
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "old_registration_after": "active",
+      "new_registration_during_update": false,
+      "versions": [
+        "2.1.306",
+        "2.1.310"
+      ],
+      "store_summary": {
+        "state": "replaced in place",
+        "schema": "same .credentials.json path and mcpOAuth key",
+        "old_refresh_present": true,
+        "native_access_saved": true
+      },
+      "attempts": {
+        "completed_update_trials": 1,
+        "independent_replications": 0
+      },
+      "after_store_timing": {
+        "timing": "After at least 60 s observation and separate controller replay; not immediate first connection",
+        "immediate_snapshot_time_measured": false
+      },
+      "raw_verdict_sha256": "b24e22b86130a5c1af744feba24ab1e199e8605603f7e8a6cd8a3d3370a768b4"
+    },
+    {
+      "row": "native_VSCode",
+      "profile": "PUBLIC-NODCR",
+      "status": "measured_with_limits",
+      "run_id": "vscode-public-upgrade-r2",
+      "first_connection": "reused_refresh",
+      "old_refresh_after": "token issued",
+      "controller_http_before_after": [
+        200,
+        200
+      ],
+      "native_old_refresh_reused": true,
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "old_registration_after": "n/a",
+      "new_registration_during_update": false,
+      "versions": [
+        "1.142.0",
+        "1.143.1"
+      ],
+      "store_summary": {
+        "state": "same SQLite path and secret namespace keys; ciphertext changed",
+        "schema": "same state.vscdb path",
+        "token_value_retention_or_new_access_persistence": "not_measured",
+        "decrypted": false
+      },
+      "attempts": {
+        "completed_update_trials": 1,
+        "independent_replications": 0
+      },
+      "after_store_timing": {
+        "timing": "After at least 60 s observation and separate controller replay; not immediate first connection",
+        "immediate_snapshot_time_measured": false
+      },
+      "raw_verdict_sha256": "05d918f237797b258f42e00b23ba31d64f5f8078dbd43774dd874f2c01529d6e",
+      "observed_traffic": {
+        "window": "closed new-build observation window",
+        "native_refresh_requests": 4068,
+        "controller_refresh_replays": 1,
+        "evidence_id": "r06.traffic.vscode_public"
+      }
+    },
+    {
+      "row": "native_VSCode",
+      "profile": "DCR-ON",
+      "status": "measured_with_limits",
+      "run_id": "vscode-dcr-upgrade-r1",
+      "first_connection": "reused_refresh",
+      "old_refresh_after": "token issued",
+      "controller_http_before_after": [
+        200,
+        200
+      ],
+      "native_old_refresh_reused": true,
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "old_registration_after": "active",
+      "new_registration_during_update": false,
+      "versions": [
+        "1.142.0",
+        "1.143.1"
+      ],
+      "store_summary": {
+        "state": "same SQLite path and secret namespace keys; ciphertext changed",
+        "schema": "same state.vscdb path",
+        "token_value_retention_or_new_access_persistence": "not_measured",
+        "decrypted": false
+      },
+      "attempts": {
+        "completed_update_trials": 1,
+        "independent_replications": 0
+      },
+      "after_store_timing": {
+        "timing": "After at least 60 s observation and separate controller replay; not immediate first connection",
+        "immediate_snapshot_time_measured": false
+      },
+      "raw_verdict_sha256": "e536b8c326ac74d83e963cf579c3fd42bed7e4ea6f6311f4b03391e729560b14",
+      "observed_traffic": {
+        "window": "closed new-build observation window",
+        "native_refresh_requests": 4312,
+        "controller_refresh_replays": 1,
+        "evidence_id": "r06.traffic.vscode_dcr"
+      }
+    }
+  ],
+  "limits": [
+    "Native rows used same-path/profile build replacement; bridge rows used explicit-pin or local-latest launch selection. Official installers and built-in auto-updaters were not measured.",
+    "Native rows let old access expire naturally under short-TTL synthetic policy; bridge launch selection did not wait for access expiry. Clocks/stores were not edited to force refresh.",
+    "Controller replay is separate from native reuse.",
+    "After-store snapshots follow at least 60 seconds and controller replay, not immediate first connection.",
+    "Encrypted VS Code values were not decrypted.",
+    "High VS Code refresh counts are fixture-window observations, not product norms or diagnosed defects."
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "schema": "mcp-host-matrix-receipt/1",
+  "case_id": "R05",
+  "kind": "deidentified saved-evidence excerpts",
+  "versions": {
+    "mcp-remote": "0.15.2",
+    "Node.js": "24.20.0"
+  },
+  "sources": [
+    {
+      "id": "r05.receiver",
+      "sha256": "9a3b577a8e497158cbc8c5f78873b9871da3948958dd59b127a0ffdef9c694b2",
+      "format": "JSONL"
+    },
+    {
+      "id": "r05.verdict",
+      "sha256": "429f08c36445a9514c0465ddd865c1cc6dcb2fc52787115ea4d654feee87726a",
+      "format": "JSON"
+    }
+  ],
+  "excerpts": [
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "",
+      "fields": {
+        "target_trials_completed": 1,
+        "auth_profile": "PUBLIC-none",
+        "redirect_status": 307
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/target_trigger",
+      "fields": {
+        "automatic_refresh_posts": 3,
+        "reauthorization_requested": true
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/target_outcome",
+      "fields": {
+        "recipient_reached": true,
+        "exact_refresh_credential_received": true,
+        "native_PID_attributed": true,
+        "first_body_byte_digest_equal": true,
+        "A_refresh_access_issuance": 0,
+        "B_access_issuance": 0,
+        "native_MCP_continued": false,
+        "reauthorization_requested": true
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/fixture_controls",
+      "fields": {
+        "health_A": true,
+        "health_B": true,
+        "B_dummy_capture": true,
+        "B_exact_matching_negative": true,
+        "controller_pid_attribution": true,
+        "expected_HTTP400_handled": true,
+        "invalid_refresh_rejected_without_access": true
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/control_refresh",
+      "fields": {
+        "valid": true,
+        "refresh_attempts": 1,
+        "new_access_issued": 1,
+        "native_MCP_with_new_access": true
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/target_evidence/A_307/0",
+      "fields": {
+        "seq": 156,
+        "monotonic_ns": 4956843000000,
+        "event": "target_307_sent",
+        "location_origin": "B",
+        "body_sha256": "0cf3a5678828d896f9891afc4abef467b683fa033acb507343ecec6a4078df10"
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/target_evidence/B_exact_RT/0",
+      "fields": {
+        "seq": 10,
+        "monotonic_ns": 4956843000000,
+        "event": "redirect_receiver_capture",
+        "grant_type": "refresh_token",
+        "raw_body_length": 181,
+        "body_sha256": "0cf3a5678828d896f9891afc4abef467b683fa033acb507343ecec6a4078df10",
+        "authorization_header_present": false,
+        "access_tokens_issued": 0
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/target_evidence/A_307/1",
+      "fields": {
+        "seq": 172,
+        "monotonic_ns": 4956859000000,
+        "event": "target_307_sent",
+        "location_origin": "B",
+        "body_sha256": "0cf3a5678828d896f9891afc4abef467b683fa033acb507343ecec6a4078df10"
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/target_evidence/B_exact_RT/1",
+      "fields": {
+        "seq": 13,
+        "monotonic_ns": 4956859000000,
+        "event": "redirect_receiver_capture",
+        "grant_type": "refresh_token",
+        "raw_body_length": 181,
+        "body_sha256": "0cf3a5678828d896f9891afc4abef467b683fa033acb507343ecec6a4078df10",
+        "authorization_header_present": false,
+        "access_tokens_issued": 0
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/target_evidence/A_307/2",
+      "fields": {
+        "seq": 179,
+        "monotonic_ns": 4956875000000,
+        "event": "target_307_sent",
+        "location_origin": "B",
+        "body_sha256": "0cf3a5678828d896f9891afc4abef467b683fa033acb507343ecec6a4078df10"
+      }
+    },
+    {
+      "source_id": "r05.verdict",
+      "source_pointer": "/target_evidence/B_exact_RT/2",
+      "fields": {
+        "seq": 16,
+        "monotonic_ns": 4956875000000,
+        "event": "redirect_receiver_capture",
+        "grant_type": "refresh_token",
+        "raw_body_length": 181,
+        "body_sha256": "0cf3a5678828d896f9891afc4abef467b683fa033acb507343ecec6a4078df10",
+        "authorization_header_present": false,
+        "access_tokens_issued": 0
+      }
+    },
+    {
+      "source_id": "r05.receiver",
+      "source_pointer": "/8",
+      "fields": {
+        "seq": 9,
+        "event": "request",
+        "method": "POST",
+        "path": "/capture"
+      }
+    },
+    {
+      "source_id": "r05.receiver",
+      "source_pointer": "/10",
+      "fields": {
+        "seq": 11,
+        "event": "response",
+        "status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r05.receiver",
+      "source_pointer": "/11",
+      "fields": {
+        "seq": 12,
+        "event": "request",
+        "method": "POST",
+        "path": "/capture"
+      }
+    },
+    {
+      "source_id": "r05.receiver",
+      "source_pointer": "/13",
+      "fields": {
+        "seq": 14,
+        "event": "response",
+        "status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r05.receiver",
+      "source_pointer": "/14",
+      "fields": {
+        "seq": 15,
+        "event": "request",
+        "method": "POST",
+        "path": "/capture"
+      }
+    },
+    {
+      "source_id": "r05.receiver",
+      "source_pointer": "/16",
+      "fields": {
+        "seq": 17,
+        "event": "response",
+        "status": 400,
+        "error": "invalid_grant"
+      }
+    }
+  ],
+  "derived_checks": [
+    {
+      "label": "Same body digest at both origins in all attempts",
+      "source_id": "r05.verdict",
+      "operation": "all equal",
+      "source_pointers": [
+        "/target_evidence/A_307/0/body_sha256",
+        "/target_evidence/B_exact_RT/0/body_sha256",
+        "/target_evidence/A_307/1/body_sha256",
+        "/target_evidence/B_exact_RT/1/body_sha256",
+        "/target_evidence/A_307/2/body_sha256",
+        "/target_evidence/B_exact_RT/2/body_sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "Span of receiver captures",
+      "source_id": "r05.verdict",
+      "operation": "last monotonic_ns minus first, divided by 1000000",
+      "source_pointers": [
+        "/target_evidence/B_exact_RT/0/monotonic_ns",
+        "/target_evidence/B_exact_RT/2/monotonic_ns"
+      ],
+      "milliseconds": 32.0
+    }
+  ],
+  "limits": [
+    "Two owned loopback origins and synthetic credentials; PUBLIC client authentication none and device-code flow.",
+    "One trigger produced three automatic attempts, not three independent replications. The 32 ms span is not a general latency claim.",
+    "Bootstrap access existed earlier. The receiver denied exchange; no new target-stage access token or target RPC succeeded.",
+    "Attacker control of a trusted server's Location and successful exchange at a real provider were not established."
+  ]
+}

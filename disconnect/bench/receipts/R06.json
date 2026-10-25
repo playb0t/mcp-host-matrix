@@ -1,0 +1,1150 @@
+{
+  "schema": "mcp-host-matrix-receipt/1",
+  "case_id": "R06",
+  "kind": "deidentified saved-evidence excerpts",
+  "versions": {
+    "mcp-remote": "0.1.38 to 0.15.2",
+    "Claude Code": "2.1.306 to 2.1.310",
+    "VS Code": "1.142.0 to 1.143.1"
+  },
+  "sources": [
+    {
+      "id": "r06.raw.bridge-dcr-upgrade-r1",
+      "sha256": "64c7e2ffed4564623aa6a86c5a625601aa3bc38cc8d9245cde1ecafc70f831e7",
+      "format": "JSON"
+    },
+    {
+      "id": "r06.raw.bridge-public-upgrade-r1",
+      "sha256": "f7592da703dd877b29cc15abf1f5cc96213d3b4f61bd79a6d2bc2aad777b2a46",
+      "format": "JSON"
+    },
+    {
+      "id": "r06.raw.bridge-unpinned-dcr-r1",
+      "sha256": "5602fe6abe046cc941782c8b6873821f841d19ae7f8246292ceac3f906cbd093",
+      "format": "JSON"
+    },
+    {
+      "id": "r06.raw.bridge-unpinned-public-r3",
+      "sha256": "516e012c7a8f42e339e94f516d0a4db559efe3c4b48eff9440c40aad9abe4276",
+      "format": "JSON"
+    },
+    {
+      "id": "r06.raw.native-claude-dcr-r1",
+      "sha256": "b24e22b86130a5c1af744feba24ab1e199e8605603f7e8a6cd8a3d3370a768b4",
+      "format": "JSON"
+    },
+    {
+      "id": "r06.raw.native-claude-public-r2",
+      "sha256": "4a28889478fc93a68b6970af9bfab6c3c05fa6a82ca5105b84938a289b4009bd",
+      "format": "JSON"
+    },
+    {
+      "id": "r06.raw.vscode-dcr-upgrade-r1",
+      "sha256": "e536b8c326ac74d83e963cf579c3fd42bed7e4ea6f6311f4b03391e729560b14",
+      "format": "JSON"
+    },
+    {
+      "id": "r06.raw.vscode-public-upgrade-r2",
+      "sha256": "05d918f237797b258f42e00b23ba31d64f5f8078dbd43774dd874f2c01529d6e",
+      "format": "JSON"
+    }
+  ],
+  "excerpts": [
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "bridge-public-upgrade-r1",
+        "profile": "PUBLIC-NODCR",
+        "new_version_first_connection": "new_authorize_requested",
+        "revocation_request": "none",
+        "registration_delete": "n/a"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/window",
+      "fields": {
+        "healthy_closed": true,
+        "seconds_after_anchor": 60.063,
+        "sha256": "b62c87848893971aa06940a5aba780a622535f312df8cdc8bfd688862bb24b75"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/old_authority/before_upgrade",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/old_authority/after_upgrade_window",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/new_phase",
+      "fields": {
+        "connected": false,
+        "tool_call": false,
+        "authorization_followed_by_controller": false
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/revoke_control",
+      "fields": {
+        "revoke_http_status": 200
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/revoke_control/old_refresh_after_revoke",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/revoke_control/unaffected_fresh_refresh",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/store_before_upgrade/files/0",
+      "fields": {
+        "bytes": 43,
+        "sha256": "f3506be6b6eed38a0cf1c005bacb7dd7b230629079e743a94e1bed68239a8142"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/store_after_upgrade/files/0",
+      "fields": {
+        "bytes": 43,
+        "sha256": "f3506be6b6eed38a0cf1c005bacb7dd7b230629079e743a94e1bed68239a8142"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/store_before_upgrade/files/1",
+      "fields": {
+        "bytes": 26973,
+        "sha256": "5ab19a6f3cee9287d64d6323eabf2008d784e54807f9a8f6faa3eaa9e0120e2e"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/store_after_upgrade/files/1",
+      "fields": {
+        "bytes": 26973,
+        "sha256": "5ab19a6f3cee9287d64d6323eabf2008d784e54807f9a8f6faa3eaa9e0120e2e"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/store_before_upgrade/files/2",
+      "fields": {
+        "bytes": 220,
+        "sha256": "8febd937d7f890ed6d7c7d3d8ce9e5f7587a863ac50f083310b50e10e5154c87"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "source_pointer": "/store_after_upgrade/files/2",
+      "fields": {
+        "bytes": 220,
+        "sha256": "8febd937d7f890ed6d7c7d3d8ce9e5f7587a863ac50f083310b50e10e5154c87"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "bridge-dcr-upgrade-r1",
+        "profile": "DCR-ON",
+        "new_version_first_connection": "new_authorize_requested",
+        "revocation_request": "none",
+        "registration_delete": "none"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/window",
+      "fields": {
+        "healthy_closed": true,
+        "seconds_after_anchor": 60.016,
+        "sha256": "575f698baabd0cf156b1730308b34540b4bec88ceadff7e2270e0e30c7731574"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/old_authority/before_upgrade",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/old_authority/after_upgrade_window",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/new_phase",
+      "fields": {
+        "connected": false,
+        "tool_call": false,
+        "authorization_followed_by_controller": false
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/revoke_control",
+      "fields": {
+        "revoke_http_status": 200
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/revoke_control/old_refresh_after_revoke",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/revoke_control/unaffected_fresh_refresh",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/store_before_upgrade/files/0",
+      "fields": {
+        "bytes": 489,
+        "sha256": "784fa640f306500645f7132d87f894244991b09beb0a641b790ca8a75a4a5361"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/store_after_upgrade/files/0",
+      "fields": {
+        "bytes": 489,
+        "sha256": "784fa640f306500645f7132d87f894244991b09beb0a641b790ca8a75a4a5361"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/store_before_upgrade/files/1",
+      "fields": {
+        "bytes": 43,
+        "sha256": "0e9551c4151dd94414332b223a1329304173c7d763e49ad0f655cf9e02655d6e"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/store_after_upgrade/files/1",
+      "fields": {
+        "bytes": 43,
+        "sha256": "0e9551c4151dd94414332b223a1329304173c7d763e49ad0f655cf9e02655d6e"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/store_before_upgrade/files/2",
+      "fields": {
+        "bytes": 27257,
+        "sha256": "c855dcc6356c0562d08ec2223d2f6fe9d3d8ccc7ed53bc6c0ba7da82625a0d96"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/store_after_upgrade/files/2",
+      "fields": {
+        "bytes": 27257,
+        "sha256": "c855dcc6356c0562d08ec2223d2f6fe9d3d8ccc7ed53bc6c0ba7da82625a0d96"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/store_before_upgrade/files/3",
+      "fields": {
+        "bytes": 220,
+        "sha256": "369e5f6b84dd4377c904ff11b67b71e2459516022725ec8a044118340526c18f"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "source_pointer": "/store_after_upgrade/files/3",
+      "fields": {
+        "bytes": 220,
+        "sha256": "369e5f6b84dd4377c904ff11b67b71e2459516022725ec8a044118340526c18f"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "bridge-unpinned-public-r3",
+        "profile": "PUBLIC-NODCR",
+        "new_version_first_connection": "new_authorize_requested",
+        "revocation_request": "none",
+        "registration_delete": "n/a"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/window",
+      "fields": {
+        "healthy_closed": true,
+        "seconds_after_anchor": 60.156,
+        "sha256": "362980a05e39d64891ff62cca0b66f3a2a1264672ab41dc4748f742bed6fcfd9"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/old_authority/before_upgrade",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/old_authority/after_upgrade_window",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/new_phase",
+      "fields": {
+        "connected": false,
+        "tool_call": false,
+        "authorization_followed_by_controller": false
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/revoke_control",
+      "fields": {
+        "revoke_http_status": 200
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/revoke_control/old_refresh_after_revoke",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/revoke_control/unaffected_fresh_refresh",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/store_before_upgrade/files/0",
+      "fields": {
+        "bytes": 43,
+        "sha256": "7907cdf6f628a8efdfc61370f50c972c4a027a04eff962a9b7a8cce98843768c"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/store_after_upgrade/files/0",
+      "fields": {
+        "bytes": 43,
+        "sha256": "7907cdf6f628a8efdfc61370f50c972c4a027a04eff962a9b7a8cce98843768c"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/store_before_upgrade/files/1",
+      "fields": {
+        "bytes": 31899,
+        "sha256": "5f864f86e12032d30a840c35c0d5862f9ca39e62d9ca98509b611fc6000f3f8f"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/store_after_upgrade/files/1",
+      "fields": {
+        "bytes": 31899,
+        "sha256": "5f864f86e12032d30a840c35c0d5862f9ca39e62d9ca98509b611fc6000f3f8f"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/store_before_upgrade/files/2",
+      "fields": {
+        "bytes": 220,
+        "sha256": "c521002e718b699b5518915e524a41cb0754583653e84205449587ac80248c71"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "source_pointer": "/store_after_upgrade/files/2",
+      "fields": {
+        "bytes": 220,
+        "sha256": "c521002e718b699b5518915e524a41cb0754583653e84205449587ac80248c71"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "bridge-unpinned-dcr-r1",
+        "profile": "DCR-ON",
+        "new_version_first_connection": "new_authorize_requested",
+        "revocation_request": "none",
+        "registration_delete": "none"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/window",
+      "fields": {
+        "healthy_closed": true,
+        "seconds_after_anchor": 60.063,
+        "sha256": "fe463dcf497df87aa40069e4130433d46463b779129a1366bcd79a564c905f5c"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/old_authority/before_upgrade",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/old_authority/after_upgrade_window",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/new_phase",
+      "fields": {
+        "connected": false,
+        "tool_call": false,
+        "authorization_followed_by_controller": false
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/revoke_control",
+      "fields": {
+        "revoke_http_status": 200
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/revoke_control/old_refresh_after_revoke",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/revoke_control/unaffected_fresh_refresh",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/store_before_upgrade/files/0",
+      "fields": {
+        "bytes": 496,
+        "sha256": "11701c97433ec57f514910991c70fc8163b5d34e9f54ca8bbf84f0470d990908"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/store_after_upgrade/files/0",
+      "fields": {
+        "bytes": 496,
+        "sha256": "11701c97433ec57f514910991c70fc8163b5d34e9f54ca8bbf84f0470d990908"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/store_before_upgrade/files/1",
+      "fields": {
+        "bytes": 43,
+        "sha256": "86af224d2bc8cce09f397cb72677b2b43dc17951115312aa4c99eb5e0147f768"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/store_after_upgrade/files/1",
+      "fields": {
+        "bytes": 43,
+        "sha256": "86af224d2bc8cce09f397cb72677b2b43dc17951115312aa4c99eb5e0147f768"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/store_before_upgrade/files/2",
+      "fields": {
+        "bytes": 31760,
+        "sha256": "a46522d74aaefdd4e44405955e48fe164db20b0e4a20a943f1fada3cbf062f6d"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/store_after_upgrade/files/2",
+      "fields": {
+        "bytes": 31760,
+        "sha256": "a46522d74aaefdd4e44405955e48fe164db20b0e4a20a943f1fada3cbf062f6d"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/store_before_upgrade/files/3",
+      "fields": {
+        "bytes": 220,
+        "sha256": "2588c49822ac3e7b6d6861d46afbc3ad94e0d37da615ab3d7b8c737e4a7bce31"
+      }
+    },
+    {
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "source_pointer": "/store_after_upgrade/files/3",
+      "fields": {
+        "bytes": 220,
+        "sha256": "2588c49822ac3e7b6d6861d46afbc3ad94e0d37da615ab3d7b8c737e4a7bce31"
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "native-claude-public-r2",
+        "profile": "PUBLIC-NODCR",
+        "new_version_first_connection": "reused_refresh",
+        "revocation_request": "none",
+        "registration_delete": "n/a"
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "/window",
+      "fields": {
+        "healthy_closed": true,
+        "seconds_after_anchor": 60.094,
+        "sha256": "ab93612d0c6c6ab0525c571e5fd5b17df87ec0889e3e69a5df8e608e1f4e3b1c"
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "/old_authority/before_update",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "/old_authority/after_window",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "/new_phase",
+      "fields": {
+        "connected": true,
+        "tool_call": true,
+        "authorization_followed_by_controller": false
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "/new_phase/native_refresh_attempts/0",
+      "fields": {
+        "valid": true
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "/revoke_control",
+      "fields": {
+        "http_status": 200
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "/revoke_control/old_after_revoke",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-public-r2",
+      "source_pointer": "/revoke_control/fresh_unaffected",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "native-claude-dcr-r1",
+        "profile": "DCR-ON",
+        "new_version_first_connection": "reused_refresh",
+        "revocation_request": "none",
+        "registration_delete": "none"
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "/window",
+      "fields": {
+        "healthy_closed": true,
+        "seconds_after_anchor": 60.062,
+        "sha256": "6504f08d8f85948ce1eafa4de4465525f8bf2c1e1f475aadf118a297440b43e8"
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "/old_authority/before_update",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "/old_authority/after_window",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "/new_phase",
+      "fields": {
+        "connected": true,
+        "tool_call": true,
+        "authorization_followed_by_controller": false
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "/new_phase/native_refresh_attempts/0",
+      "fields": {
+        "valid": true
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "/revoke_control",
+      "fields": {
+        "http_status": 200
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "/revoke_control/old_after_revoke",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "source_pointer": "/revoke_control/fresh_unaffected",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "vscode-public-upgrade-r2",
+        "profile": "PUBLIC-NODCR",
+        "new_version_first_connection": "reused_refresh",
+        "revocation_request": "none",
+        "registration_delete": "n/a"
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "/window",
+      "fields": {
+        "healthy_closed": true,
+        "seconds_after_anchor": 60.281,
+        "sha256": "81b61190937c25d00ce6d37bcf7706c8460290bac37360ef50c99a1a12e816e0"
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "/old_authority/before_update",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "/old_authority/after_window",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "/new_phase",
+      "fields": {
+        "connected": true,
+        "tool_call": true,
+        "authorization_followed_by_controller": false
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "/new_phase/native_refresh_attempts/0",
+      "fields": {
+        "valid": true
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "/revoke_control",
+      "fields": {
+        "http_status": 200
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "/revoke_control/old_after_revoke",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "source_pointer": "/revoke_control/fresh_unaffected",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "",
+      "fields": {
+        "case_id": "vscode-dcr-upgrade-r1",
+        "profile": "DCR-ON",
+        "new_version_first_connection": "reused_refresh",
+        "revocation_request": "none",
+        "registration_delete": "none"
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "/window",
+      "fields": {
+        "healthy_closed": true,
+        "seconds_after_anchor": 60.14,
+        "sha256": "147d4a1782ab3c166f905057890763d942b4613cb17f92ec3cbfc022faa15856"
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "/old_authority/before_update",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "/old_authority/after_window",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "/new_phase",
+      "fields": {
+        "connected": true,
+        "tool_call": true,
+        "authorization_followed_by_controller": false
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "/new_phase/native_refresh_attempts/0",
+      "fields": {
+        "valid": true
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "/revoke_control",
+      "fields": {
+        "http_status": 200
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "/revoke_control/old_after_revoke",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "source_pointer": "/revoke_control/fresh_unaffected",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    }
+  ],
+  "derived_checks": [
+    {
+      "label": "bridge-public-upgrade-r1: same prior refresh",
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/before_upgrade/refresh_id",
+        "/old_authority/after_upgrade_window/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-public-upgrade-r1: retained cache file 1",
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/0/sha256",
+        "/store_after_upgrade/files/0/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-public-upgrade-r1: retained cache file 2",
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/1/sha256",
+        "/store_after_upgrade/files/1/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-public-upgrade-r1: retained cache file 3",
+      "source_id": "r06.raw.bridge-public-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/2/sha256",
+        "/store_after_upgrade/files/2/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-dcr-upgrade-r1: same prior refresh",
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/before_upgrade/refresh_id",
+        "/old_authority/after_upgrade_window/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-dcr-upgrade-r1: retained cache file 1",
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/0/sha256",
+        "/store_after_upgrade/files/0/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-dcr-upgrade-r1: retained cache file 2",
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/1/sha256",
+        "/store_after_upgrade/files/1/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-dcr-upgrade-r1: retained cache file 3",
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/2/sha256",
+        "/store_after_upgrade/files/2/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-dcr-upgrade-r1: retained cache file 4",
+      "source_id": "r06.raw.bridge-dcr-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/3/sha256",
+        "/store_after_upgrade/files/3/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-public-r3: same prior refresh",
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/before_upgrade/refresh_id",
+        "/old_authority/after_upgrade_window/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-public-r3: retained cache file 1",
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/0/sha256",
+        "/store_after_upgrade/files/0/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-public-r3: retained cache file 2",
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/1/sha256",
+        "/store_after_upgrade/files/1/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-public-r3: retained cache file 3",
+      "source_id": "r06.raw.bridge-unpinned-public-r3",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/2/sha256",
+        "/store_after_upgrade/files/2/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-dcr-r1: same prior refresh",
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/before_upgrade/refresh_id",
+        "/old_authority/after_upgrade_window/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-dcr-r1: retained cache file 1",
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/0/sha256",
+        "/store_after_upgrade/files/0/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-dcr-r1: retained cache file 2",
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/1/sha256",
+        "/store_after_upgrade/files/1/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-dcr-r1: retained cache file 3",
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/2/sha256",
+        "/store_after_upgrade/files/2/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-unpinned-dcr-r1: retained cache file 4",
+      "source_id": "r06.raw.bridge-unpinned-dcr-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/store_before_upgrade/files/3/sha256",
+        "/store_after_upgrade/files/3/sha256"
+      ],
+      "result": true
+    },
+    {
+      "label": "native-claude-public-r2: same prior refresh",
+      "source_id": "r06.raw.native-claude-public-r2",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/before_update/refresh_id",
+        "/old_authority/after_window/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "native-claude-public-r2: new native process used prior refresh",
+      "source_id": "r06.raw.native-claude-public-r2",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/refresh_id",
+        "/new_phase/native_refresh_attempts/0/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "native-claude-dcr-r1: same prior refresh",
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/before_update/refresh_id",
+        "/old_authority/after_window/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "native-claude-dcr-r1: new native process used prior refresh",
+      "source_id": "r06.raw.native-claude-dcr-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/refresh_id",
+        "/new_phase/native_refresh_attempts/0/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "vscode-public-upgrade-r2: same prior refresh",
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/before_update/refresh_id",
+        "/old_authority/after_window/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "vscode-public-upgrade-r2: new native process used prior refresh",
+      "source_id": "r06.raw.vscode-public-upgrade-r2",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/refresh_id",
+        "/new_phase/native_refresh_attempts/0/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "vscode-dcr-upgrade-r1: same prior refresh",
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/before_update/refresh_id",
+        "/old_authority/after_window/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "vscode-dcr-upgrade-r1: new native process used prior refresh",
+      "source_id": "r06.raw.vscode-dcr-upgrade-r1",
+      "operation": "all equal",
+      "source_pointers": [
+        "/old_authority/refresh_id",
+        "/new_phase/native_refresh_attempts/0/refresh_id"
+      ],
+      "result": true
+    }
+  ],
+  "limits": [
+    "Eight cells, one completed trial each. Native rows used same-path/profile build replacement after natural access expiry; bridge rows used explicit-pin or local-latest launch selection without that expiry wait. Official installers and built-in updaters were not measured.",
+    "Controller replay with required client credentials is separate from native refresh. Four native cells reused prior refresh; four bridge cells requested new authorization before consent.",
+    "After-store snapshots follow at least 60 s observation and controller replay, not the immediate first connection. VS Code ciphertext was not decrypted.",
+    "Access-token TTL was 120 s and refresh-token TTL 24 h, with rotation disabled. Traffic frequency was not diagnosed and is not a product norm."
+  ]
+}

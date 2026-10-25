@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+license: CC-BY-4.0
+message: "Please cite the snapshot and the exact versions/profiles used."
+title: "MCP Host Matrix"
+authors:
+  - family-names: "Gercog"
+    given-names: "Alex"
+version: 1.0.0
+date-released: 2026-10-26
+url: "https://github.com/playb0t/mcp-host-matrix"
+repository-code: "https://github.com/playb0t/mcp-host-matrix"
+keywords:
+  - MCP
+  - host matrix
+  - OAuth
+  - authorization lifecycle
+  - versioned evidence

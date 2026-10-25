@@ -1,0 +1,338 @@
+{
+  "schema": "mcp-host-matrix-receipt/1",
+  "case_id": "R03",
+  "kind": "deidentified saved-evidence excerpts",
+  "versions": {
+    "VS Code": "1.143.1"
+  },
+  "sources": [
+    {
+      "id": "r03.driver",
+      "sha256": "20ee1531f1a48e8f4136c9698b858653a8ad6151d80f19fbac0fc0648c6b4fac",
+      "format": "JSONL"
+    },
+    {
+      "id": "r03.wire",
+      "sha256": "fa44f1dca29e5cc3274556c54774c2313d546660c7510f2e40aa341226330095",
+      "format": "JSONL"
+    }
+  ],
+  "excerpts": [
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/1",
+      "fields": {
+        "event": "request",
+        "method": "initialize",
+        "params/protocolVersion": "2025-11-25",
+        "params/clientInfo/name": "Visual Studio Code",
+        "params/clientInfo/version": "1.143.1"
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/4",
+      "fields": {
+        "seq": 5,
+        "mode": "A",
+        "event": "tools_list_result",
+        "tool/inputSchema": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "a"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/6",
+      "fields": {
+        "seq": 7,
+        "mode": "A",
+        "event": "tools_call_validation",
+        "arguments": {
+          "a": "synthetic-A"
+        },
+        "valid": true,
+        "schema_sha": "f4f5a89235ca607755a98a661aee02a756c770de8ec69687bad569ab898d0088"
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/8",
+      "fields": {
+        "seq": 9,
+        "mode": "A",
+        "event": "tools_call_validation",
+        "arguments": {
+          "b": "synthetic-invalid-A"
+        },
+        "valid": false,
+        "schema_sha": "f4f5a89235ca607755a98a661aee02a756c770de8ec69687bad569ab898d0088"
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/9",
+      "fields": {
+        "seq": 10,
+        "mode": "A",
+        "event": "controller_command",
+        "before": "A",
+        "after": "A",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "a"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/10",
+      "fields": {
+        "seq": 11,
+        "mode": "A",
+        "event": "notification_written"
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/12",
+      "fields": {
+        "seq": 13,
+        "mode": "A",
+        "event": "tools_list_result",
+        "tool/inputSchema": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "a"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/14",
+      "fields": {
+        "seq": 15,
+        "mode": "A",
+        "event": "tools_call_validation",
+        "arguments": {
+          "a": "synthetic-control"
+        },
+        "valid": true,
+        "schema_sha": "f4f5a89235ca607755a98a661aee02a756c770de8ec69687bad569ab898d0088"
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/15",
+      "fields": {
+        "seq": 16,
+        "mode": "B",
+        "event": "controller_command",
+        "before": "A",
+        "after": "B",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "b": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "b"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/16",
+      "fields": {
+        "seq": 17,
+        "mode": "B",
+        "event": "notification_written"
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/18",
+      "fields": {
+        "seq": 19,
+        "mode": "B",
+        "event": "tools_list_result",
+        "tool/inputSchema": {
+          "type": "object",
+          "properties": {
+            "b": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "b"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/20",
+      "fields": {
+        "seq": 21,
+        "mode": "B",
+        "event": "tools_call_validation",
+        "arguments": {
+          "b": "synthetic-B"
+        },
+        "valid": true,
+        "schema_sha": "ee5e4c47a16a136c3ef0a1360d555421c1162c89b078b62da34863f8d137b659"
+      }
+    },
+    {
+      "source_id": "r03.wire",
+      "source_pointer": "/22",
+      "fields": {
+        "seq": 23,
+        "mode": "B",
+        "event": "tools_call_validation",
+        "arguments": {
+          "a": "synthetic-stale"
+        },
+        "valid": false,
+        "schema_sha": "ee5e4c47a16a136c3ef0a1360d555421c1162c89b078b62da34863f8d137b659"
+      }
+    },
+    {
+      "source_id": "r03.driver",
+      "source_pointer": "/2",
+      "fields": {
+        "event": "start_requested",
+        "autoTrustChanges": true
+      }
+    },
+    {
+      "source_id": "r03.driver",
+      "source_pointer": "/4",
+      "fields": {
+        "seq": 5,
+        "event": "snapshot",
+        "tools": [
+          {
+            "name": "mcp_r03-schema-fi_schema_probe",
+            "description": "Echo one synthetic string. No network or external effect.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "a"
+              ],
+              "additionalProperties": false
+            },
+            "tags": [
+              "mcp"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "r03.driver",
+      "source_pointer": "/9",
+      "fields": {
+        "seq": 10,
+        "event": "snapshot",
+        "tools": [
+          {
+            "name": "mcp_r03-schema-fi_schema_probe",
+            "description": "Echo one synthetic string. No network or external effect.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "a"
+              ],
+              "additionalProperties": false
+            },
+            "tags": [
+              "mcp"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "r03.driver",
+      "source_pointer": "/12",
+      "fields": {
+        "seq": 13,
+        "event": "snapshot",
+        "tools": [
+          {
+            "name": "mcp_r03-schema-fi_schema_probe",
+            "description": "Echo one synthetic string. No network or external effect.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "b": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "b"
+              ],
+              "additionalProperties": false
+            },
+            "tags": [
+              "mcp"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "derived_checks": [
+    {
+      "label": "Single fixture process and single initialize",
+      "source_id": "r03.wire",
+      "operation": "count selected events and distinct process identities",
+      "initialize_events": 1,
+      "distinct_processes": 1
+    }
+  ],
+  "limits": [
+    "One native direct-STDIO session; no bridge. Only inputSchema changed; ordinary UI consent was not measured.",
+    "Calls used programmatic invokeTool with autoTrustChanges in the controlled fixture. The runtime requested protocol 2025-11-25; this is not an exact-version normative audit."
+  ]
+}

@@ -1,0 +1,775 @@
+{
+  "schema": "revoke-bench-public/1",
+  "projection": "Allowlisted selected-window outcomes, not the private raw schema. Token identifiers, account metadata, paths, process trees and raw requests omitted.",
+  "source": {
+    "results_sha256": "50e883799de97ac460195341fbaab267c52abae11ed0e3318533f29d15e1b99a",
+    "report_sha256": "6a18d3b409448b9b0d2e9c573663f5d97a848fc70c8a185e5ebd8d9f44fc52dc"
+  },
+  "counts": {
+    "native_hosts": 5,
+    "bridge_paths": 1,
+    "primary_windows": 12,
+    "operation_variants": 8,
+    "additional_timing_windows": 3,
+    "selected_distinct_run_ids": 23
+  },
+  "conditions": {
+    "provider": "synthetic loopback OAuth/MCP",
+    "tokens": "synthetic",
+    "access_lifetime_seconds": 120,
+    "refresh_always_issued": true,
+    "slow_call_seconds": 30,
+    "provider_policy": "accepted_work_allowed_to_finish",
+    "real_model_calls": false,
+    "replay_initiator": "controller",
+    "replay_credentials": "same prior refresh token and profile-required client credentials"
+  },
+  "reading_rules": [
+    "none is bounded to a named healthy window; unknown and not_measured are not none.",
+    "ACK records observer action evidence, not necessarily a native acknowledgement or an exact click.",
+    "The summary combines PUBLIC-NODCR or CONFIDENTIAL-NODCR primary columns with separate DCR-ON registration observations.",
+    "Use of the prior refresh by a different party was not tested.",
+    "Controller replay is distinct from client-initiated refresh traffic.",
+    "Repeated configurations are not independent hosts.",
+    "Normative contract assessment was not performed."
+  ],
+  "base_cells": [
+    {
+      "run_id": "vscode-public-uninstall-immediate-r1",
+      "client": "VS Code",
+      "profile": "PUBLIC-NODCR",
+      "operation": "uninstall",
+      "source_verdict_sha256": "6b907a6897fae81fb0bf442d05ea8e5eee6567b5b3963db812b60359b0ecf392",
+      "closed_stream_sha256": "88ec86f2e13e5794113c163d634bfcce283c763961b677fbda7072a10ea2a050",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.11,
+      "contract_assessment": "not_assessed",
+      "version": "1.142.0",
+      "source_pointer": "/base_cells/0/observation",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 25.64
+    },
+    {
+      "run_id": "vscode-dcr-uninstall-r1",
+      "client": "VS Code",
+      "profile": "DCR-ON",
+      "operation": "uninstall",
+      "source_verdict_sha256": "5a999c66ad0463813a71b2014b04afb40d51c35c257475129695815f77f186d0",
+      "closed_stream_sha256": "fb39aee3926f68c18558085f5a7576e820536eae21a4aabe41297b30a6ba8015",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.031,
+      "contract_assessment": "not_assessed",
+      "version": "1.142.0",
+      "source_pointer": "/base_cells/1/observation",
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 49.734
+    },
+    {
+      "run_id": "zed-confidential-uninstall-pilot-r2",
+      "client": "Zed",
+      "profile": "CONFIDENTIAL-NODCR",
+      "operation": "Uninstall",
+      "source_verdict_sha256": "6d82713a31b3e545e70e7168b43bafa893922a55c5897b1e8371c37bc47c5ae2",
+      "closed_stream_sha256": "89aaa41a7ba4a5bdbfe45d73cb853febc1b8491f4b5001bc91c6c851bbae745c",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.018870383,
+      "contract_assessment": "not_assessed",
+      "version": "1.24.4",
+      "source_pointer": "/base_cells/2/observation",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 52.846653061,
+      "revocation_response_http_statuses": []
+    },
+    {
+      "run_id": "zed-dcr-uninstall-r1",
+      "client": "Zed",
+      "profile": "DCR-ON",
+      "operation": "Uninstall",
+      "source_verdict_sha256": "94b7a647ff31d78db06a4967825a7b77dccc1cb163d69f0c55a2b3d381932c3d",
+      "closed_stream_sha256": "1c54bfb99c74bcd1dc91b486410947752bf5de586b46157ddb8da91a4623f01d",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.032975422,
+      "contract_assessment": "not_assessed",
+      "version": "1.24.4",
+      "source_pointer": "/base_cells/3/observation",
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 5.53923703,
+      "revocation_response_http_statuses": []
+    },
+    {
+      "run_id": "cascade-public-native-toggle-r3",
+      "client": "Cascade",
+      "profile": "PUBLIC-NODCR",
+      "operation": "native_ui_toggle",
+      "source_verdict_sha256": "c06116bbbffccd433381b00f74d095493f99588f7837c8dd6406e4eb33811c69",
+      "closed_stream_sha256": "c408b660c7641cf6259ae0dd2ba11a6f33ca484e177b43d3d5922f39f6aaab94",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.20195343,
+      "contract_assessment": "not_assessed",
+      "version": "3.10.67",
+      "source_pointer": "/base_cells/4/observation",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 5.338251931
+    },
+    {
+      "run_id": "cascade-dcr-native-toggle-r2",
+      "client": "Cascade",
+      "profile": "DCR-ON",
+      "operation": "native_ui_toggle",
+      "source_verdict_sha256": "79abc856c5b7a3e1dee46b36ab6615b6eb2d347c43b552f717a0b91b3fba2edf",
+      "closed_stream_sha256": "34e7662d549cf9d365a76e3c22cb2e8ee05be52042c838e472d17bec9ad0b198",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.133580309,
+      "contract_assessment": "not_assessed",
+      "version": "3.10.67",
+      "source_pointer": "/base_cells/5/observation",
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 5.248645706
+    },
+    {
+      "run_id": "cursor-confidential-native-singlecall-r1",
+      "client": "Cursor",
+      "profile": "CONFIDENTIAL-NODCR",
+      "operation": "toggle",
+      "source_verdict_sha256": "07c9752db6bc08a850da2775304173eb49008b6f53d5159a0f9bce0db7576dfe",
+      "closed_stream_sha256": "fca27afa16b5c300d46699206668d310c0d7c98586195ca5ad4730ffc825bc78",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.047,
+      "contract_assessment": "not_assessed",
+      "version": "3.24.18",
+      "source_pointer": "/base_cells/6/observation",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 23.781
+    },
+    {
+      "run_id": "cursor-dcr-toggle-r1",
+      "client": "Cursor",
+      "profile": "DCR-ON",
+      "operation": "toggle",
+      "source_verdict_sha256": "67d0f304353a50d591b09c2dcd3fb7ee23c4e68b9f60d9348557be8773e71423",
+      "closed_stream_sha256": "94fe4b38b580ee2c57906fd5cc3086a2a3fa36cf0e9cc34671b573afd28a3929",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.016,
+      "contract_assessment": "not_assessed",
+      "version": "3.24.18",
+      "source_pointer": "/base_cells/7/observation",
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 11.938
+    },
+    {
+      "run_id": "claude-public-remove-r2",
+      "client": "Claude Code",
+      "profile": "PUBLIC-NODCR",
+      "operation": "remove",
+      "source_verdict_sha256": "b46b52988e7e5e9e98e38fcfe06ad3033d2aac56867aeeaa838b874747355de5",
+      "closed_stream_sha256": "8d9537e41331f9b3f17e08bc7efa9be1a9ee8c172cd3ec2cfe108bc93c70d87b",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.141,
+      "contract_assessment": "not_assessed",
+      "version": "2.1.306",
+      "source_pointer": "/base_cells/8/observation",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 5.359,
+      "revocation_response_http_statuses": []
+    },
+    {
+      "run_id": "claude-dcr-remove-r1",
+      "client": "Claude Code",
+      "profile": "DCR-ON",
+      "operation": "remove",
+      "source_verdict_sha256": "81d0bba67fa97ff68a6a6cfc878b6cf6b920032b9a1c198136769e650a023526",
+      "closed_stream_sha256": "5e89b926144ab96c471eb8a7d44f4419fdb4017c8ab14bdb8dceb8699a15ed79",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.016,
+      "contract_assessment": "not_assessed",
+      "version": "2.1.306",
+      "source_pointer": "/base_cells/9/observation",
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 5.5,
+      "revocation_response_http_statuses": []
+    },
+    {
+      "run_id": "bridge-public-remove-exit-r1",
+      "client": "Claude Code -> mcp-remote 0.15.2",
+      "profile": "PUBLIC-NODCR",
+      "operation": "remove_config_and_natural_exit",
+      "source_verdict_sha256": "31af39cde98fd169a6c2cf53e0ae4005a45fcd1c74dee1488c2eb73b48f03277",
+      "closed_stream_sha256": "57044ded1e5b75fc7266b1ffce8daadf83d2eed1444f0b8fcd77f39bebc01338",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.14,
+      "contract_assessment": "not_assessed",
+      "version": "2.1.306 / 0.15.2",
+      "source_pointer": "/base_cells/10/observation",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 30.157,
+      "revocation_response_http_statuses": []
+    },
+    {
+      "run_id": "bridge-dcr-remove-exit-r1",
+      "client": "Claude Code -> mcp-remote 0.15.2",
+      "profile": "DCR-ON",
+      "operation": "remove_config_and_natural_exit",
+      "source_verdict_sha256": "b0c75c5c572cc84dec1a05689ea3e38d8bd1514256c74269f48ed2f94aa585ac",
+      "closed_stream_sha256": "76ab83db69195806ea56c9b8dffd6a0853b05ed9055dbabd721dbbc45c690792",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.094,
+      "contract_assessment": "not_assessed",
+      "version": "2.1.306 / 0.15.2",
+      "source_pointer": "/base_cells/11/observation",
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 30.109,
+      "revocation_response_http_statuses": []
+    }
+  ],
+  "operation_variants": [
+    {
+      "run_id": "vscode-public-disable-r1",
+      "client": "VS Code",
+      "profile": "PUBLIC-NODCR",
+      "operation": "disable",
+      "source_verdict_sha256": "e07810faea899af4064da4acbc870a9f7b8cf5f29e6c3a63a1ce6a251b381f79",
+      "closed_stream_sha256": "bd3df38f12e1365375c020c1a6e53a006d4e0daf3a2bd67af509b4dff3d63dfb",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.141,
+      "contract_assessment": "not_assessed",
+      "version": "1.142.0",
+      "source_pointer": "/operation_variants/0",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 35.843
+    },
+    {
+      "run_id": "vscode-dcr-disable-r1",
+      "client": "VS Code",
+      "profile": "DCR-ON",
+      "operation": "disable",
+      "source_verdict_sha256": "16671d7cb33c1af6922352b103f776bffe68fec09f30ee9b9a92bda23d946c6f",
+      "closed_stream_sha256": "263b612007eb2921de5a8ed7d66ec5406fedfb259df0291247c094162af86a99",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.203,
+      "contract_assessment": "not_assessed",
+      "version": "1.142.0",
+      "source_pointer": "/operation_variants/1",
+      "revocation_request": "none",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 298.36
+    },
+    {
+      "run_id": "claude-public-logout-r2",
+      "client": "Claude Code",
+      "profile": "PUBLIC-NODCR",
+      "operation": "logout",
+      "source_verdict_sha256": "17d746ffe3d0f33a40f0b809c270106054df1aedc9d4bbc2df7389e76880c8b5",
+      "closed_stream_sha256": "8ad00aedfd84d4055113db8e2e09c9eb8c574118da6e491dc19bf30e321fb5c7",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.11,
+      "contract_assessment": "not_assessed",
+      "version": "2.1.306",
+      "source_pointer": "/operation_variants/2",
+      "revocation_request": "sent",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "refused",
+        "http_status": 400,
+        "error": "invalid_grant",
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 5.328,
+      "revocation_response_http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "run_id": "claude-dcr-logout-r1",
+      "client": "Claude Code",
+      "profile": "DCR-ON",
+      "operation": "logout",
+      "source_verdict_sha256": "f9cc0abcda95baebe809e7a77d1413344e6a06515735ddf257156a0f6f3bb0f8",
+      "closed_stream_sha256": "981d8e41a0877caa7471bcafb4011f3e0093ad0873d62bb4639acaee2893c9df",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.062,
+      "contract_assessment": "not_assessed",
+      "version": "2.1.306",
+      "source_pointer": "/operation_variants/3",
+      "revocation_request": "sent",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "refused",
+        "http_status": 400,
+        "error": "invalid_grant",
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 5.219,
+      "revocation_response_http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "run_id": "claude-dcr-ui-clear-auth-r1",
+      "client": "Claude Code",
+      "profile": "DCR-ON",
+      "operation": "ui_clear_auth",
+      "source_verdict_sha256": "7a48283480467911296f9354f36d4099f1f41eba8ea0d26abbca41aae21a831e",
+      "closed_stream_sha256": "401f9659a96b9a81f151a369f800a6f66626d09e4f30b762714905ee445a8a1e",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.078,
+      "contract_assessment": "not_assessed",
+      "version": "2.1.306",
+      "source_pointer": "/operation_variants/4",
+      "revocation_request": "sent",
+      "registration_delete": "none",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "refused",
+        "http_status": 400,
+        "error": "invalid_grant",
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 19.672,
+      "revocation_response_http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "run_id": "claude-public-ui-startup-control-r1",
+      "client": "Claude Code",
+      "profile": "PUBLIC-NODCR",
+      "operation": "ui_clear_auth",
+      "source_verdict_sha256": "7f1dfe5579192231cf625bfbee951f0b2cb67f22eca080e72bc533d13b1a4cf7",
+      "closed_stream_sha256": "229d9fe44ce91842bd5991c9867c37d8bc4fedae08bc61bf35c51638ccac9569",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.078,
+      "contract_assessment": "not_assessed",
+      "version": "2.1.306",
+      "source_pointer": "/operation_variants/5",
+      "revocation_request": "sent",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "refused",
+        "http_status": 400,
+        "error": "invalid_grant",
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 10.391,
+      "revocation_response_http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "run_id": "cursor-confidential-remove-r1",
+      "client": "Cursor",
+      "profile": "CONFIDENTIAL-NODCR",
+      "operation": "source_config_entry_removal",
+      "source_verdict_sha256": "df4a00deec445a9a71755d3a2a3fd6713fe94c443bae1fd4d44fcdf1542f309c",
+      "closed_stream_sha256": "c46ec290c99eceb49e40382ee466af1e9de73c6319c112995fa81bb51e00b3f7",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.109,
+      "contract_assessment": "not_assessed",
+      "version": "3.24.18",
+      "source_pointer": "/operation_variants/6",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": 5.187
+    },
+    {
+      "run_id": "vscode-public-source-remove-pilot-r3",
+      "client": "VS Code",
+      "profile": "PUBLIC-NODCR",
+      "operation": "source_config_remove",
+      "source_verdict_sha256": "719a42d770fe68e4f445e7eb2c05030db642b5c38f4623cdd6299d293b98ca92",
+      "closed_stream_sha256": "f61c46ddca6d473800c483955916723e5ac373c83bd19066700e1b6f28dbe7ad",
+      "observation_completed": true,
+      "native_tool_begin_observed": true,
+      "after_ack_seconds": 60.094,
+      "contract_assessment": "not_assessed",
+      "version": "1.142.0",
+      "source_pointer": "/operation_variants/7",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "ack_seconds_after_begin": null
+    }
+  ],
+  "additional_timing_windows": [
+    {
+      "run_id": "bridge-public-residual-timed-r1",
+      "window_verified": true,
+      "ack_seconds_after_begin": 30.157,
+      "profile": "PUBLIC-NODCR",
+      "operation": "remove_config_and_natural_exit",
+      "native_tool_begin_observed": true,
+      "contract_assessment": "not_assessed",
+      "source_pointer": "/residual_native_windows/0",
+      "source_verdict_sha256": "3f270f086c878d55eb623be8f7a7deef4184d00e0429e75fa5006a0725c3f669",
+      "closed_stream_sha256": "34ab3359c803eb4b93902f7475c97b53a93a5d9ab81137cfd381a2424be3c3cb",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "client": "Claude Code -> mcp-remote",
+      "version": "2.1.306 / 0.15.2",
+      "config_command_completion_seconds_after_begin": 5.188,
+      "natural_exit_seconds_after_begin": 30.157
+    },
+    {
+      "run_id": "cursor-confidential-residual-timed-r2",
+      "window_verified": true,
+      "ack_seconds_after_begin": 26.578,
+      "profile": "CONFIDENTIAL-NODCR",
+      "operation": "toggle",
+      "native_tool_begin_observed": true,
+      "contract_assessment": "not_assessed",
+      "source_pointer": "/residual_native_windows/1",
+      "source_verdict_sha256": "4f1c75f3b180f37b8e612236c0ffee321728b385a45e842806fb052674a71168",
+      "closed_stream_sha256": "7042a49f1353b6508e39361c0ecab8eb4235de12dd5959377d5e18760002cc38",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "client": "Cursor",
+      "version": "3.24.18",
+      "ui_action_bounds_seconds_after_begin": {
+        "dispatch_seconds_after_begin": 26.265,
+        "completed_seconds_after_begin": 26.406
+      }
+    },
+    {
+      "run_id": "cursor-confidential-residual-timed-r3",
+      "window_verified": true,
+      "ack_seconds_after_begin": 5.39,
+      "profile": "CONFIDENTIAL-NODCR",
+      "operation": "toggle",
+      "native_tool_begin_observed": true,
+      "contract_assessment": "not_assessed",
+      "source_pointer": "/residual_native_windows/2",
+      "source_verdict_sha256": "be3565967355414e7323c0c4ee8a4c9d440a435f492efde0ecbd51945e8f5748",
+      "closed_stream_sha256": "c39db216b608cd4f16c0a3ad83a993abbebdc91288be7834244e021fb69618f1",
+      "revocation_request": "none",
+      "registration_delete": "n/a",
+      "controller_refresh_before": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "controller_refresh_after": {
+        "status": "token issued",
+        "http_status": 200,
+        "error": null,
+        "initiator": "controller"
+      },
+      "same_prior_refresh_token": true,
+      "client": "Cursor",
+      "version": "3.24.18",
+      "ui_action_bounds_seconds_after_begin": {
+        "dispatch_seconds_after_begin": 5.046,
+        "completed_seconds_after_begin": 5.187
+      }
+    }
+  ],
+  "limits": [
+    "Native Cursor Remove not established in pinned MCP panel; file edit is separate.",
+    "Action timing varied; retained VS Code DCR effect committed before observer ACK.",
+    "Clear authentication used separate native sessions on the same profile and grant; not same-session cancellation.",
+    "The test provider let accepted work finish, so completion after transport close alone does not establish a cancellation defect.",
+    "Cascade SQLite opaque hash is not proof of a usable token or cross-profile access.",
+    "Bridge cache retention is a point control; process/store observations do not establish complete lifetime or deletion.",
+    "Zed credential entry not located; Claude remove token file read only after action.",
+    "The VS Code source-configuration edit variant used an existing trusted profile and is separate from native UI Uninstall."
+  ],
+  "measurement_dates": [
+    "2026-10-22",
+    "2026-10-23"
+  ]
+}

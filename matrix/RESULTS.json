@@ -1,0 +1,383 @@
+{
+  "schema": "mcp-host-matrix/1",
+  "name": "MCP Host Matrix",
+  "snapshot_date": "2026-10-25",
+  "scope": {
+    "full_protocol_audit": false,
+    "exhaustive_host_coverage": false,
+    "subject": "Selected MCP host and bridge behavior; mcp-remote is one component, not the entire scope.",
+    "documented_clients_connectivity": 11,
+    "documented_hosts_disconnect": 13,
+    "documentation_read_dates": [
+      "2026-10-21",
+      "2026-10-22"
+    ]
+  },
+  "cases": [
+    {
+      "status": "measured_with_limits",
+      "id": "R01",
+      "topic": "Disconnect, revoke and accepted work",
+      "native_hosts": [
+        "VS Code",
+        "Zed",
+        "Cascade",
+        "Cursor",
+        "Claude Code"
+      ],
+      "components": [
+        "mcp-remote"
+      ],
+      "versions": {
+        "VS Code": "1.142.0",
+        "Zed": "1.24.4",
+        "Cascade": "3.10.67",
+        "Cursor": "3.24.18",
+        "Claude Code": "2.1.306",
+        "mcp-remote": "0.15.2"
+      },
+      "os_scope": [
+        "Windows",
+        "Linux/WSL2; per-path limits retained in original pages"
+      ],
+      "counts": {
+        "base_windows": 12,
+        "operation_variants": 8,
+        "additional_healthy_windows": 3,
+        "selected_run_ids": 23,
+        "native_hosts": 5,
+        "bridge_paths": 1
+      },
+      "observations": [
+        "No revocation request reached the provider in the 12 selected base windows; the prior refresh was accepted by separate controller replay with the required profile credentials.",
+        "Logout and Clear authentication controls sent revocation requests; the prior refresh was then refused.",
+        "Accepted work, transport, provider authority, registration and local state are distinct."
+      ],
+      "traffic_example": {
+        "population": "Entire closed VS Code PUBLIC-NODCR journal including baseline",
+        "token_POSTs": 3358,
+        "native_authorization_code": 1,
+        "native_refresh": 3355,
+        "controller_refresh": 2,
+        "native_refresh_after_ACK": 630,
+        "post_operation_token_POSTs": 2439,
+        "frequency_cause": "not established"
+      },
+      "controls": [
+        "Healthy closed observation windows at least 60 s after observer ACK",
+        "Correct same-profile prior-refresh replay before and after the operation",
+        "Working logout and Clear authentication revocation controls"
+      ],
+      "limits": [
+        "Selected operations and profiles; other host operations were not measured.",
+        "The test provider let accepted work finish, so completion after transport close alone does not establish a cancellation defect.",
+        "Store/process snapshots and exact UI timing have per-case limits.",
+        "No attacker path, contract violation, CVE, severity or production impact established."
+      ],
+      "evidence_ids": [
+        "r01.report",
+        "r01.traffic"
+      ],
+      "repository_results": "../disconnect/bench/RESULTS.json"
+    },
+    {
+      "status": "measured_with_limits",
+      "id": "R02",
+      "topic": "Cache namespace and file-access subject",
+      "native_hosts": [],
+      "components": [
+        "mcp-remote"
+      ],
+      "versions": {
+        "mcp-remote": "0.15.2",
+        "Node.js": "24.20.0"
+      },
+      "os_scope": [
+        "Windows"
+      ],
+      "subcases": [
+        {
+          "id": "R02-N01",
+          "status": "measured_negative_with_limits",
+          "path_status": "Path not observed within the measured window",
+          "scope": "Bearer reuse across ordinary different server URLs"
+        },
+        {
+          "id": "R02-N02",
+          "status": "measured_positive_with_limits",
+          "path_status": "Path observed",
+          "scope": "Bearer reuse under a cache-key alias"
+        },
+        {
+          "id": "R02-F01",
+          "status": "measured_positive_with_limits",
+          "path_status": "Path observed",
+          "scope": "Usable retained refresh after CLI remove"
+        },
+        {
+          "id": "R02-N03",
+          "status": "measured_negative_with_limits",
+          "path_status": "B refresh request observed; no B access issuance observed",
+          "scope": "Refresh-resource binding with a qualified A-positive control"
+        },
+        {
+          "id": "R02-F02",
+          "status": "measured_with_limits",
+          "path_status": "Inherited permissions on a secondary data drive: read and refresh observed; effective-default-DACL projection: read denied; real default-cache runtime unmeasured",
+          "scope": "Cross-SID access to a retained bridge cache under the measured ACL variants"
+        }
+      ],
+      "precise_projection_syscall": "not_retained",
+      "observations": [
+        "Ordinary different URL: five native B target requests had no A bearer; same-tuple A reuse worked.",
+        "Delimiter serialization alias: different same-origin URL/resource inputs produced the same key bytes; B presented A bearer and received HTTP 401. This is not a cryptographic MD5 collision.",
+        "Separate A-only same-SID post-remove file reader exchanged the retained refresh and received HTTP 200; file hash and ACL were unchanged.",
+        "Qualified resource comparison: A refresh returned HTTP 200 on the same grant before B requested a different explicit resource and received HTTP 400; no new B access or tool call.",
+        "Cross-SID file access: inherited permissions on a secondary data drive allowed known-path read and refresh with HTTP 200; the synthetic effective-default-DACL projection denied read with EPERM, no bytes and no HTTP from that reader."
+      ],
+      "counts": {
+        "completed_cross_sid_targets": 1,
+        "ACL_variants": 2,
+        "events": 241,
+        "HTTP_requests": 46,
+        "HTTP_responses": 46,
+        "transaction_window_seconds": 2.578
+      },
+      "controls": [
+        "Same-tuple native A OAuth and tool calls",
+        "A-positive refresh before B under the qualified resource oracle",
+        "Own-readable and private-denied canaries; fresh, invalid, A-after-B and revocation controls"
+      ],
+      "limits": [
+        "Real default profile metadata only; no runtime access to personal credentials.",
+        "Known-path reader, not native B discovery or file-write test.",
+        "Final projection logs retain EPERM only; exact stat/read syscall unknown.",
+        "Same-origin alias and synthetic grant-resource policy are not arbitrary external recipient/production claims.",
+        "The subcases are separate measured paths and do not establish one continuous attack chain."
+      ],
+      "evidence_ids": [
+        "r02.ordinary",
+        "r02.alias_and_retained_file",
+        "r02.resource",
+        "r02.cross_sid",
+        "r02.cross_sid_scope",
+        "r02.syscall_limit"
+      ]
+    },
+    {
+      "status": "measured_with_limits",
+      "id": "R03",
+      "topic": "Same-session tool inputSchema drift",
+      "native_hosts": [
+        "VS Code"
+      ],
+      "components": [],
+      "versions": {
+        "VS Code": "1.143.1"
+      },
+      "os_scope": [
+        "Windows"
+      ],
+      "ordinary_ui_consent_tested": false,
+      "runtime_initialize_protocol": "2025-11-25",
+      "report_reference_protocol": "2025-06-18",
+      "exact_version_normative_audit": false,
+      "observations": [
+        "Same identity and connection: inputSchema A {a: string} changed to B {b: string}, with additionalProperties: false.",
+        "A no-change notice triggered reread; fresh native inspect retained schema A. The changed notice produced native schema B.",
+        "Valid B reached the server; selected invalid and stale inputs also reached the server and were rejected there."
+      ],
+      "counts": {
+        "completed_sessions": 1,
+        "initialize": 1,
+        "list_changed_notices": 2,
+        "tool_calls": 5,
+        "fixture_events": 23,
+        "driver_events": 18
+      },
+      "controls": [
+        "No-change notification and fresh native inspect",
+        "Valid A and valid B calls with the server validator",
+        "Wire receipts for invalid and stale calls"
+      ],
+      "limits": [
+        "Programmatic invokeTool/autoTrustChanges/trust-disabled own workspace, not ordinary UI consent.",
+        "No description/set/reconnect/other-host/poisoning protection measurement.",
+        "Different runtime/reference protocol versions must remain distinguished."
+      ],
+      "evidence_ids": [
+        "r03.report",
+        "r03.verification",
+        "r03.protocol_scope"
+      ]
+    },
+    {
+      "status": "measured_with_limits",
+      "id": "R04",
+      "topic": "Metadata URL to executable boundary",
+      "native_hosts": [],
+      "components": [
+        "mcp-remote"
+      ],
+      "versions": {
+        "mcp-remote": "0.15.2",
+        "Node.js": "24.20.0",
+        "open": "10.2.0",
+        "strict-url-sanitise": "0.0.1"
+      },
+      "os_scope": [
+        "Windows, STATIC PUBLIC-NODCR authorization-code flow"
+      ],
+      "real_interpreter_handler_tested": false,
+      "inert_recorder_executed": true,
+      "opener_success_before_helper_exit": true,
+      "metadata_response_bodies_captured": false,
+      "interception": "Own post-init child environment selects an inert recorder executable; package/builtin functions unchanged.",
+      "observations": [
+        "The HTTP metadata URL reached encoded UTF-16LE argv and the inert recorder; image, PID, creation time and exit were correlated.",
+        "The unsupported r04-fixture URI produced an explicit sanitizeUrl stack before the opener; no recorder event.",
+        "Bridge success was logged while the helper was still running; recorder exit 0 occurred later.",
+        "Discovery, URL logging and a callback listener existed before rejection."
+      ],
+      "counts": {
+        "completed_target_pairs": 1,
+        "target_cases": 2,
+        "positive_recorder_events": 1,
+        "negative_recorder_events": 0,
+        "requests_each_case": 7,
+        "responses_each_case": 7,
+        "target_retained_identities": 5,
+        "exact_ports_checked": 4,
+        "codes_issued": 0,
+        "tokens_issued": 0
+      },
+      "opener_timing_utc": {
+        "still_running": "2026-10-25T06:42:28.756Z",
+        "success_log": "2026-10-25T06:42:28.757Z",
+        "exit0": "2026-10-25T06:42:28.884Z"
+      },
+      "controls": [
+        "Qualified inert-recorder execution with exact identity and event capture",
+        "Standalone stock-open exact-target control and other-target matcher rejection",
+        "Explicit sanitizer exception and identity, argv and cleanup correspondence"
+      ],
+      "limits": [
+        "Actual PowerShell parser, browser and URI handler were excluded, not measured.",
+        "Positive recorder exited naturally with code 0; positive Node/wrapper were forcibly stopped with code 97 after observation while awaiting callback.",
+        "Metadata bodies not separately captured; request/response event records retained.",
+        "No-server, affected/fixed and other platform/auth/URI contexts unmeasured."
+      ],
+      "evidence_ids": [
+        "r04.report",
+        "r04.verification",
+        "r04.diagnosis",
+        "r04.timing",
+        "r04.recorder_control"
+      ]
+    },
+    {
+      "status": "measured_with_limits",
+      "id": "R05",
+      "topic": "Refresh credential body across HTTP 307",
+      "native_hosts": [],
+      "components": [
+        "mcp-remote"
+      ],
+      "versions": {
+        "mcp-remote": "0.15.2",
+        "Node.js": "24.20.0"
+      },
+      "os_scope": [
+        "Windows, PUBLIC-NODCR, none / device-code"
+      ],
+      "native_triggers": 1,
+      "automatic_refresh_posts": 3,
+      "bootstrap_access_existed": true,
+      "new_refresh_stage_access_issued": 0,
+      "attacker_location_control_established": false,
+      "observations": [
+        "Origin A token endpoint sent HTTP 307 to a second owned loopback origin B; B captured the same synthetic refresh, client and resource form body in all three automatic attempts.",
+        "B returned HTTP 400 invalid_grant; no successful target RPC or new access issuance during the target refresh stage; additional device approval was not granted.",
+        "Grant linkage comes from A state and binding checks, not a grant_id field in the B wire body."
+      ],
+      "body": {
+        "bytes": 181,
+        "sha256": "0cf3a5678828d896f9891afc4abef467b683fa033acb507343ecec6a4078df10"
+      },
+      "attempt_span_ms": 32,
+      "controls": [
+        "Direct valid native refresh returned HTTP 200 and a new-bearer MCP call succeeded",
+        "Invalid refresh returned HTTP 400 with no token issuance",
+        "A and B health checks; receiver dummy exact-body and PID control"
+      ],
+      "limits": [
+        "One synthetic PUBLIC-NODCR HTTP 307 case; other redirect, authentication, TLS, issuer and resource combinations were not measured.",
+        "B intentionally denied exchange; attacker control of Location and successful real-provider exchange were not established.",
+        "Bootstrap access existed; zero refers only to new access issuance during the target refresh stage.",
+        "Two ports and four handles were checked; error 10035 was a timeout, not a refusal; idle error 10054 was not an extra request.",
+        "The post-trigger missing token file has no attributed deletion actor."
+      ],
+      "evidence_ids": [
+        "r05.verdict",
+        "r05.verification",
+        "r05.qualifications"
+      ]
+    },
+    {
+      "status": "measured_with_limits",
+      "id": "R06",
+      "topic": "Component update and prior authority",
+      "native_hosts": [
+        "Claude Code",
+        "VS Code"
+      ],
+      "components": [
+        "mcp-remote"
+      ],
+      "versions": {
+        "bridge": "0.1.38 -> 0.15.2",
+        "Claude Code": "2.1.306 -> 2.1.310",
+        "VS Code": "1.142.0 -> 1.143.1"
+      },
+      "observations": [
+        "The prior provider authority was accepted in 8 of 8 cells across 4 conceptual rows.",
+        "Surviving prior authority and native prior-refresh reuse by the new build were both observed in 2 of 4 rows, in both profiles.",
+        "Four bridge cells requested new authorization; four native cells reused the prior refresh and completed tool calls.",
+        "Registration, local storage, native first connection and controller replay are separate observations."
+      ],
+      "counts": {
+        "conceptual_rows": 4,
+        "profiles_per_row": 2,
+        "measured_cells": 8,
+        "native_reuse_rows": 2,
+        "authority_survival_rows": 4,
+        "completed_trials": 8
+      },
+      "controls": [
+        "Fresh new-build profile",
+        "Correct prior-refresh replay before and after the update",
+        "Wrong-client, wrong-management, revocation and fresh-grant-survival controls where applicable"
+      ],
+      "limits": [
+        "Native rows used same-path/profile build replacement; bridge rows used explicit-pin or local-latest launch selection. Official installers and built-in auto-updaters were not measured.",
+        "Native rows let old access expire naturally under short-TTL synthetic policy; bridge launch selection did not wait for access expiry. Clocks/stores were not edited to force refresh.",
+        "Controller replay is separate from native reuse.",
+        "After-store snapshots follow at least 60 seconds and controller replay, not immediate first connection.",
+        "Encrypted VS Code values were not decrypted.",
+        "High VS Code refresh counts are fixture-window observations, not product norms or diagnosed defects."
+      ],
+      "evidence_ids": [
+        "r06.synthesis",
+        "r06.public",
+        "r06.traffic.vscode_public",
+        "r06.traffic.vscode_dcr"
+      ]
+    }
+  ],
+  "separate_unmeasured_work": [
+    "Broader conformance and integration acceptance",
+    "Official update mechanisms",
+    "Ordinary UI consent; real default-profile access; native other-SID discovery/write",
+    "Other URI, issuer, resource, TLS and authentication contexts"
+  ]
+}

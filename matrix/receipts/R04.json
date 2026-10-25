@@ -1,0 +1,141 @@
+{
+  "schema": "mcp-host-matrix-receipt/1",
+  "case_id": "R04",
+  "kind": "deidentified saved-evidence excerpts",
+  "versions": {
+    "mcp-remote": "0.15.2",
+    "Node.js": "24.20.0"
+  },
+  "sources": [
+    {
+      "id": "r04.raw.negative-uri",
+      "sha256": "4fb7e07edccda1472b75d2465a6d3d980fa15b05a27892b5fb0f3ef0f64f035f",
+      "format": "JSON"
+    },
+    {
+      "id": "r04.raw.positive-http",
+      "sha256": "bf9835c892f7afc952aa9a824d3f3217a6b55467a28723f4aefca110879460a9",
+      "format": "JSON"
+    },
+    {
+      "id": "r04.recorder",
+      "sha256": "65ed1b810ec2e6ff0c9716ef52b278315528f797b27c42e4f39f8a3b50c01925",
+      "format": "JSONL"
+    },
+    {
+      "id": "r04.timing",
+      "sha256": "509cae12c6223e9f53195e2c40944461921e5c1c079ca2748663a47035bc98e0",
+      "format": "JSON"
+    },
+    {
+      "id": "r04.verification",
+      "sha256": "2e57704a8b7563abe98e2dcb2cc0542199024e26fa82cebcb904aba129118362",
+      "format": "JSON"
+    }
+  ],
+  "excerpts": [
+    {
+      "source_id": "r04.verification",
+      "source_pointer": "/outcomes/positive-http",
+      "fields": {
+        "recorder_exit": 0,
+        "encoded_command_sha256": "e7984e412a1359398d849b235d7db06c74f2ff02fb127599a5a9cb497c957682",
+        "decoded_command_sha256": "763ab0f85fc68e287e1d7ff0983240c27b485dc42ec1c0e20f4c5f1f89983bd2",
+        "forced_owned_node_stop": true,
+        "requests": 7,
+        "responses": 7,
+        "events": 14,
+        "remaining_LISTEN": 0,
+        "window_seconds": 3.406
+      }
+    },
+    {
+      "source_id": "r04.verification",
+      "source_pointer": "/outcomes/negative-uri",
+      "fields": {
+        "recorder_events": 0,
+        "native_exit": 1,
+        "requests": 7,
+        "responses": 7,
+        "events": 14,
+        "remaining_LISTEN": 0,
+        "window_seconds": 0.797
+      }
+    },
+    {
+      "source_id": "r04.verification",
+      "source_pointer": "/checks/0",
+      "fields": {
+        "name": "stock-open-positive-qualified",
+        "pass": true
+      }
+    },
+    {
+      "source_id": "r04.verification",
+      "source_pointer": "/checks/1",
+      "fields": {
+        "name": "actual-other-target-matcher-rejected",
+        "pass": true
+      }
+    },
+    {
+      "source_id": "r04.timing",
+      "source_pointer": "/helper_still_running",
+      "fields": {
+        "utc": "2026-10-25T06:42:28.756Z"
+      }
+    },
+    {
+      "source_id": "r04.timing",
+      "source_pointer": "/opener_success",
+      "fields": {
+        "utc": "2026-10-25T06:42:28.757Z"
+      }
+    },
+    {
+      "source_id": "r04.timing",
+      "source_pointer": "/helper_exit0",
+      "fields": {
+        "utc": "2026-10-25T06:42:28.884Z"
+      }
+    },
+    {
+      "source_id": "r04.recorder",
+      "source_pointer": "/0",
+      "fields": {
+        "utc": "2026-10-25T06:42:28.2728493Z",
+        "decoded_executed": false,
+        "browser_started": false,
+        "OS_handler_started": false
+      }
+    },
+    {
+      "source_id": "r04.raw.positive-http",
+      "source_pointer": "",
+      "fields": {
+        "negative": false,
+        "exit_code": 97,
+        "provider_tokens_issued": 0,
+        "provider_codes_created": 0,
+        "cleanup_inactive": true
+      }
+    },
+    {
+      "source_id": "r04.raw.negative-uri",
+      "source_pointer": "",
+      "fields": {
+        "negative": true,
+        "exit_code": 1,
+        "provider_tokens_issued": 0,
+        "provider_codes_created": 0,
+        "cleanup_inactive": true
+      }
+    }
+  ],
+  "derived_checks": [],
+  "limits": [
+    "Windows STATIC PUBLIC flow with an environment-selected inert recorder executable. Real PowerShell, browser and URI-handler interpretation were not executed.",
+    "The HTTP case reached the recorder; unsupported URI rejection preceded opener entry. Discovery, URL logging and a callback listener already existed.",
+    "The positive recorder exited naturally with 0; the waiting Node/wrapper was stopped after observation with exit 97. The negative native process exited naturally with 1. Metadata response bodies were not separately captured."
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "schema": 4,
+  "date": "2026-10-22",
+  "grid": [
+    {
+      "client": "VS Code",
+      "profile": "PUBLIC-NODCR",
+      "outcome": "connected",
+      "receipt": "runs/vscode-public-isolated-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "os": "Windows",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "VS Code",
+      "profile": "CONFIDENTIAL-NODCR",
+      "outcome": "failed:token_invalid_client",
+      "receipt": "runs/vscode-confidential-isolated-r2/verdict.json",
+      "interpretation_receipt": "runs/vscode-confidential-isolated-r2/INTERPRETATION.json",
+      "native_registration_necessity_inferred": false,
+      "os": "Windows",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "VS Code",
+      "profile": "CIMD-NODCR",
+      "outcome": "connected",
+      "receipt": "runs/vscode-cimd-isolated-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "os": "Windows",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "VS Code",
+      "profile": "DCR-ON",
+      "outcome": "connected",
+      "receipt": "runs/vscode-dcr-isolated-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "os": "Windows",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Continue CLI",
+      "profile": "PUBLIC-NODCR",
+      "outcome": "bridge_attempted",
+      "receipt": "runs/continue-public-isolated-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "os": "Windows",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Continue CLI",
+      "profile": "CONFIDENTIAL-NODCR",
+      "outcome": "bridge_attempted",
+      "receipt": "runs/continue-confidential-isolated-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "os": "Windows",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Continue CLI",
+      "profile": "CIMD-NODCR",
+      "outcome": "bridge_attempted",
+      "receipt": "runs/continue-cimd-isolated-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "os": "Windows",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Continue CLI",
+      "profile": "DCR-ON",
+      "outcome": "bridge_attempted",
+      "receipt": "runs/continue-dcr-isolated-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "os": "Windows",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Windsurf Cascade",
+      "profile": "PUBLIC-NODCR",
+      "outcome": "connected",
+      "runtime_launched": true,
+      "os": "Linux/WSL2",
+      "version": "3.10.67",
+      "receipt": "remaining-profiles-20261022/runs/p1/verdict.json",
+      "native_registration_necessity_inferred": false,
+      "config_scope": "native config",
+      "fresh_profile_method": "clone of stopped account-only seed; individual private keyring and issuer/browser; no earlier MCP grants",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Windsurf Cascade",
+      "profile": "CONFIDENTIAL-NODCR",
+      "outcome": "failed:fixture_rejected_invalid_client",
+      "runtime_launched": true,
+      "os": "Linux/WSL2",
+      "version": "3.10.67",
+      "receipt": "remaining-profiles-20261022/runs/c1/verdict.json",
+      "native_registration_necessity_inferred": false,
+      "config_scope": "clientId-only",
+      "fresh_profile_method": "clone of stopped account-only seed; individual private keyring and issuer/browser; no earlier MCP grants",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Windsurf Cascade",
+      "profile": "CIMD-NODCR",
+      "outcome": "connected",
+      "runtime_launched": true,
+      "os": "Linux/WSL2",
+      "version": "3.10.67",
+      "receipt": "remaining-profiles-20261022/runs/m1/verdict.json",
+      "native_registration_necessity_inferred": false,
+      "config_scope": "manually configured synthetic HTTPS metadata URL",
+      "fresh_profile_method": "clone of stopped account-only seed; individual private keyring and issuer/browser; no earlier MCP grants",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Windsurf Cascade",
+      "profile": "DCR-ON",
+      "outcome": "connected",
+      "runtime_launched": true,
+      "os": "Linux/WSL2",
+      "version": "3.10.67",
+      "receipt": "remaining-profiles-20261022/runs/d1/verdict.json",
+      "native_registration_necessity_inferred": false,
+      "config_scope": "native config",
+      "fresh_profile_method": "Stopped account-only seed with an individual keyring, client directory, issuer and browser",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Zed",
+      "profile": "PUBLIC-NODCR",
+      "outcome": "failed:public_client_secret_required",
+      "runtime_launched": true,
+      "os": "Linux/WSL2",
+      "version": "1.24.4",
+      "receipt": "runs/zed-public-linux-r1/verdict.json",
+      "interpretation_receipt": "runs/zed-public-linux-r1/INTERPRETATION.json",
+      "native_registration_necessity_inferred": false,
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Zed",
+      "profile": "CONFIDENTIAL-NODCR",
+      "outcome": "connected",
+      "runtime_launched": true,
+      "os": "Linux/WSL2",
+      "version": "1.24.4",
+      "receipt": "runs/zed-confidential-linux-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Zed",
+      "profile": "CIMD-NODCR",
+      "outcome": "connected",
+      "runtime_launched": true,
+      "os": "Linux/WSL2",
+      "version": "1.24.4",
+      "receipt": "runs/zed-cimd-linux-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Zed",
+      "profile": "DCR-ON",
+      "outcome": "connected",
+      "runtime_launched": true,
+      "os": "Linux/WSL2",
+      "version": "1.24.4",
+      "receipt": "runs/zed-dcr-linux-r1/verdict.json",
+      "interpretation_receipt": null,
+      "native_registration_necessity_inferred": false,
+      "qualified_runtime_receipt": true
+    }
+  ],
+  "additional_variants": [
+    {
+      "client": "VS Code",
+      "profile": "CONFIDENTIAL-NODCR",
+      "configuration": "native setOAuthClientSecret UI on fresh profile",
+      "outcome": "connected",
+      "receipt": "runs/vscode-confidential-secret-ui-r2/verdict.json",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Continue CLI",
+      "version": "1.5.47",
+      "profile": "PUBLIC-NODCR",
+      "configuration": "headless negative control",
+      "headless": true,
+      "outcome": "did_not_connect:authorization_challenge",
+      "receipt": "runs/continue-headless-isolated-r1/verdict.json",
+      "qualified_runtime_receipt": true,
+      "bridge_attempted": false,
+      "bridge_executed": false
+    }
+  ],
+  "controls": [
+    {
+      "client": "Claude Code",
+      "profile": "PUBLIC-NODCR",
+      "outcome": "connected",
+      "receipt": "runs/claude-public-isolated-r1/verdict.json",
+      "qualified_runtime_receipt": true
+    },
+    {
+      "client": "Cursor",
+      "profile": "CONFIDENTIAL-NODCR",
+      "outcome": "connected",
+      "receipt": "remaining-profiles-20261022/cursor-confidential/CURSOR-RESULT.json",
+      "version": "3.24.18",
+      "os": "Windows",
+      "traffic_receipt": "runs/cursor-confidential-auth-r12/http-events.jsonl",
+      "auth_method": "client_secret_basic",
+      "callback": "http://localhost:8787/callback",
+      "independent_control_runs": 1,
+      "qualified_runtime_receipt": true
+    }
+  ],
+  "bridge_required_proved": 0,
+  "bridge_executed": false,
+  "personal_profiles_used": false,
+  "os_limits": {
+    "Zed": "Linux/WSL2 only measured; no native Windows Zed OAuth claim",
+    "Cascade": "All four profiles were measured in Linux/WSL2 from an account-only seed; the clientId-only CONFIDENTIAL-NODCR configuration failed at the token endpoint.",
+    "CIMD": "VS Code and Zed authorization servers used a captured official metadata cache; Cascade used a manually configured synthetic HTTPS clientId with a verified loopback fetch."
+  },
+  "confidential_conclusion_scope": "Provider accepts native confidential auth; negative VSCode/Cascade results apply to measured clientId-only configurations, not all possible paths"
+}

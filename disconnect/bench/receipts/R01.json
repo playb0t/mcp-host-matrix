@@ -1,0 +1,884 @@
+{
+  "schema": "mcp-host-matrix-receipt/1",
+  "case_id": "R01",
+  "kind": "deidentified saved-evidence excerpts",
+  "versions": {
+    "VS Code": "1.142.0",
+    "Zed": "1.24.4",
+    "Cascade": "3.10.67",
+    "Cursor": "3.24.18",
+    "Claude Code": "2.1.306",
+    "mcp-remote": "0.15.2"
+  },
+  "sources": [
+    {
+      "id": "r01.observations",
+      "sha256": "50e883799de97ac460195341fbaab267c52abae11ed0e3318533f29d15e1b99a",
+      "format": "JSON"
+    },
+    {
+      "id": "r01.traffic",
+      "sha256": "134b4c44be2e30208fb7ad6c35123b675416a146a8a8182f1380fa971a287ea2",
+      "format": "JSON"
+    }
+  ],
+  "excerpts": [
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/0",
+      "fields": {
+        "run_id": "vscode-public-uninstall-immediate-r1",
+        "client": "VS Code",
+        "version": "1.142.0",
+        "profile": "PUBLIC-NODCR"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/0/observation",
+      "fields": {
+        "operation": "uninstall",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.11,
+        "revocation_request": "none",
+        "registration_delete": "n/a",
+        "source_verdict_sha256": "6b907a6897fae81fb0bf442d05ea8e5eee6567b5b3963db812b60359b0ecf392"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/0/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/0/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/1",
+      "fields": {
+        "run_id": "vscode-dcr-uninstall-r1",
+        "client": "VS Code",
+        "version": "1.142.0",
+        "profile": "DCR-ON"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/1/observation",
+      "fields": {
+        "operation": "uninstall",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.031,
+        "revocation_request": "none",
+        "registration_delete": "none",
+        "source_verdict_sha256": "5a999c66ad0463813a71b2014b04afb40d51c35c257475129695815f77f186d0"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/1/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/1/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/2",
+      "fields": {
+        "run_id": "zed-confidential-uninstall-pilot-r2",
+        "client": "Zed",
+        "version": "1.24.4",
+        "profile": "CONFIDENTIAL-NODCR"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/2/observation",
+      "fields": {
+        "operation": "Uninstall",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.018870383,
+        "revocation_request": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "registration_delete": "n/a",
+        "source_verdict_sha256": "6d82713a31b3e545e70e7168b43bafa893922a55c5897b1e8371c37bc47c5ae2"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/2/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/2/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/3",
+      "fields": {
+        "run_id": "zed-dcr-uninstall-r1",
+        "client": "Zed",
+        "version": "1.24.4",
+        "profile": "DCR-ON"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/3/observation",
+      "fields": {
+        "operation": "Uninstall",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.032975422,
+        "revocation_request": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "registration_delete": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "source_verdict_sha256": "94b7a647ff31d78db06a4967825a7b77dccc1cb163d69f0c55a2b3d381932c3d"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/3/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/3/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/4",
+      "fields": {
+        "run_id": "cascade-public-native-toggle-r3",
+        "client": "Cascade",
+        "version": "3.10.67",
+        "profile": "PUBLIC-NODCR"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/4/observation",
+      "fields": {
+        "operation": "native_ui_toggle",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.20195343,
+        "revocation_request": "none",
+        "registration_delete": "n/a",
+        "source_verdict_sha256": "c06116bbbffccd433381b00f74d095493f99588f7837c8dd6406e4eb33811c69"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/4/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/4/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/5",
+      "fields": {
+        "run_id": "cascade-dcr-native-toggle-r2",
+        "client": "Cascade",
+        "version": "3.10.67",
+        "profile": "DCR-ON"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/5/observation",
+      "fields": {
+        "operation": "native_ui_toggle",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.133580309,
+        "revocation_request": "none",
+        "registration_delete": "none",
+        "source_verdict_sha256": "79abc856c5b7a3e1dee46b36ab6615b6eb2d347c43b552f717a0b91b3fba2edf"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/5/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/5/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/6",
+      "fields": {
+        "run_id": "cursor-confidential-native-singlecall-r1",
+        "client": "Cursor",
+        "version": "3.24.18",
+        "profile": "CONFIDENTIAL-NODCR"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/6/observation",
+      "fields": {
+        "operation": "toggle",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.047,
+        "revocation_request": "none",
+        "registration_delete": "n/a",
+        "source_verdict_sha256": "07c9752db6bc08a850da2775304173eb49008b6f53d5159a0f9bce0db7576dfe"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/6/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/6/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/7",
+      "fields": {
+        "run_id": "cursor-dcr-toggle-r1",
+        "client": "Cursor",
+        "version": "3.24.18",
+        "profile": "DCR-ON"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/7/observation",
+      "fields": {
+        "operation": "toggle",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.016,
+        "revocation_request": "none",
+        "registration_delete": "none",
+        "source_verdict_sha256": "67d0f304353a50d591b09c2dcd3fb7ee23c4e68b9f60d9348557be8773e71423"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/7/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/7/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/8",
+      "fields": {
+        "run_id": "claude-public-remove-r2",
+        "client": "Claude Code",
+        "version": "2.1.306",
+        "profile": "PUBLIC-NODCR"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/8/observation",
+      "fields": {
+        "operation": "remove",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.141,
+        "revocation_request": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "registration_delete": "n/a",
+        "source_verdict_sha256": "b46b52988e7e5e9e98e38fcfe06ad3033d2aac56867aeeaa838b874747355de5"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/8/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/8/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/9",
+      "fields": {
+        "run_id": "claude-dcr-remove-r1",
+        "client": "Claude Code",
+        "version": "2.1.306",
+        "profile": "DCR-ON"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/9/observation",
+      "fields": {
+        "operation": "remove",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.016,
+        "revocation_request": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "registration_delete": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "source_verdict_sha256": "81d0bba67fa97ff68a6a6cfc878b6cf6b920032b9a1c198136769e650a023526"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/9/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/9/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/10",
+      "fields": {
+        "run_id": "bridge-public-remove-exit-r1",
+        "client": "Claude Code -> mcp-remote",
+        "version": "2.1.306 / 0.15.2",
+        "profile": "PUBLIC-NODCR"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/10/observation",
+      "fields": {
+        "operation": "remove_config_and_natural_exit",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.14,
+        "revocation_request": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "registration_delete": "n/a",
+        "source_verdict_sha256": "31af39cde98fd169a6c2cf53e0ae4005a45fcd1c74dee1488c2eb73b48f03277"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/10/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/10/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/11",
+      "fields": {
+        "run_id": "bridge-dcr-remove-exit-r1",
+        "client": "Claude Code -> mcp-remote",
+        "version": "2.1.306 / 0.15.2",
+        "profile": "DCR-ON"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/11/observation",
+      "fields": {
+        "operation": "remove_config_and_natural_exit",
+        "observation_completed": true,
+        "native_tool_begin_observed": true,
+        "after_ack_seconds": 60.094,
+        "revocation_request": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "registration_delete": {
+          "request": "none",
+          "request_ids": [],
+          "responses": []
+        },
+        "source_verdict_sha256": "b0c75c5c572cc84dec1a05689ea3e38d8bd1514256c74269f48ed2f94aa585ac"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/11/observation/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/base_cells/11/observation/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/2",
+      "fields": {
+        "run_id": "claude-public-logout-r2",
+        "profile": "PUBLIC-NODCR",
+        "operation": "logout",
+        "revocation_request": {
+          "request": "sent",
+          "request_ids": [
+            "bc553f8575e0a813",
+            "d233992bf0b4cf08"
+          ],
+          "responses": [
+            {
+              "request_id": "bc553f8575e0a813",
+              "http_status": 200,
+              "error": null
+            },
+            {
+              "request_id": "d233992bf0b4cf08",
+              "http_status": 200,
+              "error": null
+            }
+          ]
+        },
+        "after_ack_seconds": 60.11
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/2/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/2/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/3",
+      "fields": {
+        "run_id": "claude-dcr-logout-r1",
+        "profile": "DCR-ON",
+        "operation": "logout",
+        "revocation_request": {
+          "request": "sent",
+          "request_ids": [
+            "7a078adeebfb3c0c",
+            "c418fb049658e30c"
+          ],
+          "responses": [
+            {
+              "request_id": "7a078adeebfb3c0c",
+              "http_status": 200,
+              "error": null
+            },
+            {
+              "request_id": "c418fb049658e30c",
+              "http_status": 200,
+              "error": null
+            }
+          ]
+        },
+        "after_ack_seconds": 60.062
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/3/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/3/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/4",
+      "fields": {
+        "run_id": "claude-dcr-ui-clear-auth-r1",
+        "profile": "DCR-ON",
+        "operation": "ui_clear_auth",
+        "revocation_request": {
+          "request": "sent",
+          "request_ids": [
+            "09afcae3e1345c8f",
+            "5051531c35494233"
+          ],
+          "responses": [
+            {
+              "request_id": "5051531c35494233",
+              "http_status": 200,
+              "error": null
+            },
+            {
+              "request_id": "09afcae3e1345c8f",
+              "http_status": 200,
+              "error": null
+            }
+          ]
+        },
+        "after_ack_seconds": 60.078
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/4/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/4/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/5",
+      "fields": {
+        "run_id": "claude-public-ui-startup-control-r1",
+        "profile": "PUBLIC-NODCR",
+        "operation": "ui_clear_auth",
+        "revocation_request": {
+          "request": "sent",
+          "request_ids": [
+            "d0261240c99a2337",
+            "e7f4f356efb670f8"
+          ],
+          "responses": [
+            {
+              "request_id": "d0261240c99a2337",
+              "http_status": 200,
+              "error": null
+            },
+            {
+              "request_id": "e7f4f356efb670f8",
+              "http_status": 200,
+              "error": null
+            }
+          ]
+        },
+        "after_ack_seconds": 60.078
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/5/controller_refresh_before",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 200,
+        "error": null
+      }
+    },
+    {
+      "source_id": "r01.observations",
+      "source_pointer": "/operation_variants/5/controller_refresh_after",
+      "fields": {
+        "initiator": "controller",
+        "http_status": 400,
+        "error": "invalid_grant"
+      }
+    },
+    {
+      "source_id": "r01.traffic",
+      "source_pointer": "",
+      "fields": {
+        "run_id": "vscode-public-uninstall-immediate-r1",
+        "post_token_requests": 3358,
+        "native_authorization_code_requests": 1,
+        "native_refresh_requests": 3355,
+        "controller_refresh_requests": 2,
+        "native_refresh_requests_after_ACK": 630,
+        "ambiguous_ownership": 0
+      }
+    }
+  ],
+  "derived_checks": [
+    {
+      "label": "vscode-public-uninstall-immediate-r1: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/0/observation/controller_refresh_before/refresh_id",
+        "/base_cells/0/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "vscode-dcr-uninstall-r1: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/1/observation/controller_refresh_before/refresh_id",
+        "/base_cells/1/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "zed-confidential-uninstall-pilot-r2: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/2/observation/controller_refresh_before/refresh_id",
+        "/base_cells/2/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "zed-dcr-uninstall-r1: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/3/observation/controller_refresh_before/refresh_id",
+        "/base_cells/3/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "cascade-public-native-toggle-r3: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/4/observation/controller_refresh_before/refresh_id",
+        "/base_cells/4/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "cascade-dcr-native-toggle-r2: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/5/observation/controller_refresh_before/refresh_id",
+        "/base_cells/5/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "cursor-confidential-native-singlecall-r1: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/6/observation/controller_refresh_before/refresh_id",
+        "/base_cells/6/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "cursor-dcr-toggle-r1: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/7/observation/controller_refresh_before/refresh_id",
+        "/base_cells/7/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "claude-public-remove-r2: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/8/observation/controller_refresh_before/refresh_id",
+        "/base_cells/8/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "claude-dcr-remove-r1: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/9/observation/controller_refresh_before/refresh_id",
+        "/base_cells/9/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-public-remove-exit-r1: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/10/observation/controller_refresh_before/refresh_id",
+        "/base_cells/10/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    },
+    {
+      "label": "bridge-dcr-remove-exit-r1: same prior refresh",
+      "source_id": "r01.observations",
+      "operation": "all equal",
+      "source_pointers": [
+        "/base_cells/11/observation/controller_refresh_before/refresh_id",
+        "/base_cells/11/observation/controller_refresh_after/refresh_id"
+      ],
+      "result": true
+    }
+  ],
+  "limits": [
+    "Twelve selected base windows. Controller refresh replay is separate from native host behavior and uses the client's required credentials.",
+    "Observer ACK records action evidence, not necessarily the exact click. The bridge operation includes configuration removal and natural exit.",
+    "The test provider let accepted work finish; completion alone does not establish a cancellation defect. No standards compliance verdict is made.",
+    "Traffic attribution covers the entire closed VS Code PUBLIC-NODCR journal including baseline. Its frequency is not a product norm and its cause was not established."
+  ]
+}
