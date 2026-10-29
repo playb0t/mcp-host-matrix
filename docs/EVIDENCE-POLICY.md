@@ -8,6 +8,15 @@ Each observation is bound to a component version, operation, authentication prof
 
 R01 contains 23 selected run IDs: 12 base windows, 8 operation variants and 3 additional healthy timing windows. R06 contains four paths across two profiles: eight cells, one completed trial per cell. R05 contains one native trigger and three automatic refresh attempts. These units are not interchangeable.
 
+## Future observation records
+
+The following fields are required for new observations; they do not change the existing snapshot.
+
+- Identify the full scenario: client and exact version/build, server and version/build or fixture configuration, endpoint, and authentication profile. Retain the runtime, policy and fixture context. Unknown identity fields remain explicit.
+- Record the connection step: configuration generation, discovery, client registration, login, or MCP invocation. Keep evidence, failures and unmeasured steps separate; success at one step does not establish a later step.
+- Keep connection outcomes and tool-boundary assessments in separate linked records. For a claimed tool boundary, identify the declared scope, effective backend principal and grants, enforcement point, and applicable positive and negative controls. Link the records to relevant existing R01-R06 observations without adding directions or transferring their outcomes.
+- For DCR observations, record the selected registration method, authorization-server metadata and support flags, and the assessed specification revision. A successful DCR flow alone does not establish CIMD support or compliance with registration-selection rules.
+
 ## Reading the evidence
 
 | Material | Establishes | Scope |

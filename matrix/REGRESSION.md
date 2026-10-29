@@ -13,6 +13,10 @@ This is a proposed selection map, not an executed campaign.
 | R05 | Token fetch, redirects, form handling, bundled SDK or runtime | Selected PUBLIC 307 cross-origin refresh with direct and receiver controls | Trigger versus attempts; exact body/recipient; valid/invalid refresh; bootstrap versus new issuance; receiver denial; separate Location authority |
 | R06 | Selectors, migration, registration or cross-build refresh reuse | Affected old/new pair and PUBLIC/DCR profile; separate native-first-connection and controller observations | Natural expiry; fresh baseline; late-store timing; wrong-client/management/revoke/fresh controls; official installer separate |
 
+## Recording a follow-up
+
+Apply the [future observation fields](../docs/EVIDENCE-POLICY.md#future-observation-records) to each new follow-up. Freeze the full client/version, server, endpoint and authentication-profile identity, then name the affected connection step. Keep connection and tool-boundary checks in separate linked records under the applicable existing R01-R06 scope. For registration changes, retain the selected method, authorization-server metadata and specification revision. Unmeasured steps remain explicit.
+
 ## After a patch
 
 1. Freeze old/new selector, resolved version, archive/binary hash, actual public entry, bundled SDK/dependencies, runtime, OS and policy. A top-level version alone does not identify the loaded implementation.
