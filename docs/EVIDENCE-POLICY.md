@@ -17,6 +17,18 @@ The following fields are required for new observations; they do not change the e
 - Keep connection outcomes and tool-boundary assessments in separate linked records. For a claimed tool boundary, identify the declared scope, effective backend principal and grants, enforcement point, and applicable positive and negative controls. Link the records to relevant existing R01-R06 observations without adding directions or transferring their outcomes.
 - For DCR observations, record the selected registration method, authorization-server metadata and support flags, and the assessed specification revision. A successful DCR flow alone does not establish CIMD support or compliance with registration-selection rules.
 
+### Diagnostic-copy observations
+
+For future observations involving diagnostic data, identify the source data class, producer, destination, expected audience, actual reader context and namespace. Distinguish literal credentials from references and public metadata. Keep captured arguments, tool-result reflections, application logs, standard error, telemetry exports and client history within an explicitly declared observation scope; a channel name alone does not establish confidentiality.
+
+Assess content minimization, effective access and retention independently, against a stated policy. Record the execution branch, artifact and attempt identity, observer health/window, controls, evidence and unmeasured channels. Source inspection is separate from runtime observation. Do not combine separate runs into one claimed end-to-end disclosure. A return to the original authorized caller alone does not establish disclosure to another reader.
+
+Disconnect, grant revocation and deletion of named retained data are distinct operations. State the authorized ownership/scope, requested action, result and verification for each retained object. Absence from one namespace does not establish an ACL denial; a fix for future records does not establish deletion of prior copies. A receipt signature alone does not prove destruction of all copies.
+
+These requirements apply to future evidence records. They add no measured subjects, research directions, observations, scores or denominators, and do not alter the current snapshot or imply consumer/schema integration.
+
+Background: [CWE-532](https://cwe.mitre.org/data/definitions/532.html) describes sensitive information in log files. [MCP Logging security](https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/logging) addresses the protocol logging channel. [OpenTelemetry OBI trace selection](https://opentelemetry.io/docs/zero-code/obi/configure/metrics-traces-attributes/) separately documents sensitive MCP argument/result capture. Each source retains its own scope and revision; these references do not establish a new weakness class.
+
 ## Reading the evidence
 
 | Material | Establishes | Scope |
