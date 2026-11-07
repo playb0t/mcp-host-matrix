@@ -2,17 +2,17 @@
 
 # MCP Host Matrix
 
-**What MCP clients promise, and what they do when you disconnect.**
+**Disconnect is not revoke. Measured across five MCP hosts and one bridge.**
 
 You press "disconnect" in your MCP client. The entry disappears. The access does not. In 12 of 12 measured windows, across five native hosts and the mcp-remote bridge, no revocation request reached the test provider, and the old refresh token still worked. That is one row of this matrix. There are six.
 
-Research by **Alex Gercog** ([playb0t](https://github.com/playb0t)). Evidence snapshot: **25 October 2026**. Builds in the disconnect row: VS Code 1.142.0, Zed 1.24.4, Cascade (Windsurf) 3.10.67, Cursor 3.24.18, Claude Code 2.1.306, mcp-remote 0.15.2; every other row names its own. Every row has a published receipt that carries the SHA-256 of its sources. The repository validates itself in CI. Since 8 November 2026 the method itself is published here as a [portable work method](method/v1/README.md), ready for other people's measurements.
+Research by **Alex Gercog** ([playb0t](https://github.com/playb0t)). Evidence snapshot: **25 October 2026**. Builds in the disconnect row: VS Code 1.142.0, Zed 1.24.4, Cascade (Windsurf) 3.10.67, Cursor 3.24.18, Claude Code 2.1.306, mcp-remote 0.15.2; every other row names its own. Every row has a published receipt that carries the SHA-256 of its sources. The repository validates itself in CI. Since 8 November 2026 the method itself is published here: the [portable work method](method/v1/README.md). Run it on your own measurements.
 
 ## What the matrix shows
 
-Six research directions, measured on controlled fixtures, with a local synthetic provider in the role of the OAuth authorization server and the MCP resource server:
+Six directions, each measured on a controlled bench. A local synthetic provider plays both the OAuth authorization server and the MCP resource server, so the record shows what reached it.
 
-- **Disconnect does not revoke. 12 of 12 base windows.** Uninstall, remove or toggle in VS Code, Claude Code, Cursor, Zed and Cascade; configuration removal and session exit on the bridge path. Each window stayed healthy for at least 60 seconds after the action. The provider received no revocation request, and a separate replay with the client's own credentials could still use the prior refresh token. The working control shows it can be done: logout and Clear authentication in Claude Code sent revocation requests, and the provider then refused that token. ([R01](matrix/MATRIX.en.md#r01))
+- **Disconnect does not revoke. 12 of 12 base windows.** Uninstall, remove or toggle in VS Code, Claude Code, Cursor, Zed and Cascade; configuration removal and session exit on the bridge path. Each window stayed healthy for at least 60 seconds after the action. The provider received no revocation request, and a separate replay with the client's own credentials could still use the prior refresh token. The client knows how to revoke: logout and Clear authentication in Claude Code sent the request, and the provider refused that token. Remove did not send it. ([R01](matrix/MATRIX.en.md#r01))
 - **Removing the configuration keeps the credentials.** `claude mcp remove` in Claude Code deleted the entry and left the bridge's cached refresh token on disk, ACL intact. A reader at the known path exchanged it for HTTP 200. Where the drive's permissions were inherited, a reader under a different local account did the same. A private-style ACL stopped it. ([R02](matrix/MATRIX.en.md#r02))
 - **Tool schemas change inside a session.** VS Code 1.143.1 refreshed a tool's inputSchema mid-session on a server-sent change notice. Five server-side call validations are recorded. ([R03](matrix/MATRIX.en.md#r03))
 - **A server-supplied URL reaches the executable boundary.** The authorization URL taken from server metadata reached the Windows opener path, where an inert recorder stood in for the real handler. An unsupported URI was rejected before it. ([R04](matrix/MATRIX.en.md#r04))
@@ -25,13 +25,13 @@ Six research directions, measured on controlled fixtures, with a local synthetic
 
 ## Check your own client
 
-The matrix measures three questions you can put to any MCP client:
+Put these three questions to any MCP client:
 
 1. After disconnect, does a revocation request reach your provider?
 2. Does the prior refresh token still exchange?
 3. After the server is removed, is the refresh token still on disk, and who can read it?
 
-The pass shape is in R01: a revocation request, then a refused token. [Regression selection](matrix/REGRESSION.md) lists what to recheck when a reachable implementation changes.
+The passing answer is in R01: a revocation request, then a refused token. [Regression selection](matrix/REGRESSION.md) lists what to recheck when a reachable implementation changes.
 
 ## Start here
 
@@ -39,7 +39,7 @@ The pass shape is in R01: a revocation request, then a refused token. [Regressio
 |---|---|
 | **[R01-R06 evidence matrix](matrix/MATRIX.en.md)** | Scope, subject coverage, observations, controls and limits |
 | [Structured matrix](matrix/RESULTS.json) · [evidence fingerprints](matrix/EVIDENCE.json) | Machine-readable outcomes and source SHA-256 values |
-| [Selected deidentified receipts](matrix/receipts/README.md) | Saved observations and controls behind the key R01-R06 results |
+| [Deidentified receipts](matrix/receipts/README.md) | Saved observations and controls for every row |
 | [Portable work method](method/v1/README.md) | Four work profiles, public receipt links and a verifier, with synthetic examples |
 | [Regression selection](matrix/REGRESSION.md) | What to recheck when a reachable implementation changes |
 | [Figure index](figures/README.md) | SVG exports, editable sources and verified label mapping |
@@ -49,7 +49,7 @@ The pass shape is in R01: a revocation request, then a refused token. [Regressio
 
 [![Selected R01-R06 cases across five native hosts and a separate bridge path. M means measured selected case; n/m means not measured.](figures/09-coverage/09-coverage.en.png)](figures/09-coverage/09-coverage.en.svg)
 
-M marks a measured cell. "Not measured" marks coverage, not a grade.
+M is a measurement on the bench. "Not measured" is a cell this snapshot leaves open.
 
 <details>
 <summary>Coverage as text</summary>
@@ -65,7 +65,7 @@ M marks a measured cell. "Not measured" marks coverage, not a grade.
 
 </details>
 
-A host named in one row was not necessarily tested in the other directions. In R02, Claude Code CLI configuration operations are part of the fixture workflow; the measured credential store belongs to the bridge.
+Each row names its own subjects. In R02, Claude Code CLI runs the configuration operation; the measured credential store belongs to the bridge.
 ## The tracks behind the matrix
 
 | Track | Documentation layer | Runtime layer |
@@ -84,15 +84,15 @@ Run the repository checks with Python 3.10+:
 python -B tools/validate.py
 ```
 
-The validator checks data coherence, declared file fingerprints, editable-scene JSON, local links and image references, private-data patterns, SVG content and [file checksums](MANIFEST.sha256). It proves that the published files are coherent and unchanged; it does not start MCP clients or re-run a measurement. Maintainers regenerate the manifest after an intentional edit with `python -B tools/validate.py --write-manifest`.
+The validator checks data coherence, declared file fingerprints, editable-scene JSON, local links and image references, private-data patterns, SVG content and [file checksums](MANIFEST.sha256). One altered byte fails it. It proves the published record; the measurement itself lives in the receipts and controls. Maintainers regenerate the manifest after an intentional edit with `python -B tools/validate.py --write-manifest`.
 
-The repository holds curated projections and [selected deidentified receipts](matrix/receipts/README.md), without raw credentials, private profiles or the experimental harness. Full source artifacts are held by the author and can be requested through the [repository tracker](https://github.com/playb0t/mcp-host-matrix/issues).
+The repository publishes curated projections and [deidentified receipts](matrix/receipts/README.md). Raw credentials, private profiles and the bench itself stay off it. Request full source artifacts through the [repository tracker](https://github.com/playb0t/mcp-host-matrix/issues).
 
 New observations enter the matrix through [receipt-bound observations](docs/EVIDENCE-POLICY.md#receipt-bound-observations): a research record declares the cells it covers, its public projection is imported as a matrix receipt with provenance, and the validator refuses a measured cell whose sources are not public artifacts of that receipt. The R01-R06 content stays the original 25 October snapshot, pinned by hash.
 
 ## Limits
 
-This is a study of selected implementations and operations, not an audit of the entire MCP protocol or every host. Each result is bound to the versions, profiles and fixtures named with it, against synthetic fixtures on owned origins; "Not measured" is coverage, not a safety grade. R02 did not measure real default-profile access, R03 did not measure ordinary user consent, R04 ran no real browser or PowerShell, R05 established no exchange at a real provider, and R06 used controlled build replacements, not official installers. These outcomes establish no new CVE, severity, unauthorized actor path, production impact or universal security grade, and they do not change the records of the separate [mcp-remote OAuth security](https://github.com/playb0t/mcp-remote-oauth-security) research. SHA-256 identifies bytes; the observation's truth rests on the published receipts and controls.
+The matrix measures selected implementations and operations. Every result holds for the versions, profiles and synthetic fixtures named with it, on owned origins; it is a measurement of those, and the rest of MCP is outside it. R02 ran on a secondary data drive and a synthetic projection of the default-cache ACL, outside real default-profile access. R03 ran a programmatic path, outside ordinary user consent. R04 stopped at an inert recorder, before any real browser or PowerShell. R05 ran between two owned origins, with no exchange at a real provider. R06 used controlled build replacements, not official installers. New CVEs, severity grades, unauthorized actor paths and production impact are outside this matrix; the five mcp-remote records stay in the separate [mcp-remote OAuth security](https://github.com/playb0t/mcp-remote-oauth-security) research, unchanged. SHA-256 fixes the bytes; the receipts and controls carry the measurement.
 
 ## Citation
 
