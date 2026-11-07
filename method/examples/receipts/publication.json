@@ -1,0 +1,38 @@
+{
+  "schema": "work-method-receipt/1",
+  "case_id": "example-publication",
+  "profile": "publication",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "version": "1.0.0",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90"
+  },
+  "contract_ref": {
+    "logical_path": "method/examples/cards/publication.json",
+    "sha256": "606b9098dc20c28a64797b3516f53ea3a21a0f6336a3f37f11725ff0262cd696"
+  },
+  "artifacts": [
+    {
+      "logical_path": "method/examples/data/document.md",
+      "sha256": "8e7b1ff3353dab10f53b52d7ea624d219b7544ed07eb9f1ac6e61bb4d40196d5",
+      "size": 69,
+      "visibility": "public"
+    }
+  ],
+  "parents": [
+    {
+      "ref": {
+        "logical_path": "method/examples/receipts/document.json",
+        "sha256": "aee8251f3a3e9a256638d6aa6f64a140df66be23d85280135cbbfdec17bb3f41"
+      },
+      "relation": "publication_input"
+    }
+  ],
+  "outcome": "prepared",
+  "withheld": {
+    "internal_artifacts": 1,
+    "private_artifacts": 0
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "work-method-card/1",
+  "case_id": "example-engineering",
+  "profile": "engineering",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "version": "1.0.0",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90"
+  },
+  "contract": {
+    "scope": "Synthetic portable work chain; no target execution or security outcome",
+    "completion": "verified",
+    "options": {
+      "change_mode": "changed",
+      "research_derived": true
+    },
+    "inputs": [
+      {
+        "logical_path": "method/examples/data/patch.json",
+        "sha256": "827892e9d203eb4a11355df95b9e78bcd15edf794d1a85a0edc0c1566dec1812"
+      }
+    ],
+    "plans": [
+      {
+        "id": "change",
+        "purpose": "change",
+        "kind": "change"
+      },
+      {
+        "id": "validation",
+        "purpose": "validation",
+        "kind": "command"
+      },
+      {
+        "id": "regression",
+        "purpose": "regression",
+        "kind": "command"
+      }
+    ],
+    "exclusions": {}
+  },
+  "checks": [
+    {
+      "id": "change",
+      "kind": "change",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/patch.json",
+          "sha256": "827892e9d203eb4a11355df95b9e78bcd15edf794d1a85a0edc0c1566dec1812"
+        }
+      ]
+    },
+    {
+      "id": "validation",
+      "kind": "command",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/patch.json",
+          "sha256": "827892e9d203eb4a11355df95b9e78bcd15edf794d1a85a0edc0c1566dec1812"
+        }
+      ]
+    },
+    {
+      "id": "regression",
+      "kind": "command",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/patch.json",
+          "sha256": "827892e9d203eb4a11355df95b9e78bcd15edf794d1a85a0edc0c1566dec1812"
+        }
+      ]
+    }
+  ],
+  "outcome": "verified",
+  "limits": [
+    "Synthetic records test the format and byte checker only"
+  ]
+}

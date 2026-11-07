@@ -1,0 +1,105 @@
+{
+  "schema": "work-method-card/1",
+  "case_id": "example-research",
+  "profile": "research",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "version": "1.0.0",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90"
+  },
+  "contract": {
+    "scope": "Synthetic portable work chain; no target execution or security outcome",
+    "completion": "verified",
+    "options": {
+      "mode": "source"
+    },
+    "inputs": [
+      {
+        "logical_path": "method/examples/data/measurement.json",
+        "sha256": "8090223d9f1885adbb660cfd11eb91fa3b00a3391e8cf419ffeb057e035b3516"
+      }
+    ],
+    "plans": [
+      {
+        "id": "question",
+        "purpose": "question",
+        "kind": "assessment"
+      },
+      {
+        "id": "method",
+        "purpose": "method",
+        "kind": "assessment"
+      },
+      {
+        "id": "observations",
+        "purpose": "observations",
+        "kind": "artifact"
+      },
+      {
+        "id": "conclusion",
+        "purpose": "conclusion",
+        "kind": "assessment"
+      }
+    ],
+    "exclusions": {
+      "controls": "Source-only synthetic example; no runtime measurement claimed"
+    }
+  },
+  "checks": [
+    {
+      "id": "question",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/measurement.json",
+          "sha256": "8090223d9f1885adbb660cfd11eb91fa3b00a3391e8cf419ffeb057e035b3516"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/measurement.json",
+          "sha256": "8090223d9f1885adbb660cfd11eb91fa3b00a3391e8cf419ffeb057e035b3516"
+        }
+      ]
+    },
+    {
+      "id": "observations",
+      "kind": "artifact",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/measurement.json",
+          "sha256": "8090223d9f1885adbb660cfd11eb91fa3b00a3391e8cf419ffeb057e035b3516"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/measurement.json",
+          "sha256": "8090223d9f1885adbb660cfd11eb91fa3b00a3391e8cf419ffeb057e035b3516"
+        }
+      ],
+      "verdict": "refuted"
+    }
+  ],
+  "outcome": "assessed",
+  "limits": [
+    "Synthetic records test the format and byte checker only"
+  ]
+}

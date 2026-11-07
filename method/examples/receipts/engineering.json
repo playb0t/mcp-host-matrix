@@ -1,0 +1,38 @@
+{
+  "schema": "work-method-receipt/1",
+  "case_id": "example-engineering",
+  "profile": "engineering",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "version": "1.0.0",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90"
+  },
+  "contract_ref": {
+    "logical_path": "method/examples/cards/engineering.json",
+    "sha256": "4ecbabf9dd03a06fb230867f4d27af162a87bfd82f7fc77599d0b3308bb0f451"
+  },
+  "artifacts": [
+    {
+      "logical_path": "method/examples/data/patch.json",
+      "sha256": "827892e9d203eb4a11355df95b9e78bcd15edf794d1a85a0edc0c1566dec1812",
+      "size": 67,
+      "visibility": "public"
+    }
+  ],
+  "parents": [
+    {
+      "ref": {
+        "logical_path": "method/examples/receipts/research.json",
+        "sha256": "c1b473ec4ec1e91d23d3294e84a59c795898aeba4dc93065c09bb037b297259f"
+      },
+      "relation": "research_basis"
+    }
+  ],
+  "outcome": "verified",
+  "withheld": {
+    "internal_artifacts": 1,
+    "private_artifacts": 0
+  }
+}

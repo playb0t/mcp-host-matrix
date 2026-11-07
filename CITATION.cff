@@ -5,8 +5,8 @@ title: "MCP Host Matrix"
 authors:
   - family-names: "Gercog"
     given-names: "Alex"
-version: 1.0.0
-date-released: 2026-10-26
+version: 1.1.0
+date-released: 2026-11-08
 url: "https://github.com/playb0t/mcp-host-matrix"
 repository-code: "https://github.com/playb0t/mcp-host-matrix"
 keywords:

@@ -15,14 +15,16 @@ The matrix compares documentation, versioned implementation and measured behavio
 
 **M** means a selected case was measured. It is not a pass grade or exhaustive coverage. **Not measured** means this snapshot makes no measurement claim for that subject and direction.
 
+<!-- matrix-coverage:start -->
 | Direction | VS Code | Claude Code | Cursor | Zed | Cascade | mcp-remote |
 |---|---|---|---|---|---|---|
-| R01 Disconnect / revoke | M | M | M | M | M | M |
-| R02 Cache / file access | Not measured | Not measured | Not measured | Not measured | Not measured | M |
-| R03 Schema drift | M | Not measured | Not measured | Not measured | Not measured | Not measured |
-| R04 Metadata / opener | Not measured | Not measured | Not measured | Not measured | Not measured | M |
-| R05 Refresh redirect | Not measured | Not measured | Not measured | Not measured | Not measured | M |
-| R06 Build replacement | M | M | Not measured | Not measured | Not measured | M |
+| R01 Disconnect, revoke and accepted work | M | M | M | M | M | M |
+| R02 Cache namespace and file-access subject | Not measured | Not measured | Not measured | Not measured | Not measured | M |
+| R03 Same-session tool inputSchema drift | M | Not measured | Not measured | Not measured | Not measured | Not measured |
+| R04 Metadata URL to executable boundary | Not measured | Not measured | Not measured | Not measured | Not measured | M |
+| R05 Refresh credential body across HTTP 307 | Not measured | Not measured | Not measured | Not measured | Not measured | M |
+| R06 Component update and prior authority | M | M | Not measured | Not measured | Not measured | M |
+<!-- matrix-coverage:end -->
 
 There are five native hosts and one bridge path. In R02, Claude Code CLI performs a configuration operation; the measured credential store belongs to mcp-remote. [Connectivity measurements](../hosts/bench/BENCH.en.md), including Continue's intercepted bridge attempts, form a separate prerequisite track.
 

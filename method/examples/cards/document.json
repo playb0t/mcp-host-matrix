@@ -1,0 +1,85 @@
+{
+  "schema": "work-method-card/1",
+  "case_id": "example-document",
+  "profile": "document",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "version": "1.0.0",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90"
+  },
+  "contract": {
+    "scope": "Synthetic portable work chain; no target execution or security outcome",
+    "completion": "verified",
+    "options": {
+      "format": "md"
+    },
+    "inputs": [
+      {
+        "logical_path": "method/examples/data/document.md",
+        "sha256": "8e7b1ff3353dab10f53b52d7ea624d219b7544ed07eb9f1ac6e61bb4d40196d5"
+      }
+    ],
+    "plans": [
+      {
+        "id": "sources",
+        "purpose": "sources",
+        "kind": "assessment"
+      },
+      {
+        "id": "format",
+        "purpose": "format",
+        "kind": "document"
+      },
+      {
+        "id": "content",
+        "purpose": "content",
+        "kind": "assessment"
+      }
+    ],
+    "exclusions": {}
+  },
+  "checks": [
+    {
+      "id": "sources",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/document.md",
+          "sha256": "8e7b1ff3353dab10f53b52d7ea624d219b7544ed07eb9f1ac6e61bb4d40196d5"
+        }
+      ]
+    },
+    {
+      "id": "format",
+      "kind": "document",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/document.md",
+          "sha256": "8e7b1ff3353dab10f53b52d7ea624d219b7544ed07eb9f1ac6e61bb4d40196d5"
+        }
+      ]
+    },
+    {
+      "id": "content",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Synthetic declared result for format and integrity controls only",
+      "evidence_refs": [
+        {
+          "logical_path": "method/examples/data/document.md",
+          "sha256": "8e7b1ff3353dab10f53b52d7ea624d219b7544ed07eb9f1ac6e61bb4d40196d5"
+        }
+      ]
+    }
+  ],
+  "outcome": "verified",
+  "limits": [
+    "Synthetic records test the format and byte checker only"
+  ]
+}

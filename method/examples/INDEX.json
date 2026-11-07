@@ -1,0 +1,41 @@
+{
+  "schema": "work-method-examples/1",
+  "cases": [
+    {
+      "ref": {
+        "logical_path": "method/examples/receipts/research.json",
+        "sha256": "c1b473ec4ec1e91d23d3294e84a59c795898aeba4dc93065c09bb037b297259f"
+      },
+      "expected": "PASS"
+    },
+    {
+      "ref": {
+        "logical_path": "method/examples/receipts/engineering.json",
+        "sha256": "e6b4683976b70e89600a2fa3b303bd52928031b6adb1a896083aae04653873e5"
+      },
+      "expected": "PASS"
+    },
+    {
+      "ref": {
+        "logical_path": "method/examples/receipts/document.json",
+        "sha256": "aee8251f3a3e9a256638d6aa6f64a140df66be23d85280135cbbfdec17bb3f41"
+      },
+      "expected": "PASS"
+    },
+    {
+      "ref": {
+        "logical_path": "method/examples/receipts/publication.json",
+        "sha256": "0ebe3f5bd0e0a02d866ee9efddb9ee6c6fb9bc5dd47cd156bcef7585e4cb3a92"
+      },
+      "expected": "PASS"
+    },
+    {
+      "ref": {
+        "logical_path": "method/examples/negative/source-hash.json",
+        "sha256": "ea6f9c3204f46da28e75d3fb6562624d72d21c30858e2599710fd99d0cbe221c"
+      },
+      "expected": "FAIL"
+    }
+  ],
+  "scope": "Synthetic records; not measured subject behavior"
+}

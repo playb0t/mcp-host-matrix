@@ -1,0 +1,38 @@
+{
+  "schema": "work-method-receipt/1",
+  "case_id": "example-document",
+  "profile": "document",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "version": "1.0.0",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90"
+  },
+  "contract_ref": {
+    "logical_path": "method/examples/cards/document.json",
+    "sha256": "32cb7d5d9a60cb4c25f6a757eb60cede2a03c73ac566a1f4d000f253a25cb545"
+  },
+  "artifacts": [
+    {
+      "logical_path": "method/examples/data/document.md",
+      "sha256": "8e7b1ff3353dab10f53b52d7ea624d219b7544ed07eb9f1ac6e61bb4d40196d5",
+      "size": 69,
+      "visibility": "public"
+    }
+  ],
+  "parents": [
+    {
+      "ref": {
+        "logical_path": "method/examples/receipts/engineering.json",
+        "sha256": "e6b4683976b70e89600a2fa3b303bd52928031b6adb1a896083aae04653873e5"
+      },
+      "relation": "input"
+    }
+  ],
+  "outcome": "verified",
+  "withheld": {
+    "internal_artifacts": 1,
+    "private_artifacts": 0
+  }
+}

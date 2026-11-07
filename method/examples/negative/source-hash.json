@@ -1,0 +1,30 @@
+{
+  "schema": "work-method-receipt/1",
+  "case_id": "example-research",
+  "profile": "research",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "version": "1.0.0",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90"
+  },
+  "contract_ref": {
+    "logical_path": "method/examples/cards/research.json",
+    "sha256": "153c9635b44cf0911b76ebd7a52b7a2ad9972100805c90540baa904e6cd48f65"
+  },
+  "artifacts": [
+    {
+      "logical_path": "method/examples/data/measurement.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size": 76,
+      "visibility": "public"
+    }
+  ],
+  "parents": [],
+  "outcome": "assessed",
+  "withheld": {
+    "internal_artifacts": 1,
+    "private_artifacts": 0
+  }
+}

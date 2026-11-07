@@ -1,0 +1,41 @@
+{
+  "schema": "work-method-spec/1",
+  "method_id": "work-evidence",
+  "version": "1.0.0",
+  "profiles": {
+    "engineering": {
+      "change": "change",
+      "validation": "command",
+      "regression": "command"
+    },
+    "research": {
+      "question": "assessment",
+      "method": "assessment",
+      "controls": "command",
+      "observations": "artifact",
+      "conclusion": "assessment"
+    },
+    "document": {
+      "sources": "assessment",
+      "format": "document",
+      "content": "assessment"
+    },
+    "publication": {
+      "payload": "payload",
+      "recipient": "assessment",
+      "delivery": "publication"
+    }
+  },
+  "schemas": {
+    "card": "work-method-card/1",
+    "receipt": "work-method-receipt/1",
+    "method_manifest": "work-method-manifest/1"
+  },
+  "limits": {
+    "file_bytes": 67108864,
+    "json_bytes": 2097152,
+    "manifest_files": 10000,
+    "receipt_nodes": 512,
+    "receipt_depth": 64
+  }
+}

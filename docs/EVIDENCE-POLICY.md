@@ -96,3 +96,60 @@ Snapshot dates and documentation read dates bound the results' currency. A packa
 After an intentional edit, `python -B tools/validate.py --write-manifest` regenerates checksums. Source fingerprint changes require inspecting the source and its projection.
 
 Use the [regression selection map](../matrix/REGRESSION.md) to identify a version-bound follow-up relevant to an implementation change.
+
+## Receipt-bound observations
+
+New cells use the [portable work method](../method/v1/README.md). A research
+card declares options.matrix_cells and its public matrix-projection.json.
+The projection contains the subjects, cases, source excerpts and derived
+checks reviewed inside the research. The importer copies those declarations;
+it does not compose new observations at import time.
+
+New matrix receipts use mcp-host-matrix-receipt/2. Their provenance contains
+work_receipt_ref (logical_path and `sha256`), work_receipt_sha256, profile,
+variant and contract_sha256. The work receipt is the portable public
+work-method-receipt/1; contract_sha256 identifies its public card contract.
+It is not the hash of a private validation report or internal graph.
+
+The adjacent public-artifacts index must equal that receipt's public artifact
+metadata. It is not independent proof. Every matrix source hash must occur
+among the receipt's direct public artifacts, whose bytes must exist in the
+same repository snapshot. Excerpts and declared equality/distinctness checks
+are compared with their public JSON sources. Internal and private artifacts
+contribute only the receipt's withheld counts; their names and hashes are not
+copied into the matrix receipt or index.
+
+A selected repository accepts receipts covered by its MANIFEST.sha256 with
+their cards, method bundle and data in that same selected Git tree. A working
+tree is candidate-only. A local Git commit does not prove remote publication;
+obtain the intended repository and commit independently. The verifier never
+contacts subjects or publishes. Hash consistency does not establish semantic
+truth or authenticate a producer.
+
+The exact R01-R06 case content and six saved receipts remain legacy at the
+25 October 2026 snapshot. Their bytes and case fingerprints are pinned; a
+changed file cannot gain a legacy exemption merely by using an old ID.
+Legacy observations are not retroactively represented as new work receipts.
+
+subjects is a catalog of hosts, bridges, components or services. A new cell
+names subject_id and requires its own receipt. Only that designated subject
+gets coverage in a new row; contextual native_hosts or components do not
+establish additional measured subjects. Adding a catalog entry does
+not measure that subject. Materialize and Neon receive cells only when
+suitable research receipts are available. Source-only research cannot claim
+a measured cell. The marked subject-coverage table is rendered from RESULTS;
+the surrounding narrative remains editorial text. Unknown is retained for an
+unresolved selected cell; M remains a coverage mark rather than a safety grade.
+Import also rebinds the one
+figures/SOURCES.json fingerprint for the intentionally changed RESULTS file.
+Existing figure bytes and labels remain the legacy projections; no new figure
+coverage is claimed by that metadata update.
+
+Prepare an import, then intentionally regenerate and validate the repository
+manifest. Both operations remain local:
+
+```console
+python -B tools/receipt_import.py --receipt RECEIPT --sha256 HASH --case CASE --apply
+python -B tools/render_matrix.py --check
+python -B tools/validate.py --write-manifest
+```

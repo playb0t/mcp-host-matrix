@@ -127,7 +127,7 @@ def validate_data(data: Any, updates: Any, evidence: Any, root: Path | None = No
     for case in cases:
         case = object_value(case, "case")
         identifier = case.get("id")
-        require(isinstance(identifier, str) and re.fullmatch(r"R\d{2}", identifier) is not None, "Invalid case ID")
+        require(isinstance(identifier, str) and re.fullmatch(r"[A-Za-z][A-Za-z0-9_.-]{0,127}", identifier) is not None, "Invalid case ID")
         case_ids.append(identifier)
         require(isinstance(case.get("status"), str) and case.get("status") in STATUSES, f"{identifier}: invalid status")
         versions = object_value(case.get("versions"), f"{identifier}.versions")
@@ -160,7 +160,8 @@ def validate_data(data: Any, updates: Any, evidence: Any, root: Path | None = No
                 require(sha(checked_path(root, artifact["repository_file"])) == artifact["sha256"], f"{artifact['id']}: projection fingerprint mismatch")
     unique(ids, "evidence.artifacts")
     for case in cases:
-        require(set(case["evidence_ids"]) <= set(ids), f"{case['id']}: unresolved evidence ID")
+        if case["id"] in {"R01", "R02", "R03", "R04", "R05", "R06"}:
+            require(set(case["evidence_ids"]) <= set(ids), f"{case['id']}: unresolved evidence ID")
     cells = array_value(update.get("cells"), "update.cells")
     pairs: list[tuple[str, str]] = []
     for cell in cells:
@@ -368,6 +369,27 @@ def validate(root: Path, manifest: bool = True) -> dict[str, int]:
     updates = read_json(root / "disconnect/bench/UPDATE-RESULTS.json")
     evidence = read_json(root / "matrix/EVIDENCE.json")
     result = validate_data(data, updates, evidence, root)
+    from receipt_import import validate_matrix
+    from render_matrix import check as check_coverage
+    result.update(validate_matrix(root, data, manifested=manifest))
+    check_coverage(root, data)
+    if manifest:
+        from receipt_import import P
+        snapshot=P.Snapshot(root)
+        examples=P.load_json(snapshot.read("method/examples/INDEX.json"))
+        passed_profiles=set();negative=0
+        for example in examples["cases"]:
+            require(example.get("expected") in {"PASS","FAIL"},"Example expected verdict missing")
+            try:
+                graph=P.verify_receipt(snapshot,example["ref"])
+            except P.ValidationError:
+                require(example["expected"]=="FAIL","Positive method example failed")
+                negative+=1
+            else:
+                require(example["expected"]=="PASS","Negative method example unexpectedly passed")
+                passed_profiles.add(graph["receipt"]["profile"])
+        require(passed_profiles==set(P.PROFILES) and negative>=1,"Examples must cover four profiles and a negative control")
+        result.update(method_positive_profiles=len(passed_profiles),method_negative_examples=negative)
     link_count = 0
     for path in files(root):
         name = path.relative_to(root).as_posix()

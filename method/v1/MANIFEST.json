@@ -1,0 +1,22 @@
+{
+  "schema": "work-method-manifest/1",
+  "id": "work-evidence",
+  "version": "1.0.0",
+  "files": [
+    {
+      "logical_path": "method/v1/portable.py",
+      "sha256": "5ab89a606a7c866c8d307b4a3783a1a72158b9d2c6507462d22158a6aae768d0",
+      "size": 23333
+    },
+    {
+      "logical_path": "method/v1/SPEC.json",
+      "sha256": "5eda5afa3dde1139b172c4ed630fdd4b8138d8c1e507450b66205e21fc15d9ce",
+      "size": 939
+    },
+    {
+      "logical_path": "method/v1/README.md",
+      "sha256": "822e41b1646536a568bf725d54ef9613dcebdf5b861d462f6d2836b156bcab3a",
+      "size": 5346
+    }
+  ]
+}

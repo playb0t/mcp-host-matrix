@@ -379,5 +379,37 @@
     "Official update mechanisms",
     "Ordinary UI consent; real default-profile access; native other-SID discovery/write",
     "Other URI, issuer, resource, TLS and authentication contexts"
+  ],
+  "subjects": [
+    {
+      "id": "vscode",
+      "name": "VS Code",
+      "kind": "host"
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "kind": "host"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "kind": "host"
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "kind": "host"
+    },
+    {
+      "id": "cascade",
+      "name": "Cascade",
+      "kind": "host"
+    },
+    {
+      "id": "mcp-remote",
+      "name": "mcp-remote",
+      "kind": "bridge"
+    }
   ]
 }
