@@ -13,7 +13,7 @@ Source notes retain the documentation read date.
 
 Author: Alex Gercog · Repository: [playb0t/mcp-host-matrix](https://github.com/playb0t/mcp-host-matrix) · Related page: [Remote MCP client options without a local bridge](../hosts/MATRIX.en.md).
 
-This page lists what each host documents about disconnecting a remote MCP server; it does not recommend an action or estimate a vendor's cost. Thirteen host rows, eleven fields per row; the host name is the row label. The table covers only the cited official pages and the stated product surface. No clients, accounts or revocation calls were tested for that documentation pass; the separate measured section below records the later bench.
+This page lists what each host documents about disconnecting a remote MCP server. Thirteen host rows, eleven fields per row; the host name is the row label. The table covers only the cited official pages and the stated product surface. No clients, accounts or revocation calls were tested for that documentation pass; the separate measured section below records the later bench.
 
 "Not documented" marks a gap in those pages, not proof that an action never happens. Separate logout or whole-app cleanup is recorded without attributing it to Remove. "Layered actions documented" names described cleanup and revocation steps; individual gaps remain visible and no complete retirement is implied.
 

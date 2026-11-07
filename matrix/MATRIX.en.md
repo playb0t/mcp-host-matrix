@@ -1,4 +1,4 @@
-# MCP Host Matrix: selected R01-R06 evidence
+# MCP Host Matrix: R01-R06 evidence
 
 [Project](../README.md) · [Structured outcomes](RESULTS.json) · [Source fingerprints](EVIDENCE.json) · [Glossary](../docs/EVIDENCE-POLICY.md#glossary)
 
@@ -9,11 +9,11 @@ Evidence snapshot: 25 October 2026. Tested versions, measurement scopes and sour
 
 </details>
 
-The matrix compares documentation, versioned implementation and measured behavior in controlled fixtures. It covers selected implementations and operations, not all MCP implementations.
+The matrix sets documentation against versioned implementation and measured behavior on controlled fixtures, for the implementations and operations named in each row.
 
 ## Subject coverage
 
-**M** means a selected case was measured. It is not a pass grade or exhaustive coverage. **Not measured** means this snapshot makes no measurement claim for that subject and direction.
+**M** marks a measured case. It records coverage, not a grade. **Not measured** marks a cell this snapshot leaves open.
 
 <!-- matrix-coverage:start -->
 | Direction | VS Code | Claude Code | Cursor | Zed | Cascade | mcp-remote |
@@ -29,7 +29,7 @@ The matrix compares documentation, versioned implementation and measured behavio
 There are five native hosts and one bridge path. In R02, Claude Code CLI performs a configuration operation; the measured credential store belongs to mcp-remote. [Connectivity measurements](../hosts/bench/BENCH.en.md), including Continue's intercepted bridge attempts, form a separate prerequisite track.
 
 <a id="r01"></a>
-## R01: selected disconnect actions did not revoke in 12 of 12 base windows
+## R01: disconnect did not revoke in 12 of 12 base windows
 
 **Subjects:** VS Code 1.142.0, Zed 1.24.4, Cascade 3.10.67, Cursor 3.24.18, Claude Code 2.1.306 and a separate Claude Code to mcp-remote 0.15.2 path. Windows and Linux/WSL2 results retain their per-path limits.
 

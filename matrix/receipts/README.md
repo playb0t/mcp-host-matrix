@@ -1,8 +1,8 @@
-# Selected deidentified receipts
+# Deidentified receipts
 
 [Project](../../README.md) · [Matrix](../MATRIX.en.md) · [Evidence policy](../../docs/EVIDENCE-POLICY.md)
 
-These six receipts expose selected observations and controls from existing saved evidence. They are field-level excerpts, not complete journals or a self-contained rerun. Full originals remain author-held. The connectivity track has separate structured results and is not covered by these receipts.
+These six receipts publish the saved observations and controls behind R01-R06 as field-level excerpts. Complete journals and full originals stay with the author. The connectivity track has separate structured results and is not covered by these receipts.
 
 | Case | Receipt | What it exposes |
 |---|---|---|
@@ -23,4 +23,4 @@ Credentials, complete personal SIDs, account/machine names and local paths are o
 
 F01 exposes the demonstrated retained-file subcase, together with the source run's overall status; it does not claim the entire source run passed. F02 does not establish access to a real default profile. R03 does not measure ordinary UI consent. R04 does not execute real PowerShell or a browser. R05 does not demonstrate a successful real-provider token exchange. R06 measures owned build replacement, not official updater behavior.
 
-Further suitable source material may be requested through the [repository tracker](https://github.com/playb0t/mcp-host-matrix/issues).
+Request further source material through the [repository tracker](https://github.com/playb0t/mcp-host-matrix/issues).

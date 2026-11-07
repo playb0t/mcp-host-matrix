@@ -15,7 +15,7 @@ Author: Alex Gercog · Repository: [playb0t/mcp-host-matrix](https://github.com/
 
 A local bridge here means a process the client starts on the user's machine to reach a remote server, for example `mcp-remote`; this page lists what each client documents for connecting without one.
 
-This page lists what each client documents and what connected on a bench; it does not recommend a configuration or estimate a vendor's cost.
+This page lists what each client documents and what connected on a bench.
 
 DCR is dynamic client registration; CIMD is Client ID Metadata Documents (a URL as the client id); both as defined in the [MCP authorization specification, revision 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization).
 
