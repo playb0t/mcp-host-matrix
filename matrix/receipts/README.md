@@ -23,4 +23,4 @@ Credentials, complete personal SIDs, account/machine names and local paths are o
 
 F01 exposes the demonstrated retained-file subcase, together with the source run's overall status; it does not claim the entire source run passed. F02 does not establish access to a real default profile. R03 does not measure ordinary UI consent. R04 does not execute real PowerShell or a browser. R05 does not demonstrate a successful real-provider token exchange. R06 measures owned build replacement, not official updater behavior.
 
-Request further source material through the [repository tracker](https://github.com/playb0t/mcp-host-matrix/issues).
+Source material stays with the author; requests go through the [repository tracker](https://github.com/playb0t/mcp-host-matrix/issues) and are decided case by case.

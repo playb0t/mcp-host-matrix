@@ -86,7 +86,7 @@ python -B tools/validate.py
 
 The validator checks data coherence, declared file fingerprints, editable-scene JSON, local links and image references, private-data patterns, SVG content and [file checksums](MANIFEST.sha256). One altered byte fails it. It proves the published record; the measurement itself lives in the receipts and controls. Maintainers regenerate the manifest after an intentional edit with `python -B tools/validate.py --write-manifest`.
 
-The repository publishes curated projections and [deidentified receipts](matrix/receipts/README.md). Raw credentials, private profiles and the bench itself stay off it. Request full source artifacts through the [repository tracker](https://github.com/playb0t/mcp-host-matrix/issues).
+The repository publishes curated projections and [deidentified receipts](matrix/receipts/README.md). Raw credentials, private profiles, full source artifacts and the bench itself stay with the author. Want your own MCP client measured on this bench? [Open an issue](https://github.com/playb0t/mcp-host-matrix/issues).
 
 New observations enter the matrix through [receipt-bound observations](docs/EVIDENCE-POLICY.md#receipt-bound-observations): a research record declares the cells it covers, its public projection is imported as a matrix receipt with provenance, and the validator refuses a measured cell whose sources are not public artifacts of that receipt. The R01-R06 content stays the original 25 October snapshot, pinned by hash.
 
