@@ -2,6 +2,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -21,6 +22,7 @@ STATE=REPO.parent/".matrix-tests"
 class Fixture:
     def __init__(self)->None:
         STATE.mkdir(exist_ok=True);self.root=STATE/uuid4().hex
+        self.source_root=self.root;self.outputs: list[Path]=[]
         shutil.copytree(REPO,self.root,ignore=shutil.ignore_patterns(".git","__pycache__"))
         self.case_id="SYN-R01";self.receipt_name="work/fixture/receipt.json"
         self.source_name="work/fixture/source.json";self.projection_name="work/fixture/matrix-projection.json"
@@ -60,8 +62,15 @@ class Fixture:
         self.index()
 
     def cleanup(self)->None:
-        assert self.root.resolve().is_relative_to(STATE.resolve()) and self.root!=STATE
-        shutil.rmtree(self.root)
+        for root in [self.source_root, *self.outputs]:
+            assert root.resolve().is_relative_to(STATE.resolve()) and root!=STATE
+            if root.exists():
+                def retry(function, name, info):
+                    path=Path(name)
+                    assert path.resolve().is_relative_to(root.resolve())
+                    if not isinstance(info[1],PermissionError):raise info[1]
+                    path.chmod(0o700);function(name)
+                shutil.rmtree(root,onerror=retry)
 
     def read(self,name: str)->dict:return json.loads((self.root/name).read_text(encoding="utf8"))
     def write(self,name: str,value: object)->None:
@@ -71,8 +80,12 @@ class Fixture:
     def ref(self,name: str)->dict:return {"logical_path":name,"sha256":hashlib.sha256((self.root/name).read_bytes()).hexdigest()}
     def index(self)->None:V.write_manifest(self.root)
     def graph(self)->dict:return I.P.verify_receipt(I.P.Snapshot(self.root),self.ref(self.receipt_name))
+    def output(self)->Path:
+        target=STATE/(uuid4().hex+"-candidate");self.outputs.append(target);return target
     def apply(self)->dict:
-        result=I.apply(self.root,self.ref(self.receipt_name),self.case_id);self.index();return result
+        target=self.output()
+        result=I.apply(self.root,self.ref(self.receipt_name),self.case_id,output=target)
+        self.root=target;self.index();return result
     def validate(self)->dict:return V.validate(self.root)
     def cli(self,*args: str)->dict:
         argv=[sys.executable,"-B",str(self.root/"tools/validate.py"),"--root",str(self.root),*args]
@@ -160,28 +173,177 @@ class MatrixReceiptTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"excerpt"):I.material(I.P.Snapshot(f.root),f.ref(f.receipt_name),f.case_id)
     def test_existing_different_receipt_prevents_all_mutation(self)->None:
         f=self.f;name="matrix/receipts/"+f.case_id+".json";f.write(name,b'{}\n');f.index();before=(f.root/"matrix/RESULTS.json").read_bytes()
-        with self.assertRaisesRegex(ValueError,"different receipt"):I.apply(f.root,f.ref(f.receipt_name),f.case_id)
+        output=f.output()
+        with self.assertRaisesRegex(ValueError,"different receipt"):
+            I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=output)
         self.assertEqual((f.root/"matrix/RESULTS.json").read_bytes(),before)
-    def test_ambiguous_replace_failure_restores_own_bytes(self)->None:
-        f=self.f;before=(f.root/"matrix/RESULTS.json").read_bytes();real=I.os.replace
-        def fail(source,target):
-            real(source,target)
-            if Path(target).name=="RESULTS.json":raise OSError("Synthetic post-replace failure")
-        with patch.object(I.os,"replace",side_effect=fail):
-            with self.assertRaises(OSError):I.apply(f.root,f.ref(f.receipt_name),f.case_id)
-        self.assertEqual((f.root/"matrix/RESULTS.json").read_bytes(),before)
-        self.assertFalse((f.root/("matrix/receipts/"+f.case_id+".json")).exists())
+        self.assertFalse(output.exists())
 
-    def test_later_foreign_edit_survives_failed_import(self)->None:
-        f=self.f;real=I.os.replace
-        def fail(source,target):
-            real(source,target)
-            if Path(target).name=="RESULTS.json":
-                Path(target).write_bytes(b"foreign later edit\\n")
-                raise OSError("Synthetic post-replace failure")
-        with patch.object(I.os,"replace",side_effect=fail):
-            with self.assertRaises(OSError):I.apply(f.root,f.ref(f.receipt_name),f.case_id)
-        self.assertEqual((f.root/"matrix/RESULTS.json").read_bytes(),b"foreign later edit\\n")
+    def test_output_required_and_source_aliases_rejected(self)->None:
+        f=self.f;reference=f.ref(f.receipt_name)
+        with self.assertRaises(TypeError):I.apply(f.root,reference,f.case_id)
+        outputs=[f.root,f.root/"candidate",Path("relative-candidate"),f.root/".."/"alias-candidate"]
+        if os.name=="nt":
+            outputs.append(f.root.parent.with_name(f.root.parent.name.swapcase())/"case-alias-candidate")
+        for output in outputs:
+            with self.subTest(output=str(output)):
+                with self.assertRaises(ValueError):I.apply(f.root,reference,f.case_id,output=output)
+        self.assertFalse((f.root/"candidate").exists())
+
+    def test_existing_output_foreign_data_is_preserved(self)->None:
+        f=self.f;output=f.output();output.mkdir();foreign=output/"foreign.txt";foreign.write_bytes(b"foreign")
+        with self.assertRaisesRegex(ValueError,"already exists"):
+            I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=output)
+        self.assertEqual(foreign.read_bytes(),b"foreign");self.assertEqual(list(output.iterdir()),[foreign])
+
+    def test_linked_output_parent_is_rejected(self)->None:
+        f=self.f;alias=f.output()
+        try:alias.symlink_to(f.root,target_is_directory=True)
+        except (OSError,NotImplementedError):self.skipTest("directory symlinks unavailable")
+        # Remove the alias separately; fixture cleanup must never traverse it.
+        f.outputs.remove(alias);self.addCleanup(alias.unlink)
+        with self.assertRaisesRegex(ValueError,"Linked|reparse"):
+            I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=alias/"candidate")
+        self.assertFalse((f.root/"candidate").exists())
+
+    def test_complete_selected_snapshot_excludes_unmanifested_files(self)->None:
+        f=self.f;before={name:(f.root/name).read_bytes()for name in I.P.Snapshot(f.root).manifest}
+        f.write("unmanifested-private.txt",b"not selected")
+        original_manifest=(f.root/"MANIFEST.sha256").read_bytes();result=f.apply()
+        self.assertEqual(result["status"],"prepared_requires_repository_validation")
+        self.assertFalse((f.root/"unmanifested-private.txt").exists())
+        self.assertEqual((f.source_root/"MANIFEST.sha256").read_bytes(),original_manifest)
+        for name,raw in before.items():
+            self.assertEqual((f.source_root/name).read_bytes(),raw)
+            if name not in result["files"]:self.assertEqual((f.root/name).read_bytes(),raw)
+        self.assertEqual(f.validate()["receipt_bound_cases"],1)
+
+    def test_competing_source_edit_before_final_write_is_preserved(self)->None:
+        f=self.f;source=f.root/"matrix/RESULTS.json";foreign=b"operator competing source edit\n"
+        real=I._create_file;output=f.output();reference=f.ref(f.receipt_name)
+        def compete(root: Path,name: str,content: bytes)->None:
+            if name=="matrix/RESULTS.json":source.write_bytes(foreign)
+            real(root,name,content)
+        with patch.object(I,"_create_file",side_effect=compete):
+            result=I.apply(f.root,reference,f.case_id,output=output)
+        self.assertEqual(source.read_bytes(),foreign)
+        self.assertFalse((f.root/("matrix/receipts/"+f.case_id+".json")).exists())
+        self.assertEqual(result["state"],"candidate")
+        self.assertEqual(result["status"],"prepared_requires_repository_validation")
+        self.assertEqual(json.loads((output/"matrix/RESULTS.json").read_bytes())["cases"][-1]["id"],f.case_id)
+        V.write_manifest(output);self.assertEqual(V.validate(output)["receipt_bound_cases"],1)
+
+    def test_source_mutation_before_read_fails_without_output(self)->None:
+        f=self.f;output=f.output();reference=f.ref(f.receipt_name);f.write("README.md",b"new operator edit\n")
+        with self.assertRaisesRegex(ValueError,"fingerprint"):
+            I.apply(f.root,reference,f.case_id,output=output)
+        self.assertEqual((f.root/"README.md").read_bytes(),b"new operator edit\n")
+        self.assertFalse(output.exists())
+
+    def test_output_created_after_check_is_not_reused(self)->None:
+        f=self.f;output=f.output();real=I._stage_new
+        def compete(target: Path,files: dict[str,bytes])->None:
+            target.mkdir();(target/"foreign.txt").write_bytes(b"foreign")
+            real(target,files)
+        with patch.object(I,"_stage_new",side_effect=compete):
+            with self.assertRaises(FileExistsError):I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=output)
+        self.assertEqual((output/"foreign.txt").read_bytes(),b"foreign")
+        self.assertEqual(len(list(output.iterdir())),1)
+
+    def test_partial_failure_and_late_foreign_edit_are_retained(self)->None:
+        f=self.f;output=f.output();before=(f.root/"matrix/RESULTS.json").read_bytes();real=I._create_file
+        def fail(root: Path,name: str,content: bytes)->None:
+            if name=="matrix/RESULTS.json":
+                (root/"README.md").write_bytes(b"foreign later edit\n")
+                raise OSError("Synthetic partial staging failure")
+            real(root,name,content)
+        with patch.object(I,"_create_file",side_effect=fail):
+            with self.assertRaisesRegex(OSError,"incomplete output retained"):
+                I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=output)
+        self.assertEqual((output/"README.md").read_bytes(),b"foreign later edit\n")
+        self.assertEqual((f.root/"matrix/RESULTS.json").read_bytes(),before)
+
+    def test_foreign_file_created_before_exclusive_open_is_preserved(self)->None:
+        f=self.f;output=f.output();real=I._create_file
+        def compete(root: Path,name: str,content: bytes)->None:
+            if name=="matrix/RESULTS.json":(root/name).write_bytes(b"foreign target\n")
+            real(root,name,content)
+        with patch.object(I,"_create_file",side_effect=compete):
+            with self.assertRaisesRegex(OSError,"incomplete output retained"):
+                I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=output)
+        self.assertEqual((output/"matrix/RESULTS.json").read_bytes(),b"foreign target\n")
+
+    def test_changed_candidate_is_not_reported_as_prepared(self)->None:
+        f=self.f;output=f.output();real=I._create_file
+        def compete(root: Path,name: str,content: bytes)->None:
+            real(root,name,content)
+            if name=="matrix/RESULTS.json":(root/".gitattributes").write_bytes(b"foreign candidate edit\n")
+        with patch.object(I,"_create_file",side_effect=compete):
+            with self.assertRaisesRegex(OSError,"candidate changed while staging"):
+                I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=output)
+        self.assertEqual((output/".gitattributes").read_bytes(),b"foreign candidate edit\n")
+
+    def test_unplanned_file_or_empty_directory_rejects_candidate(self)->None:
+        f=self.f;real=I._create_file
+        for kind in ("file","directory"):
+            with self.subTest(kind=kind):
+                output=f.output()
+                def compete(root: Path,name: str,content: bytes)->None:
+                    real(root,name,content)
+                    if name=="MANIFEST.sha256":
+                        foreign=root/"foreign-unplanned"
+                        if kind=="file":foreign.write_bytes(b"foreign material\n")
+                        else:foreign.mkdir()
+                with patch.object(I,"_create_file",side_effect=compete):
+                    with self.assertRaisesRegex(OSError,"candidate inventory differs"):
+                        I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=output)
+                if kind=="file":self.assertEqual((output/"foreign-unplanned").read_bytes(),b"foreign material\n")
+                else:self.assertTrue((output/"foreign-unplanned").is_dir())
+
+    def test_unplanned_symlink_rejects_candidate_and_is_preserved(self)->None:
+        f=self.f;real=I._create_file;output=f.output();link=output/"foreign-link"
+        probe=f.root/"symlink-probe"
+        try:probe.symlink_to(f.root/"README.md")
+        except (OSError,NotImplementedError):self.skipTest("file symlinks unavailable")
+        finally:
+            if probe.is_symlink():probe.unlink()
+        def compete(root: Path,name: str,content: bytes)->None:
+            real(root,name,content)
+            if name=="MANIFEST.sha256":
+                link.symlink_to(f.root/"README.md")
+        try:
+            with patch.object(I,"_create_file",side_effect=compete):
+                with self.assertRaisesRegex(OSError,"Linked|reparse"):
+                    I.apply(f.root,f.ref(f.receipt_name),f.case_id,output=output)
+            self.assertTrue(link.is_symlink())
+        finally:
+            if link.is_symlink():link.unlink()
+
+    def test_commit_snapshot_preserves_later_source_worktree_edit(self)->None:
+        f=self.f;reference=f.ref(f.receipt_name);output=f.output()
+        env={key:value for key,value in os.environ.items()if not key.startswith("GIT_")}
+        def git(*args: str)->str:
+            result=subprocess.run(["git","-c","core.autocrlf=false","-c","commit.gpgsign=false",
+                "-c","core.hooksPath="+str(f.root/".empty-hooks"),"-c","user.name=Fixture",
+                "-c","user.email=fixture@example.invalid","-C",str(f.root),*args],
+                capture_output=True,timeout=30,env=env)
+            self.assertEqual(result.returncode,0,result.stderr.decode(errors="replace"))
+            return result.stdout.decode().strip()
+        git("init");git("add",".");git("commit","-m","Synthetic matrix snapshot")
+        commit=git("rev-parse","HEAD");f.write("matrix/RESULTS.json",b"later worktree edit\n")
+        result=I.apply(f.root,reference,f.case_id,output=output,commit=commit)
+        self.assertEqual(result["state"],"commit_snapshot");self.assertEqual(result["commit"],commit)
+        self.assertEqual((f.root/"matrix/RESULTS.json").read_bytes(),b"later worktree edit\n")
+        self.assertFalse((output/".git").exists());V.write_manifest(output)
+        self.assertEqual(V.validate(output)["receipt_bound_cases"],1)
+
+    def test_cli_apply_requires_output_and_output_requires_apply(self)->None:
+        f=self.f;base=[sys.executable,"-B",str(f.root/"tools/receipt_import.py"),"--root",str(f.root),
+            "--receipt",f.receipt_name,"--sha256",f.ref(f.receipt_name)["sha256"],"--case",f.case_id]
+        for extra,message in [(["--apply"],"--apply requires --output"),
+                              (["--output",str(f.output())],"--output requires --apply")]:
+            result=subprocess.run([*base,*extra],capture_output=True,timeout=30)
+            self.assertEqual(result.returncode,2);self.assertIn(message,result.stderr.decode())
 
     def test_boolean_integer_excerpt_aliases_are_rejected(self)->None:
         f=self.f

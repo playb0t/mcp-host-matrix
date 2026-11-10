@@ -82,13 +82,14 @@ Run the repository checks with Python 3.10+:
 
 ```console
 python -B tools/validate.py
+python -B -m unittest discover -s tests -p "test_*.py"
 ```
 
 The validator checks data coherence, declared file fingerprints, editable-scene JSON, local links and image references, private-data patterns, SVG content and [file checksums](MANIFEST.sha256). One altered byte fails it. It proves the published record; the measurement itself lives in the receipts and controls. Maintainers regenerate the manifest after an intentional edit with `python -B tools/validate.py --write-manifest`.
 
 The repository publishes curated projections and [deidentified receipts](matrix/receipts/README.md). Raw credentials, private profiles, full source artifacts and the bench itself stay with the author. Want your own MCP client measured on this bench? [Open an issue](https://github.com/playb0t/mcp-host-matrix/issues).
 
-New observations enter the matrix through [receipt-bound observations](docs/EVIDENCE-POLICY.md#receipt-bound-observations): a research record declares the cells it covers, its public projection is imported as a matrix receipt with provenance, and the validator refuses a measured cell whose sources are not public artifacts of that receipt. The R01-R06 content stays the original 25 October snapshot, pinned by hash.
+New observations enter the matrix through [receipt-bound observations](docs/EVIDENCE-POLICY.md#receipt-bound-observations): a research record declares the cells it covers, its public projection is imported as a matrix receipt with provenance, and the validator refuses a measured cell whose sources are not public artifacts of that receipt. The R01-R06 content stays the original 25 October snapshot, pinned by hash. The importer requires an explicit absolute `--output` outside the source root and creates a complete candidate in that absent directory. It never overwrites the source or reuses an existing output. Success still requires reviewing the candidate and explicitly regenerating and validating its manifest; a failed partial output is retained for inspection. The evidence policy documents snapshot and concurrent-edit limits.
 
 ## Limits
 

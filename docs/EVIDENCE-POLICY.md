@@ -145,11 +145,43 @@ figures/SOURCES.json fingerprint for the intentionally changed RESULTS file.
 Existing figure bytes and labels remain the legacy projections; no new figure
 coverage is claimed by that metadata update.
 
-Prepare an import, then intentionally regenerate and validate the repository
-manifest. Both operations remain local:
+Prepare an import in a separate, absolute, previously absent output directory.
+Its parent must exist, and the output must be outside the source root, with no
+linked or aliased path components. --apply requires --output; --output is
+rejected for a verification-only call. The source repository is read-only to
+the importer. For example, set SOURCE and NEW_CANDIDATE to absolute paths:
 
 ```console
-python -B tools/receipt_import.py --receipt RECEIPT --sha256 HASH --case CASE --apply
-python -B tools/render_matrix.py --check
-python -B tools/validate.py --write-manifest
+python -B tools/receipt_import.py --root SOURCE --receipt RECEIPT --sha256 HASH --case CASE --apply --output NEW_CANDIDATE
+python -B tools/render_matrix.py --root NEW_CANDIDATE --check
+python -B tools/validate.py --root NEW_CANDIDATE --write-manifest
+python -B tools/validate.py --root NEW_CANDIDATE
 ```
+
+The importer verifies and stages every file listed in the selected source
+manifest, plus the calculated cell, receipts, rendered table and figure-source
+fingerprint. Unmanifested files and .git are excluded. Snapshot content is
+bounded to 256 mebibytes. With --commit, every copied source file comes from that
+explicit commit, even if the worktree has later edits. Without --commit, every
+selected file must match the captured manifest; a changed selected file fails
+verification if observed before copying. Source edits after those reads remain
+in the source and are not claimed as part of the candidate.
+
+The output directory and its files are created exclusively. Final readback
+checks the expected bytes and exact file/directory inventory, rejecting
+unplanned entries and links. Existing outputs and conflicting files are never
+reused, replaced or rolled back. A failure
+after output creation retains an explicitly reported incomplete directory,
+including any later foreign edits; inspect it and choose a fresh output for a
+retry. No cooperative lock protects noncooperating editors. Path and content
+checks detect observed changes; they are not a filesystem transaction against
+a hostile process that swaps directories or edits after the checks. Use a
+parent directory controlled by the operator and review the candidate before
+any later publication.
+
+Success reports prepared_requires_repository_validation, not a completed
+import or publication. The copied source manifest intentionally predates the
+calculated updates. Review those changes, then explicitly regenerate and
+validate the candidate manifest as above. CI also executes the portable-method
+and importer unittest suites; all these checks remain offline and do not
+reproduce product measurements.

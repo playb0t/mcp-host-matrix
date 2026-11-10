@@ -7,12 +7,11 @@ import copy
 import hashlib
 import importlib.util
 import json
-import os
 from pathlib import Path
 import re
+import stat
 import sys
 from typing import Any
-from uuid import uuid4
 
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location("matrix_portable_method",ROOT/"method/v1/portable.py")
@@ -186,46 +185,82 @@ def validate_matrix(root: Path,data: dict,*,manifested: bool=True)->dict[str,int
     return {"legacy_cases":legacy,"receipt_bound_cases":bound,"subjects":len(catalog)}
 
 
-def _write(root: Path,updates: dict[str,bytes],expected: dict[str,bytes])->None:
-    targets={n:root.joinpath(*P.logical_path(n).split("/"))for n in updates};before={}
-    for n,p in targets.items():
-        P._unlinked(p.parent)
-        if p.exists() or p.is_symlink():P._unlinked(p)
-        before[n]=p.read_bytes() if p.exists()else None
-        require(before[n] == expected[n] if n in expected else before[n] in (None,updates[n]),
-                "existing different receipt or concurrent edit preserved")
-    owned={}
+def _output_path(source: Path, output: Path) -> Path:
+    """Require a fresh canonical destination; never reuse a directory."""
+    require(output.is_absolute(), "output must be an absolute new directory")
+    require(not str(output).startswith(("\\\\", "//")), "network output is not accepted")
+    P.logical_path(output.name)
+    P._unlinked(output.parent)
+    require(str(output.resolve()) == str(output), "output path must be canonical, without aliases")
+    require(not output.is_relative_to(source) and not source.is_relative_to(output),
+            "output must be outside the source root")
+    require(not output.exists() and not output.is_symlink(), "output already exists; preserved")
+    return output
+
+
+def _create_file(root: Path, name: str, content: bytes) -> None:
+    """Create one file exclusively inside the newly owned candidate directory."""
+    target = root.joinpath(*P.logical_path(name).split("/"))
+    parent = root
+    P._unlinked(parent)
+    for part in target.relative_to(root).parts[:-1]:
+        parent = parent / part
+        try:
+            parent.mkdir()
+        except FileExistsError:
+            pass
+        P._unlinked(parent)
+        require(parent.is_dir(), "candidate parent is not a directory")
+    with target.open("xb") as stream:
+        stream.write(content)
+
+
+def _check_inventory(output: Path, files: dict[str, bytes]) -> None:
+    """Reject unplanned files, directories and links observed in the candidate."""
+    expected_files = set(files)
+    expected_dirs: set[str] = set()
+    for name in files:
+        for parent in Path(name).parents:
+            if parent != Path("."):
+                expected_dirs.add(parent.as_posix())
+    actual_files: set[str] = set()
+    actual_dirs: set[str] = set()
+    P._unlinked(output)
+    for path in output.rglob("*"):
+        P._unlinked(path)
+        name = path.relative_to(output).as_posix()
+        mode = path.lstat().st_mode
+        if stat.S_ISREG(mode):
+            actual_files.add(name)
+        elif stat.S_ISDIR(mode):
+            actual_dirs.add(name)
+        else:
+            require(False, "unexpected candidate entry type")
+    require(actual_files == expected_files and actual_dirs == expected_dirs,
+            "candidate inventory differs from selected files and required directories")
+
+
+def _stage_new(output: Path, files: dict[str, bytes]) -> None:
+    # mkdir and every file create are exclusive. No existing path is replaced,
+    # restored or deleted, including when a noncooperating editor writes here.
+    output.mkdir()
     try:
-        for n,p in targets.items():
-            p.parent.mkdir(parents=True,exist_ok=True);P._unlinked(p.parent)
-            require((p.read_bytes()if p.exists()else None)==before[n],"concurrent import edit preserved")
-            temp=p.with_name(p.name+"."+uuid4().hex+".tmp")
-            try:
-                with temp.open("xb")as stream:stream.write(updates[n])
-                info=temp.stat();owned[n]=(info.st_dev,info.st_ino)
-                os.replace(temp,p)
-            finally:temp.unlink(missing_ok=True)
-    except BaseException:
-        # Include replacements which committed before a caller reported failure.
-        for n in reversed(list(owned)):
-            p=targets[n]
-            try:
-                P._unlinked(p);info=p.stat()
-                if (info.st_dev,info.st_ino)!=owned[n] or p.read_bytes()!=updates[n]:continue
-                if before[n]is None:p.unlink()
-                else:
-                    restore=p.with_name(p.name+"."+uuid4().hex+".restore")
-                    try:
-                        with restore.open("xb")as stream:stream.write(before[n])
-                        latest=p.stat()
-                        if (latest.st_dev,latest.st_ino)==owned[n] and p.read_bytes()==updates[n]:os.replace(restore,p)
-                    finally:restore.unlink(missing_ok=True)
-            except (OSError,ValueError):pass
-        raise
+        for name, content in files.items():
+            _create_file(output, name, content)
+        for name, content in files.items():
+            target = output.joinpath(*name.split("/"))
+            P._unlinked(target)
+            require(target.read_bytes() == content, "candidate changed while staging")
+        _check_inventory(output, files)
+    except BaseException as exc:
+        # Retain the entire incomplete directory: cleanup could erase a late
+        # foreign edit. Reuse is forbidden; inspect it and choose a fresh output.
+        raise OSError(f"incomplete output retained at {output}: {exc}") from exc
 
 
-def apply(root: Path,ref: dict,case_id: str,*,commit: str|None=None)->dict:
-    snapshot=P.Snapshot(root,commit);root=snapshot.root;result=material(snapshot,ref,case_id)
+def apply(root: Path,ref: dict,case_id: str,*,output: Path,commit: str|None=None)->dict:
+    snapshot=P.Snapshot(root,commit);root=snapshot.root
+    output=_output_path(root,Path(output));result=material(snapshot,ref,case_id)
     data=P.load_json(snapshot.read("matrix/RESULTS.json"));catalog=subjects(data["subjects"])
     for ident,subject in result["subjects"].items():
         require(ident not in catalog or P.canonical(catalog[ident])==P.canonical(subject),"subject ID collision")
@@ -243,22 +278,42 @@ def apply(root: Path,ref: dict,case_id: str,*,commit: str|None=None)->dict:
     require(len(rows)==1,"expected one structured-results figure source fingerprint")
     rows[0]["sha256"]=hashlib.sha256(updates["matrix/RESULTS.json"]).hexdigest()
     updates[source_file]=encode(fingerprints)
-    expected={n:snapshot.read(n)for n in ("matrix/RESULTS.json","matrix/MATRIX.en.md",source_file)}
+    # Materialize only the selected manifest, never arbitrary worktree files.
+    # All source reads finish before creating the output. Later source edits
+    # remain untouched; the candidate represents these verified selected bytes.
+    files: dict[str, bytes] = {}
+    total = 0
+    for name in snapshot.manifest:
+        raw = snapshot.read(name)
+        total += len(raw)
+        require(total <= 256 * 1024 * 1024, "selected snapshot exceeds staging size limit")
+        files[name] = raw
+    for name, raw in updates.items():
+        if name not in ("matrix/RESULTS.json", "matrix/MATRIX.en.md", source_file):
+            require(name not in files or files[name] == raw, "existing different receipt preserved")
+        files[name] = raw
+    manifest = snapshot._raw("MANIFEST.sha256", P.MAX_JSON)
+    require(hashlib.sha256(manifest).hexdigest() == snapshot.manifest_sha256,
+            "selected manifest changed before staging")
+    files["MANIFEST.sha256"] = manifest
     snapshot.assert_anchor()
-    if commit is not None:
-        require(all((root/n).read_bytes()==snapshot.read(n)for n in ("matrix/RESULTS.json","matrix/MATRIX.en.md")),"worktree differs from selected commit")
-    _write(root,updates,expected)
-    return {"status":"prepared_requires_repository_validation","state":snapshot.state,"case_id":case_id,"files":list(updates)}
+    _stage_new(output, files)
+    return {"status":"prepared_requires_repository_validation","state":snapshot.state,
+            "case_id":case_id,"source_root":str(root),"output":str(output),
+            "commit":commit,"files":list(updates)}
 
 
 def main()->int:
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument("--root",type=Path,default=ROOT)
     parser.add_argument("--receipt",required=True);parser.add_argument("--sha256",required=True)
     parser.add_argument("--case",required=True);parser.add_argument("--commit");parser.add_argument("--apply",action="store_true")
+    parser.add_argument("--output",type=Path,help="absolute, absent candidate directory outside --root")
     args=parser.parse_args()
+    if args.apply and args.output is None:parser.error("--apply requires --output")
+    if args.output is not None and not args.apply:parser.error("--output requires --apply")
     try:
         ref={"logical_path":args.receipt,"sha256":args.sha256};snapshot=P.Snapshot(args.root,args.commit)
-        result=apply(args.root,ref,args.case,commit=args.commit)if args.apply else material(snapshot,ref,args.case)
+        result=apply(args.root,ref,args.case,output=args.output,commit=args.commit)if args.apply else material(snapshot,ref,args.case)
         print(json.dumps(result if args.apply else {"status":"PASS","state":snapshot.state,"case_id":result["case"]["id"]}))
         return 0
     except (ValueError,OSError,KeyError,TypeError,IndexError)as exc:
