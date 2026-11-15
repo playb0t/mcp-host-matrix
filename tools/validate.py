@@ -376,6 +376,13 @@ def validate(root: Path, manifest: bool = True) -> dict[str, int]:
     if manifest:
         from receipt_import import P
         snapshot=P.Snapshot(root)
+        from receipt_import import HISTORICAL_GROUNDS, historical_ground
+        from reader_statements import reader_intro
+        statements = {row: historical_ground(snapshot, row)["statement"] for row in HISTORICAL_GROUNDS}
+        page = snapshot.read("grounds/README.md").decode("utf8")
+        intro, marker, _ = page.partition("## Reproduce\n")
+        require(bool(marker) and intro == reader_intro(statements), "Historical reader page differs from computed statements")
+        result["historical_grounds"] = len(HISTORICAL_GROUNDS)
         examples=P.load_json(snapshot.read("method/examples/INDEX.json"))
         passed_profiles=set();negative=0
         for example in examples["cases"]:
@@ -407,6 +414,12 @@ def validate(root: Path, manifest: bool = True) -> dict[str, int]:
                 else:
                     count_relations(document, name)
                     for label, value in string_values(document):
+                        # Preserve the exact historical extract, including its original prose.
+                        if (name == "grounds/r04-timing.json" and label == "$.extract_text"
+                                and hashlib.sha256(value.encode("utf-8")).hexdigest() ==
+                                "509cae12c6223e9f53195e2c40944461921e5c1c079ca2748663a47035bc98e0"):
+                            privacy_check(name, value)
+                            continue
                         style_check(f"{name}:{label}", value)
             elif path.suffix == ".md":
                 style_check(name, text, markdown=True)

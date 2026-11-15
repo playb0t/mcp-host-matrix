@@ -17,6 +17,8 @@ This is a proposed selection map, not an executed campaign.
 
 Apply the [future observation fields](../docs/EVIDENCE-POLICY.md#future-observation-records) to each new follow-up. Freeze the full client/version, server, endpoint and authentication-profile identity, then name the affected connection step. Keep connection and tool-boundary checks in separate linked records under the applicable existing R01-R06 scope. For registration changes, retain the selected method, authorization-server metadata and specification revision. Unmeasured steps remain explicit.
 
+For event presence or absence, see the [paired observation checks](../examples/claims/README.md). For a denominator or a log-order claim, compare the [worked R01 and R04 grounds](../grounds/README.md).
+
 ## After a patch
 
 1. Freeze old/new selector, resolved version, archive/binary hash, actual public entry, bundled SDK/dependencies, runtime, OS and policy. A top-level version alone does not identify the loaded implementation.

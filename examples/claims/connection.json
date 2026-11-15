@@ -1,0 +1,80 @@
+{
+  "observation": {
+    "schema": "matrix-observation/1",
+    "case_id": "SYN-R01",
+    "subject_id": "fixture-service",
+    "versions": {
+      "fixture": "1.0.0"
+    },
+    "operation": "connection",
+    "boundary": "component",
+    "observer": "local-recorder",
+    "channels": [
+      "connection.connected",
+      "endpoint.denied",
+      "handler.executed"
+    ],
+    "attempts": {
+      "calibration": {
+        "role": "control",
+        "window": "complete",
+        "events": [
+          [
+            "connection.connected",
+            "A"
+          ],
+          [
+            "endpoint.denied",
+            "A"
+          ],
+          [
+            "handler.executed",
+            "A"
+          ]
+        ]
+      },
+      "first": {
+        "role": "observation",
+        "window": "complete",
+        "events": [
+          [
+            "connection.connected",
+            "A"
+          ],
+          [
+            "endpoint.denied",
+            "A"
+          ]
+        ]
+      }
+    }
+  },
+  "accepted": [
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "connection.connected",
+      "object": "A",
+      "predicate": "present"
+    },
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "endpoint.denied",
+      "object": "A",
+      "predicate": "present"
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "handler.executed",
+      "object": "A",
+      "predicate": "present"
+    }
+  ]
+}

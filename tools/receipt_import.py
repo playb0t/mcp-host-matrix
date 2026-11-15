@@ -11,6 +11,7 @@ from pathlib import Path
 import re
 import stat
 import sys
+from reader_statements import FORMS, render_statement
 from typing import Any
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -75,7 +76,7 @@ def pointer(value: Any,name: str)->Any:
     return value
 
 
-def check_sources(snapshot: Any,receipt: dict,artifacts: list[dict])->None:
+def check_sources(snapshot: Any,receipt: dict,artifacts: list[dict])->dict[str, Any]:
     public={a["sha256"]:a for a in artifacts};source_ids={};decoded={}
     sources=receipt.get("sources")
     require(isinstance(sources,list) and sources,"public sources required")
@@ -104,6 +105,189 @@ def check_sources(snapshot: Any,receipt: dict,artifacts: list[dict])->None:
         actual=len(set(values))== (1 if item["operation"]=="all equal" else len(values))
         require(actual==item["result"],"derived check differs from public source")
 
+    return decoded
+
+def observation_index(record: Any, case: dict) -> dict[str, tuple[str, str, set[tuple[str, str]]]]:
+    """Index complete event pairs once per source; never join different attempts."""
+    require(isinstance(record, dict) and set(record) == {
+        "schema", "case_id", "subject_id", "versions", "operation", "boundary",
+        "observer", "channels", "attempts"
+    } and record["schema"] == "matrix-observation/1", "observation schema differs")
+    require(record["case_id"] == case["id"] and record["subject_id"] == case["subject_id"]
+            and P.canonical(record["versions"]) == P.canonical(case["versions"]),
+            "observation case, subject or versions differ")
+    identifier(record["observer"])
+    identifier(record["operation"])
+    require(record["boundary"] in {"component", "backend", "native", "deployed"},
+            "invalid observation boundary")
+    channels = record["channels"]
+    require(isinstance(channels, list) and 0 < len(channels) <= 1000, "observer channels required")
+    monitored = {identifier(channel) for channel in channels}
+    require(len(monitored) == len(channels), "duplicate observer channel")
+    attempts = record["attempts"]
+    require(isinstance(attempts, dict) and 0 < len(attempts) <= 1000, "observation attempts required")
+    result = {}
+    for name, attempt in attempts.items():
+        identifier(name)
+        require(isinstance(attempt, dict) and set(attempt) == {"role", "window", "events"},
+                "attempt schema differs")
+        role, window = attempt["role"], attempt["window"]
+        require(role in {"observation", "control"} and window in {"complete", "interrupted"},
+                "invalid attempt role or window")
+        events = attempt["events"]
+        require(isinstance(events, list), "attempt events required")
+        pairs = set()
+        for event in events:
+            require(isinstance(event, list) and len(event) == 2 and event[0] in monitored,
+                    "event outside recorder channels")
+            pairs.add((event[0], identifier(event[1])))
+        result[name] = (role, window, pairs)
+    return result
+
+
+def supported_claims(case: dict, claims: list, decoded: dict) -> list[str]:
+    """Return checked event statements within their own observation attempts."""
+    require(isinstance(claims, list) and 0 < len(claims) <= 1000, "observation claims required")
+    indexes = {}
+    rendered = []
+    for claim in claims:
+        require(isinstance(claim, dict) and set(claim) == {
+            "source_id", "attempt", "control", "channel", "object", "predicate"
+        }, "observation claim schema differs")
+        source = identifier(claim["source_id"])
+        require(source in decoded and isinstance(decoded[source], dict), "claim needs a public JSON source")
+        record = decoded[source].get("observation")
+        if source not in indexes:
+            indexes[source] = observation_index(record, case)
+        attempts = indexes[source]
+        run_id, control_id = identifier(claim["attempt"]), identifier(claim["control"])
+        require(run_id in attempts and attempts[run_id][0] == "observation", "claim target attempt missing")
+        require(control_id in attempts and attempts[control_id][:2] == ("control", "complete"),
+                "claim needs a separate completed control")
+        channel, obj = identifier(claim["channel"]), identifier(claim["object"])
+        require(any(c == channel for c, _ in attempts[control_id][2]), "control did not observe channel")
+        _, window, events = attempts[run_id]
+        predicate = claim["predicate"]
+        if predicate == "absent":
+            require(window == "complete", "absence claim has an incomplete window")
+            require((channel, obj) not in events, "event observed in claimed absence window")
+        else:
+            require(predicate == "present", "invalid claim predicate")
+            require((channel, obj) in events, "claimed event not observed")
+        rendered.append(f"{record['operation']} [{source}, {record['boundary']}, {record['observer']}, "
+                        f"{run_id}, control {control_id}]: {channel}({obj}) {predicate}.")
+    return rendered
+
+
+def check_claims(case: dict, receipt: dict, decoded: dict) -> None:
+    if "claims" in receipt:
+        rendered = supported_claims(case, receipt["claims"], decoded)
+        require(rendered == case.get("observations"), "observation text differs from supported claims")
+
+
+
+HISTORICAL_GROUNDS = {
+    "R01": ("window_cohort", {
+        "disconnect/bench/receipts/R01.json": LEGACY["receipts"]["disconnect/bench/receipts/R01.json"],
+        "disconnect/bench/RESULTS.json": "2920343f43543e374d990faf9c4159aff73ce0d0a0a879b2a1466ccdf739f701",
+    }),
+    "R04": ("event_order", {
+        "matrix/receipts/R04.json": LEGACY["receipts"]["matrix/receipts/R04.json"],
+        # Bind the reviewed run-to-stream mapping as well as the embedded original bytes.
+        "grounds/r04-timing.json": "399a1107f675b2dc9c49bed695dc760c0a6451d5f63c3085550d7cc75e823d55",
+    }),
+}
+
+
+def evaluate_ground(snapshot: Any, ground: dict, case: dict,
+                    allowed: dict[str, str]) -> dict:
+    form = FORMS.get(case["id"])
+    statement_field = "statement_form" if form else "statement"
+    require(isinstance(ground, dict) and set(ground) == {
+        "schema", "case_id", "kind", statement_field, "parameters", "sources", "expected"
+    } and ground["schema"] == "matrix-ground/1", "invalid ground statement or schema")
+    require(ground["case_id"] == case["id"], "ground case differs")
+    if ground["kind"] in {"window_cohort", "event_order"}:
+        require(form is not None, "no registered statement form for this ground and case")
+    if form:
+        require((ground["kind"], ground["statement_form"]) == form, "invalid historical statement form")
+    else:
+        require(isinstance(ground["statement"], str) and bool(ground["statement"].strip()), "statement required")
+    refs = ground["sources"]
+    require(isinstance(refs, list) and 0 < len(refs) <= 32, "ground sources required")
+    decoded = {}
+    paths = set()
+    for ref in refs:
+        require(isinstance(ref, dict) and set(ref) == {"id", "path", "sha256"}, "invalid ground source")
+        name = P.logical_path(ref["path"])
+        key = identifier(ref["id"])
+        require(name in allowed and name not in paths and key not in decoded, "unknown or duplicate ground source")
+        raw = snapshot.read(name)
+        actual = hashlib.sha256(raw).hexdigest()
+        require(actual == ref["sha256"] and allowed[name] == actual, "ground source fingerprint differs")
+        paths.add(name)
+        decoded[key] = P.load_json(raw)
+    params = ground["parameters"]
+    require(isinstance(params, dict), "invalid ground parameters")
+    kind = ground["kind"]
+    if kind in {"window_cohort", "event_order"}:
+        source_receipt = decoded.get(identifier(params.get("receipt")))
+        require(isinstance(source_receipt, dict) and source_receipt.get("case_id") == case["id"],
+                "ground evidence belongs to another case")
+        if "subject_id" in case:
+            require(source_receipt.get("subject_id") == case["subject_id"] and
+                    P.canonical(source_receipt.get("versions")) == P.canonical(case["versions"]),
+                    "ground evidence subject or versions differ")
+    if kind == "atomic_events":
+        require(set(params) == {"claims"}, "invalid atomic ground parameters")
+        computed = {"events": supported_claims(case, params["claims"], decoded)}
+    elif kind == "window_cohort":
+        from cohort_ground import evaluate
+        computed = evaluate(params, decoded)
+    elif kind == "event_order":
+        if form:
+            require(params.get("sequence_form") == form[1], "named event sequence required by statement form")
+        from order_ground import evaluate
+        computed = evaluate(params, decoded)
+    else:
+        raise ValueError("Unknown ground kind")
+    require(P.canonical(computed) == P.canonical(ground["expected"]), "computed ground differs from expected")
+    return {"case_id": case["id"], "kind": kind, "statement": render_statement(case["id"], computed) if form else ground["statement"], "computed": computed}
+
+
+def historical_ground(snapshot: Any, case_id: str) -> dict:
+    kind, allowed = HISTORICAL_GROUNDS[case_id]
+    ground = P.load_json(snapshot.read(f"grounds/{case_id}.json"))
+    require(ground.get("kind") == kind, "historical ground kind differs")
+    result = evaluate_ground(snapshot, ground, {"id": case_id}, allowed)
+    require({ref["path"] for ref in ground["sources"]} == set(allowed), "historical ground inputs differ")
+    return result
+
+
+def check_linked_grounds(snapshot: Any, case: dict, receipt: dict, artifacts: list[dict]) -> None:
+    if "grounds" not in receipt:
+        return
+    links = receipt["grounds"]
+    require(isinstance(links, list) and 0 < len(links) <= 100, "invalid observation ground links")
+    allowed = {a["logical_path"]: a["sha256"] for a in artifacts}
+    seen = set()
+    statements = case.get("observations")
+    require(isinstance(statements, list), "observations required")
+    for link in links:
+        require(isinstance(link, dict) and set(link) == {"logical_path", "sha256", "observation_index"},
+                "invalid observation ground link")
+        index = link["observation_index"]
+        require(type(index) is int and 0 <= index < len(statements), "invalid observation index")
+        path = P.logical_path(link["logical_path"])
+        require(path not in seen and path in allowed and allowed[path] == link["sha256"],
+                "ground must be a distinct direct public artifact")
+        seen.add(path)
+        raw = snapshot.read(path)
+        require(hashlib.sha256(raw).hexdigest() == link["sha256"], "ground artifact fingerprint differs")
+        ground = P.load_json(raw)
+        checked = evaluate_ground(snapshot, ground, case, allowed)
+        require(checked["statement"] == statements[index], "ground statement differs from linked observation")
+
 
 def projection(snapshot: Any,ref: dict)->dict:
     graph=P.verify_receipt(snapshot,ref);work=graph["receipt"];card=graph["card"]
@@ -126,10 +310,12 @@ def projection(snapshot: Any,ref: dict)->dict:
         require("receipt"not in case and "public_artifacts"not in case,"projection must not supply generated receipt links")
         by_case[ident]=case
     for receipt in value["receipts"]:
-        require(isinstance(receipt,dict) and set(receipt)=={"case_id","kind","versions","sources","excerpts","derived_checks","limits"},"projection receipt schema differs")
+        require(isinstance(receipt,dict) and set(receipt)-{"claims", "grounds"}=={"case_id","kind","versions","sources","excerpts","derived_checks","limits"},"projection receipt schema differs")
         ident=receipt["case_id"];require(ident not in by_receipt and ident in declared,"unplanned or duplicate projection receipt")
         require(P.canonical(receipt["versions"])==P.canonical(by_case[ident].get("versions")),"receipt and case versions differ")
-        check_sources(snapshot,receipt,work["artifacts"])
+        decoded = check_sources(snapshot,receipt,work["artifacts"])
+        check_claims(by_case[ident], receipt, decoded)
+        check_linked_grounds(snapshot, by_case[ident], receipt, work["artifacts"])
         require(isinstance(by_case[ident].get("evidence_ids"),list) and
                 set(by_case[ident]["evidence_ids"])=={item["id"]for item in receipt["sources"]},
                 "case evidence IDs differ from its public source IDs")
@@ -305,14 +491,25 @@ def apply(root: Path,ref: dict,case_id: str,*,output: Path,commit: str|None=None
 
 def main()->int:
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument("--root",type=Path,default=ROOT)
-    parser.add_argument("--receipt",required=True);parser.add_argument("--sha256",required=True)
-    parser.add_argument("--case",required=True);parser.add_argument("--commit");parser.add_argument("--apply",action="store_true")
+    parser.add_argument("--ground", choices=sorted(HISTORICAL_GROUNDS), help="verify a historical evidence ground")
+    parser.add_argument("--receipt");parser.add_argument("--sha256")
+    parser.add_argument("--case");parser.add_argument("--commit");parser.add_argument("--apply",action="store_true")
     parser.add_argument("--output",type=Path,help="absolute, absent candidate directory outside --root")
     args=parser.parse_args()
+    if args.ground:
+        if any((args.receipt, args.sha256, args.case, args.apply, args.output)):
+            parser.error("--ground is read-only and cannot be combined with receipt import")
+    elif not all((args.receipt, args.sha256, args.case)):
+        parser.error("--receipt, --sha256 and --case are required for import")
     if args.apply and args.output is None:parser.error("--apply requires --output")
     if args.output is not None and not args.apply:parser.error("--output requires --apply")
     try:
         ref={"logical_path":args.receipt,"sha256":args.sha256};snapshot=P.Snapshot(args.root,args.commit)
+        if args.ground:
+            result = historical_ground(snapshot, args.ground)
+            snapshot.assert_anchor()
+            print(json.dumps(result, ensure_ascii=True))
+            return 0
         result=apply(args.root,ref,args.case,output=args.output,commit=args.commit)if args.apply else material(snapshot,ref,args.case)
         print(json.dumps(result if args.apply else {"status":"PASS","state":snapshot.state,"case_id":result["case"]["id"]}))
         return 0

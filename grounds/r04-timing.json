@@ -1,0 +1,10 @@
+{
+  "schema": "matrix-log-extract/1",
+  "case_id": "R04",
+  "run_source": "r04.raw.positive-http",
+  "clock": "bridge-log-utc-ms",
+  "log_sha256": "a04d81c4a00c6435645223e0963e92ef3b78c8949c768165239eff1a36533a7e",
+  "run_sha256": "bf9835c892f7afc952aa9a824d3f3217a6b55467a28723f4aefca110879460a9",
+  "extract_source": "r04.timing",
+  "extract_text": "{\r\n  \"helper_still_running\": {\r\n    \"line\": 120,\r\n    \"utc\": \"2026-10-25T06:42:28.756Z\",\r\n    \"text\": \"[2026-10-25T06:42:28.756Z][25728] Browser helper open is still running, treating it as the browser\"\r\n  },\r\n  \"opener_success\": {\r\n    \"line\": 122,\r\n    \"utc\": \"2026-10-25T06:42:28.757Z\",\r\n    \"text\": \"[2026-10-25T06:42:28.757Z][25728] Browser opened automatically.\"\r\n  },\r\n  \"helper_exit0\": {\r\n    \"line\": 138,\r\n    \"utc\": \"2026-10-25T06:42:28.884Z\",\r\n    \"text\": \"[2026-10-25T06:42:28.884Z][25728] Browser helper open exited { code: 0 }\"\r\n  },\r\n  \"interpretation\": \"Bridge reports success while helper still running;recorder later exits0;actualbrowser/PSparser effect notmeasured\"\r\n}\r\n"
+}

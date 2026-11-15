@@ -1,0 +1,70 @@
+{
+  "schema": "matrix-ground/1",
+  "case_id": "R04",
+  "kind": "event_order",
+  "sources": [
+    {
+      "id": "r04-receipt",
+      "path": "matrix/receipts/R04.json",
+      "sha256": "ded3df5fc6fd0e3ff98ed492d942d23f0fbc653c79b9e9037f965a55c9ae4615"
+    },
+    {
+      "id": "bridge-log",
+      "path": "grounds/r04-timing.json",
+      "sha256": "399a1107f675b2dc9c49bed695dc760c0a6451d5f63c3085550d7cc75e823d55"
+    }
+  ],
+  "parameters": {
+    "receipt": "r04-receipt",
+    "capture": "bridge-log",
+    "events": [
+      {
+        "run_source": "r04.raw.positive-http",
+        "clock": "bridge-log-utc-ms",
+        "log_sha256": "a04d81c4a00c6435645223e0963e92ef3b78c8949c768165239eff1a36533a7e",
+        "key": "helper_still_running",
+        "message": "Browser helper open is still running, treating it as the browser"
+      },
+      {
+        "run_source": "r04.raw.positive-http",
+        "clock": "bridge-log-utc-ms",
+        "log_sha256": "a04d81c4a00c6435645223e0963e92ef3b78c8949c768165239eff1a36533a7e",
+        "key": "opener_success",
+        "message": "Browser opened automatically."
+      },
+      {
+        "run_source": "r04.raw.positive-http",
+        "clock": "bridge-log-utc-ms",
+        "log_sha256": "a04d81c4a00c6435645223e0963e92ef3b78c8949c768165239eff1a36533a7e",
+        "key": "helper_exit0",
+        "message": "Browser helper open exited { code: 0 }"
+      }
+    ],
+    "run_fields": {
+      "negative": false,
+      "exit_code": 97
+    },
+    "sequence_form": "bridge-opener-log-v1"
+  },
+  "expected": {
+    "run_source": "r04.raw.positive-http",
+    "clock": "bridge-log-utc-ms",
+    "log_sha256": "a04d81c4a00c6435645223e0963e92ef3b78c8949c768165239eff1a36533a7e",
+    "emitter_pid": 25728,
+    "lines": [
+      120,
+      122,
+      138
+    ],
+    "intervals_ms": [
+      1,
+      127
+    ],
+    "opener_timing": {
+      "running_to_success_ms": 1,
+      "success_to_exit_ms": 127,
+      "exit_code": 0
+    }
+  },
+  "statement_form": "bridge-opener-log-v1"
+}

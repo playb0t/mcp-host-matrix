@@ -281,12 +281,27 @@ class PortableMethodTests(unittest.TestCase):
         length = get_short(str(path), buffer, len(buffer))
         if not length or length >= len(buffer):self.skipTest("No fixture short name available")
         alias = Path(buffer.value).name
-        if alias.casefold() == path.name.casefold():self.skipTest("Fixture volume has no distinct short-name alias")
+        if alias.casefold() == path.name.casefold():
+            # NTFS can allow a file-specific alias even with automatic 8.3 creation disabled.
+            # Only the file inside this test's fresh directory is modified.
+            fixture_alias = "MATRIX~1.JSN"
+            fsutil = Path(os.environ["SystemRoot"]) / "System32/fsutil.exe"
+            result = subprocess.run([str(fsutil), "file", "setShortName", str(path), fixture_alias],
+                                    capture_output=True, timeout=15)
+            if result.returncode:
+                self.skipTest(f"No automatic alias; file-specific alias unavailable (fsutil {result.returncode})")
+            length = get_short(str(path), buffer, len(buffer))
+            self.assertTrue(0 < length < len(buffer))
+            alias = Path(buffer.value).name
+            self.assertEqual(alias.casefold(), fixture_alias.casefold())
+        self.assertTrue(path.samefile(self.root / alias))
         self.manifest()
+        self.assertEqual(P.Snapshot(self.root).read(path.name), path.read_bytes())
         manifest = self.root / "MANIFEST.sha256"
         with manifest.open("a", encoding="utf8", newline="\n") as output:
             output.write(hashlib.sha256(path.read_bytes()).hexdigest() + "  " + alias + "\n")
-        with self.assertRaises(P.ValidationError):P.Snapshot(self.root).read(alias)
+        with self.assertRaisesRegex(P.ValidationError, "Candidate path spelling is an alias"):
+            P.Snapshot(self.root).read(alias)
 
     def test_one_git_commit_ignores_later_working_tree_changes(self) -> None:
         self.git("init", "--initial-branch=main")

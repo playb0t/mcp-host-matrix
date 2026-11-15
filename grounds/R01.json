@@ -1,0 +1,85 @@
+{
+  "schema": "matrix-ground/1",
+  "case_id": "R01",
+  "kind": "window_cohort",
+  "sources": [
+    {
+      "id": "bench",
+      "path": "disconnect/bench/RESULTS.json",
+      "sha256": "2920343f43543e374d990faf9c4159aff73ce0d0a0a879b2a1466ccdf739f701"
+    },
+    {
+      "id": "receipt",
+      "path": "disconnect/bench/receipts/R01.json",
+      "sha256": "bd101439af7cbe3edbc808a00360f59fce6a04f40cbdf40a002c0e3a02af04af"
+    }
+  ],
+  "parameters": {
+    "bench": "bench",
+    "receipt": "receipt",
+    "selection": {
+      "timing": "retrospective",
+      "run_ids": [
+        "vscode-public-uninstall-immediate-r1",
+        "vscode-dcr-uninstall-r1",
+        "zed-confidential-uninstall-pilot-r2",
+        "zed-dcr-uninstall-r1",
+        "cascade-public-native-toggle-r3",
+        "cascade-dcr-native-toggle-r2",
+        "cursor-confidential-native-singlecall-r1",
+        "cursor-dcr-toggle-r1",
+        "claude-public-remove-r2",
+        "claude-dcr-remove-r1",
+        "bridge-public-remove-exit-r1",
+        "bridge-dcr-remove-exit-r1"
+      ]
+    },
+    "minimum_seconds": 60,
+    "logout_control": "claude-public-logout-r2"
+  },
+  "expected": {
+    "selection": "retrospective",
+    "minimum_seconds": 60,
+    "declared": 12,
+    "confirmed": 12,
+    "contradicted": 0,
+    "unknown": 0,
+    "profiles_by_route": {
+      "Cascade": [
+        "DCR-ON",
+        "PUBLIC-NODCR"
+      ],
+      "Claude Code": [
+        "DCR-ON",
+        "PUBLIC-NODCR"
+      ],
+      "Claude Code -> mcp-remote 0.15.2": [
+        "DCR-ON",
+        "PUBLIC-NODCR"
+      ],
+      "Cursor": [
+        "CONFIDENTIAL-NODCR",
+        "DCR-ON"
+      ],
+      "VS Code": [
+        "DCR-ON",
+        "PUBLIC-NODCR"
+      ],
+      "Zed": [
+        "CONFIDENTIAL-NODCR",
+        "DCR-ON"
+      ]
+    },
+    "control": {
+      "run_id": "claude-public-logout-r2",
+      "revoke_responses": [
+        200,
+        200
+      ],
+      "prior_refresh_before": 200,
+      "prior_refresh_after": 400,
+      "error": "invalid_grant"
+    }
+  },
+  "statement_form": "revocation-windows-v1"
+}

@@ -26,15 +26,17 @@ class Fixture:
         shutil.copytree(REPO,self.root,ignore=shutil.ignore_patterns(".git","__pycache__"))
         self.case_id="SYN-R01";self.receipt_name="work/fixture/receipt.json"
         self.source_name="work/fixture/source.json";self.projection_name="work/fixture/matrix-projection.json"
-        self.write(self.source_name,{"synthetic":True,"observed":True,"before":1,"after":1})
+        example=self.read("examples/claims/connection.json")
+        self.write(self.source_name,{"observation":example["observation"],"synthetic":True,"observed":True,"before":1,"after":1})
         cell={"case_id":self.case_id,"topic":"R01","status":"measured_with_limits"}
         case={"id":self.case_id,"topic":"R01","status":"measured_with_limits","subject_id":"fixture-service",
               "versions":{"fixture":"1.0.0"},"native_hosts":[],"components":[],
-              "observations":["Synthetic fixture observation for integrity controls."],
+              "observations":["connection [fixture.source, component, local-recorder, first, control calibration]: connection.connected(A) present."],
               "controls":["Synthetic positive and negative receipt controls."],
               "limits":["Synthetic data only; no product measurement or external publication."],
               "evidence_ids":["fixture.source"]}
         receipt={"case_id":self.case_id,"kind":"Synthetic reviewed projection","versions":case["versions"],
+                 "claims":example["accepted"][:1],
                  "sources":[{"id":"fixture.source","sha256":self.ref(self.source_name)["sha256"],"format":"JSON"}],
                  "excerpts":[{"source_id":"fixture.source","source_pointer":"","fields":{"observed":True}}],
                  "derived_checks":[{"label":"Synthetic unchanged value","source_id":"fixture.source",

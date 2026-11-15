@@ -1,0 +1,83 @@
+{
+  "observation": {
+    "schema": "matrix-observation/1",
+    "case_id": "SYN-R01",
+    "subject_id": "fixture-service",
+    "versions": {
+      "fixture": "1.0.0"
+    },
+    "operation": "objects",
+    "boundary": "component",
+    "observer": "local-recorder",
+    "channels": [
+      "policy.checked",
+      "handler.applied"
+    ],
+    "attempts": {
+      "calibration": {
+        "role": "control",
+        "window": "complete",
+        "events": [
+          [
+            "policy.checked",
+            "A"
+          ],
+          [
+            "handler.applied",
+            "A"
+          ]
+        ]
+      },
+      "first": {
+        "role": "observation",
+        "window": "complete",
+        "events": [
+          [
+            "policy.checked",
+            "A"
+          ],
+          [
+            "handler.applied",
+            "B"
+          ]
+        ]
+      }
+    }
+  },
+  "accepted": [
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "policy.checked",
+      "object": "A",
+      "predicate": "present"
+    },
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "handler.applied",
+      "object": "B",
+      "predicate": "present"
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "policy.checked",
+      "object": "A",
+      "predicate": "present"
+    },
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "handler.applied",
+      "object": "A",
+      "predicate": "present"
+    }
+  ]
+}

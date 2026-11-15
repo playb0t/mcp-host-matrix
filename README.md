@@ -38,6 +38,7 @@ The passing answer is in R01: a revocation request, then a refused token. [Regre
 | Read | Purpose |
 |---|---|
 | **[R01-R06 evidence matrix](matrix/MATRIX.en.md)** | Scope, subject coverage, observations, controls and limits |
+| [Evidence behind the R01 and R04 statements](grounds/README.md) | Recompute the revocation-window count and the order and timing of the bridge log messages |
 | [Structured matrix](matrix/RESULTS.json) · [evidence fingerprints](matrix/EVIDENCE.json) | Machine-readable outcomes and source SHA-256 values |
 | [Deidentified receipts](matrix/receipts/README.md) | Saved observations and controls for every row |
 | [Portable work method](method/v1/README.md) | Four work profiles, public receipt links and a verifier, with synthetic examples |
@@ -97,6 +98,6 @@ The matrix measures selected implementations and operations. Every result holds 
 
 ## Citation
 
-Alex Gercog, *MCP Host Matrix*, version 1.1.0, evidence snapshot 25 October 2026. [CITATION.cff](CITATION.cff) · [Changes](CHANGELOG.md).
+Alex Gercog, *MCP Host Matrix*, version 1.2.0, evidence snapshot 25 October 2026. [CITATION.cff](CITATION.cff) · [Changes](CHANGELOG.md).
 
 Text and data: [CC BY 4.0](LICENSE). Code in `tools/` and `.github/`: [MIT](LICENSE-CODE). Embedded figure fonts retain their [original license](figures/THIRD-PARTY-NOTICES.md).

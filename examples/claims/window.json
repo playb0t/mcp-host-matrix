@@ -1,0 +1,73 @@
+{
+  "observation": {
+    "schema": "matrix-observation/1",
+    "case_id": "SYN-R01",
+    "subject_id": "fixture-service",
+    "versions": {
+      "fixture": "1.0.0"
+    },
+    "operation": "window",
+    "boundary": "component",
+    "observer": "local-recorder",
+    "channels": [
+      "receiver.received",
+      "handler.executed"
+    ],
+    "attempts": {
+      "calibration": {
+        "role": "control",
+        "window": "complete",
+        "events": [
+          [
+            "receiver.received",
+            "A"
+          ],
+          [
+            "handler.executed",
+            "A"
+          ]
+        ]
+      },
+      "first": {
+        "role": "observation",
+        "window": "interrupted",
+        "events": [
+          [
+            "receiver.received",
+            "A"
+          ]
+        ]
+      },
+      "retry": {
+        "role": "observation",
+        "window": "complete",
+        "events": [
+          [
+            "receiver.received",
+            "A"
+          ]
+        ]
+      }
+    }
+  },
+  "accepted": [
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "receiver.received",
+      "object": "A",
+      "predicate": "present"
+    }
+  ],
+  "rejected": [
+    {
+      "source_id": "fixture.source",
+      "attempt": "first",
+      "control": "calibration",
+      "channel": "handler.executed",
+      "object": "A",
+      "predicate": "absent"
+    }
+  ]
+}
