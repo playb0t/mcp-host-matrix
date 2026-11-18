@@ -6,7 +6,7 @@
 
 You press "disconnect" in your MCP client. The entry disappears. The access does not. In 12 of 12 measured windows, across five native hosts and the mcp-remote bridge, no revocation request reached the test provider, and the old refresh token still worked. That is one row of this matrix. There are six.
 
-Research by **Alex Gercog** ([playb0t](https://github.com/playb0t)). Evidence snapshot: **25 October 2026**. Builds in the disconnect row: VS Code 1.142.0, Zed 1.24.4, Cascade (Windsurf) 3.10.67, Cursor 3.24.18, Claude Code 2.1.306, mcp-remote 0.15.2; every other row names its own. Every row has a published receipt that carries the SHA-256 of its sources. The repository validates itself in CI. Since 8 November 2026 the method itself is published here: the [portable work method](method/v1/README.md). Run it on your own measurements.
+Research by **Alex Gercog** ([playb0t](https://github.com/playb0t); impact record of the mcp-remote CVEs at [playb0t.com](https://playb0t.com)). Evidence snapshot: **25 October 2026**. Builds in the disconnect row: VS Code 1.142.0, Zed 1.24.4, Cascade (Windsurf) 3.10.67, Cursor 3.24.18, Claude Code 2.1.306, mcp-remote 0.15.2; every other row names its own. Every row has a published receipt that carries the SHA-256 of its sources. The repository validates itself in CI. Since 8 November 2026 the method itself is published here: the [portable work method](method/v1/README.md). Run it on your own measurements.
 
 ## What the matrix shows
 
