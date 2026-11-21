@@ -22,7 +22,13 @@ def section(data: dict)->str:
             selected=subject["name"] in known if legacy else case.get("subject_id")==subject["id"]
             values.append("M" if selected and case["status"].startswith("measured") else
                           "Unknown" if selected and case["status"]=="unknown" else "Not measured")
-        lines.append("| "+escaped(case["id"]+" "+case.get("title",case["topic"]))+" | "+" | ".join(values)+" |")
+        title=case.get("title",case["topic"])
+        if not legacy:
+            subject=next((s for s in subjects if s["id"]==case.get("subject_id")),None)
+            if subject is not None and title.startswith(subject["name"]+" "):
+                title=title.removeprefix(subject["name"]+" ")
+                title=title[:1].upper()+title[1:]
+        lines.append("| "+escaped(case["id"]+" "+title)+" | "+" | ".join(values)+" |")
     return "\n".join([START,*lines,END])
 
 def replace_section(text: str,data: dict)->str:

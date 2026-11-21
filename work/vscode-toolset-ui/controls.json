@@ -1,0 +1,8 @@
+{
+  "schema": "projection-controls/1",
+  "scope": "Offline checks of retained experiments; no new target execution.",
+  "source_equal": true,
+  "mutated_added_selection_rejected": true,
+  "version_runs_separate": true,
+  "reproducer_sha256": "6f424ba8e92d03ec52f13168731278705c1dc9b8a52586734563d0ec296a3e3a"
+}

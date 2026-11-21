@@ -1,0 +1,9 @@
+{
+  "schema": "work-method-export/1",
+  "receipt_logical_path": "work/vscode-toolset-ui/receipt.json",
+  "card_ref": {
+    "logical_path": "work/vscode-toolset-ui/card.json",
+    "sha256": "9b5a0d4f4d7e1f88e72b45cd74fea0625d641bd7103a038ad0eaff3b4add72f0"
+  },
+  "parents": []
+}

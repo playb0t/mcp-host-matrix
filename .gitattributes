@@ -1,1 +1,4 @@
 * text=auto eol=lf
+
+# Preserve the exact reproducer bytes through Git round trips.
+work/vscode-toolset-ui/catalog-change.mjs -text

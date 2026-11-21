@@ -24,6 +24,7 @@ class Fixture:
         STATE.mkdir(exist_ok=True);self.root=STATE/uuid4().hex
         self.source_root=self.root;self.outputs: list[Path]=[]
         shutil.copytree(REPO,self.root,ignore=shutil.ignore_patterns(".git","__pycache__"))
+        self.baseline_bound_cases=sum(case["id"] not in I.LEGACY["cases"] for case in self.read("matrix/RESULTS.json")["cases"])
         self.case_id="SYN-R01";self.receipt_name="work/fixture/receipt.json"
         self.source_name="work/fixture/source.json";self.projection_name="work/fixture/matrix-projection.json"
         example=self.read("examples/claims/connection.json")
@@ -102,7 +103,7 @@ class MatrixReceiptTests(unittest.TestCase):
     def setUp(self)->None:self.f=Fixture();self.addCleanup(self.f.cleanup)
     def test_new_service_import_passes_full_validator(self)->None:
         f=self.f;f.apply();result=f.validate()
-        self.assertEqual(result["legacy_cases"],6);self.assertEqual(result["receipt_bound_cases"],1)
+        self.assertEqual(result["legacy_cases"],6);self.assertEqual(result["receipt_bound_cases"],f.baseline_bound_cases+1)
         self.assertEqual(result["subjects"],7)
         imported=f.read("matrix/receipts/"+f.case_id+".json")
         self.assertEqual(imported["provenance"]["work_receipt_sha256"],f.ref(f.receipt_name)["sha256"])
@@ -127,7 +128,7 @@ class MatrixReceiptTests(unittest.TestCase):
         f=self.f;f.rebind_card(lambda c:c["contract"]["options"]["matrix_cells"][0].update(status="unknown"))
         projection=f.read(f.projection_name);projection["matrix_cells"][0]["status"]="unknown";projection["cases"][0]["status"]="unknown";f.write(f.projection_name,projection)
         work=f.read(f.receipt_name);next(a for a in work["artifacts"]if a["logical_path"]==f.projection_name).update(sha256=f.ref(f.projection_name)["sha256"],size=(f.root/f.projection_name).stat().st_size);f.write(f.receipt_name,work);f.index()
-        f.apply();self.assertEqual(f.validate()["receipt_bound_cases"],1)
+        f.apply();self.assertEqual(f.validate()["receipt_bound_cases"],f.baseline_bound_cases+1)
         row=next(line for line in (f.root/"matrix/MATRIX.en.md").read_text().splitlines()if line.startswith("| SYN-R01"))
         self.assertTrue(row.endswith("| Unknown |"))
 
@@ -218,7 +219,7 @@ class MatrixReceiptTests(unittest.TestCase):
         for name,raw in before.items():
             self.assertEqual((f.source_root/name).read_bytes(),raw)
             if name not in result["files"]:self.assertEqual((f.root/name).read_bytes(),raw)
-        self.assertEqual(f.validate()["receipt_bound_cases"],1)
+        self.assertEqual(f.validate()["receipt_bound_cases"],f.baseline_bound_cases+1)
 
     def test_competing_source_edit_before_final_write_is_preserved(self)->None:
         f=self.f;source=f.root/"matrix/RESULTS.json";foreign=b"operator competing source edit\n"
@@ -233,7 +234,7 @@ class MatrixReceiptTests(unittest.TestCase):
         self.assertEqual(result["state"],"candidate")
         self.assertEqual(result["status"],"prepared_requires_repository_validation")
         self.assertEqual(json.loads((output/"matrix/RESULTS.json").read_bytes())["cases"][-1]["id"],f.case_id)
-        V.write_manifest(output);self.assertEqual(V.validate(output)["receipt_bound_cases"],1)
+        V.write_manifest(output);self.assertEqual(V.validate(output)["receipt_bound_cases"],f.baseline_bound_cases+1)
 
     def test_source_mutation_before_read_fails_without_output(self)->None:
         f=self.f;output=f.output();reference=f.ref(f.receipt_name);f.write("README.md",b"new operator edit\n")
@@ -337,7 +338,7 @@ class MatrixReceiptTests(unittest.TestCase):
         self.assertEqual(result["state"],"commit_snapshot");self.assertEqual(result["commit"],commit)
         self.assertEqual((f.root/"matrix/RESULTS.json").read_bytes(),b"later worktree edit\n")
         self.assertFalse((output/".git").exists());V.write_manifest(output)
-        self.assertEqual(V.validate(output)["receipt_bound_cases"],1)
+        self.assertEqual(V.validate(output)["receipt_bound_cases"],f.baseline_bound_cases+1)
 
     def test_cli_apply_requires_output_and_output_requires_apply(self)->None:
         f=self.f;base=[sys.executable,"-B",str(f.root/"tools/receipt_import.py"),"--root",str(f.root),

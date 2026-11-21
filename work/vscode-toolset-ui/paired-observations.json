@@ -1,0 +1,172 @@
+{
+  "schema": "vscode-paired-excerpts/1",
+  "version": "1.148.0",
+  "base": "ddbdd50a9ed1f9dc32e4fbadcf950b290e7d35b4",
+  "platform": "Windows x64",
+  "electron": "43.8.10",
+  "arms": {
+    "baseline": {
+      "accepted_at": "2026-11-21T04:20:03.728Z",
+      "accepted_values": {
+        "fixture_keep": true,
+        "fixture_off": false,
+        "fixture_added": false,
+        "picker-fixture": false
+      },
+      "persisted_at": "2026-11-21T04:22:35.188Z",
+      "persisted_values": {
+        "fixture_added": false,
+        "fixture_keep": true,
+        "fixture_off": false,
+        "picker-fixture": false
+      },
+      "ui_after_change_at": "2026-11-21T04:19:13.271Z",
+      "ui_added_visible": false,
+      "ui_removed_visible": true,
+      "ui": [
+        {
+          "utc": "2026-11-21T04:19:13.271Z",
+          "phase": "after-catalog-change-before-checkbox",
+          "checkbox_rows": [
+            "254 checkbox (check box) (settable, string) fixture_keep, Harmless local selection test ID: list_id_10_8",
+            "272 checkbox (check box) (settable, string) fixture_off, Harmless local selection test ID: list_id_10_9",
+            "277 checkbox (check box) (settable, string) fixture_removed, Harmless local selection test ID: list_id_10_10"
+          ]
+        },
+        {
+          "utc": "2026-11-21T04:19:38.099Z",
+          "phase": "off-unchecked-after-catalog-change",
+          "checkbox_rows": [
+            "254 checkbox (check box) (settable, string) fixture_keep, Harmless local selection test ID: list_id_10_8",
+            "272 checkbox (check box) (settable, string) fixture_off, Harmless local selection test ID: list_id_10_9",
+            "277 checkbox (check box) (settable, string) fixture_removed, Harmless local selection test ID: list_id_10_10"
+          ]
+        },
+        {
+          "utc": "2026-11-21T04:20:04.221Z",
+          "phase": "accepted",
+          "checkbox_rows": []
+        }
+      ],
+      "callbacks": [
+        {
+          "utc": "2026-11-21T04:20:40.810Z",
+          "name": "fixture_keep",
+          "after_restart": false
+        },
+        {
+          "utc": "2026-11-21T04:21:48.200Z",
+          "name": "fixture_off",
+          "after_restart": false
+        }
+      ],
+      "registry": [],
+      "restart_verified": true
+    },
+    "patched": {
+      "accepted_at": "2026-11-21T04:28:14.489Z",
+      "accepted_values": {
+        "fixture_keep": true,
+        "fixture_off": false,
+        "fixture_added": true,
+        "picker-fixture": false
+      },
+      "persisted_at": "2026-11-21T04:30:05.391Z",
+      "persisted_values": {
+        "fixture_keep": true,
+        "fixture_off": false,
+        "fixture_added": true,
+        "picker-fixture": false
+      },
+      "ui_after_change_at": "2026-11-21T04:27:06.453Z",
+      "ui_added_visible": true,
+      "ui_removed_visible": false,
+      "ui": [
+        {
+          "utc": "2026-11-21T04:26:43.498Z",
+          "phase": "initial-expanded",
+          "checkbox_rows": [
+            "1056 checkbox (check box) (settable, string) fixture_keep, Harmless local selection test ID: list_id_13_8",
+            "1064 checkbox (check box) (settable, string) fixture_off, Harmless local selection test ID: list_id_13_9",
+            "1069 checkbox (check box) (settable, string) fixture_removed, Harmless local selection test ID: list_id_13_10"
+          ]
+        },
+        {
+          "utc": "2026-11-21T04:27:06.453Z",
+          "phase": "after-catalog-change-before-checkbox",
+          "checkbox_rows": [
+            "1056 checkbox (check box) (settable, string) fixture_added, Harmless local selection test ID: list_id_13_8",
+            "1064 checkbox (check box) (settable, string) fixture_keep, Harmless local selection test ID: list_id_13_9",
+            "1069 checkbox (check box) (settable, string) fixture_off, Harmless local selection test ID: list_id_13_10"
+          ]
+        },
+        {
+          "utc": "2026-11-21T04:27:47.144Z",
+          "phase": "off-unchecked-after-catalog-change",
+          "checkbox_rows": [
+            "1056 checkbox (check box) (settable, string) fixture_added, Harmless local selection test ID: list_id_13_8",
+            "1064 checkbox (check box) (settable, string) fixture_keep, Harmless local selection test ID: list_id_13_9",
+            "1069 checkbox (check box) (settable, string) fixture_off, Harmless local selection test ID: list_id_13_10"
+          ]
+        },
+        {
+          "utc": "2026-11-21T04:28:15.010Z",
+          "phase": "accepted",
+          "checkbox_rows": []
+        }
+      ],
+      "callbacks": [
+        {
+          "utc": "2026-11-21T04:28:51.682Z",
+          "name": "fixture_added",
+          "after_restart": false
+        },
+        {
+          "utc": "2026-11-21T04:29:30.359Z",
+          "name": "fixture_keep",
+          "after_restart": false
+        },
+        {
+          "utc": "2026-11-21T04:29:30.686Z",
+          "name": "fixture_off",
+          "after_restart": false
+        },
+        {
+          "utc": "2026-11-21T04:30:06.161Z",
+          "name": "fixture_added",
+          "after_restart": true
+        }
+      ],
+      "registry": [],
+      "restart_verified": true
+    }
+  },
+  "component_checks": {
+    "baseline": {
+      "tests": 3,
+      "failures": 3,
+      "exit": 1
+    },
+    "initial_patch": {
+      "tests": 3,
+      "failures": 2,
+      "exit": 1
+    },
+    "refined_patch": {
+      "tests": 6,
+      "failures": 0,
+      "exit": 0
+    }
+  },
+  "fresh_main_checks": {
+    "base": "1eb0c7511cdf93cdd228367086f0496b7f43d440",
+    "submitted_commit": "26e69320b01705c4342afa7d54de7408ba6f4cff",
+    "green_tests": 6,
+    "green_failures": 0,
+    "red_tests": 3,
+    "red_failures": 3,
+    "build": 0,
+    "types": 0,
+    "lint": 0
+  }
+}

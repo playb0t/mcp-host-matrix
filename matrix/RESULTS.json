@@ -372,6 +372,60 @@
         "r06.traffic.vscode_public",
         "r06.traffic.vscode_dcr"
       ]
+    },
+    {
+      "id": "R03-VSCODE-TOOLSET-UI",
+      "topic": "R03",
+      "title": "VS Code live tool-set picker refresh",
+      "status": "measured_with_limits",
+      "subject_id": "vscode",
+      "versions": {
+        "catalog_host": "1.145.2",
+        "installed_host": "1.146.0",
+        "paired_self_host": "1.148.0",
+        "sdk": "1.32.2",
+        "paired_base": "ddbdd50a9ed1f9dc32e4fbadcf950b290e7d35b4",
+        "fresh_main_base": "1eb0c7511cdf93cdd228367086f0496b7f43d440",
+        "submitted_commit": "26e69320b01705c4342afa7d54de7408ba6f4cff"
+      },
+      "native_hosts": [
+        "VS Code"
+      ],
+      "components": [],
+      "observations": [
+        "1.145.2: SDK list-change notices and refreshed registry coexist with stale open rows; reopening corrects rows.",
+        "1.146.0 installed: stale OK after unchecking keep yields false group, absent explicit added entry and effective added=false after full restart.",
+        "1.148.0 paired self-host: added=false without patch and added=true with patch; maps persist; patched added callback recorded after restart."
+      ],
+      "controls": [
+        "Separate version-bound experiments curated from retained records.",
+        "Disabled fixture_off diagnostic calls reached the server in both arms.",
+        "Group regressions: baseline 3/3 fail; first patch 2/3 fail; refined patch 0/6 fail.",
+        "Offline excerpts compared to inputs; altered selection rejected."
+      ],
+      "limits": [
+        "These are selected projections of retained experiments, curated on 2026-11-21; this producer performed offline evidence checks, with no new VS Code target run. Full private bench logs and local receipt ancestry are not public.",
+        "The 1.145.2 SDK trace, installed 1.146.0 persistence run and paired 1.148.0 self-host runs are separate experiments, not one cross-version transaction.",
+        "Ordinary user consent for a changed inputSchema remains unmeasured; the previous R03 schema case retains its original scope.",
+        "The measured stale-OK outcome leaves the added tool disabled. An expansion of authority was not established by these experiments.",
+        "A diagnostic call to disabled fixture_off succeeded in both self-host arms. It used the stock tool service with actual userSelectedTools and undefined context. This is a selection-versus-dispatch control, with no default-agent or LLM turn and no authorization finding. The removed-tool control stopped at diagnostic lookup before stock invocation.",
+        "The self-host runs used the same generated observation/invocation support in both arms; multiple server processes occurred. Matching official native binaries were reused where dependency versions matched. These are instrumented self-host runs.",
+        "The installed 1.146.0 binary was unchanged; a public-API observer/command-opener extension and an isolated profile were used. Its restart outcome has a false group and no explicit added entry: effective disabled is not a literal stored added=false.",
+        "VS Code remains the existing subject: this case adds no host and does not revise the 2026-10-25 snapshot or historical 12/12 and 8/8 counts.",
+        "Issue 349603 and PR 349608 were submitted on 2026-11-21. Acceptance, merge and release are separate events; this case does not claim them."
+      ],
+      "evidence_ids": [
+        "catalog.excerpts",
+        "installed.excerpts",
+        "paired.excerpts",
+        "projection.controls"
+      ],
+      "details": "work/vscode-toolset-ui/CASE.md",
+      "related_cases": [
+        "R03"
+      ],
+      "receipt": "matrix/receipts/R03-VSCODE-TOOLSET-UI.json",
+      "public_artifacts": "matrix/receipts/R03-VSCODE-TOOLSET-UI.public-artifacts.json"
     }
   ],
   "separate_unmeasured_work": [

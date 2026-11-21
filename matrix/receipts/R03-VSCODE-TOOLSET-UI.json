@@ -1,0 +1,117 @@
+{
+  "schema": "mcp-host-matrix-receipt/2",
+  "case_id": "R03-VSCODE-TOOLSET-UI",
+  "kind": "Version-bound native UI and component experiments; curated public projection",
+  "versions": {
+    "catalog_host": "1.145.2",
+    "installed_host": "1.146.0",
+    "paired_self_host": "1.148.0",
+    "sdk": "1.32.2",
+    "paired_base": "ddbdd50a9ed1f9dc32e4fbadcf950b290e7d35b4",
+    "fresh_main_base": "1eb0c7511cdf93cdd228367086f0496b7f43d440",
+    "submitted_commit": "26e69320b01705c4342afa7d54de7408ba6f4cff"
+  },
+  "sources": [
+    {
+      "id": "catalog.excerpts",
+      "sha256": "50582190e02a6ca311bbab2bada7dd21906c622ff455bd9aa2554d25addae69a",
+      "format": "JSON"
+    },
+    {
+      "id": "installed.excerpts",
+      "sha256": "c0f7b7cdd6080958324192232c73acd770036d09bd5d51f3ec15c3d0a81ab0e5",
+      "format": "JSON"
+    },
+    {
+      "id": "paired.excerpts",
+      "sha256": "26b2c75b9995ecc0b446ec608dbf62451e9b1418b9d236b4c01ebf9f072d0734",
+      "format": "JSON"
+    },
+    {
+      "id": "projection.controls",
+      "sha256": "c7d8404dfe01691a339ca1f6979e046c6041f144ed4b97f28980e4a28ca33d9c",
+      "format": "JSON"
+    }
+  ],
+  "excerpts": [
+    {
+      "source_id": "catalog.excerpts",
+      "source_pointer": "/counts",
+      "fields": {
+        "initialize": 1,
+        "list_notifications": 2,
+        "list_requests": 3,
+        "tool_calls": 0
+      }
+    },
+    {
+      "source_id": "installed.excerpts",
+      "source_pointer": "/stored",
+      "fields": {
+        "group_enabled": false
+      }
+    },
+    {
+      "source_id": "paired.excerpts",
+      "source_pointer": "/arms/patched/persisted_values",
+      "fields": {
+        "fixture_added": true,
+        "fixture_off": false,
+        "fixture_keep": true
+      }
+    }
+  ],
+  "derived_checks": [
+    {
+      "label": "baseline added remains unchanged across restart",
+      "source_id": "paired.excerpts",
+      "operation": "all equal",
+      "source_pointers": [
+        "/arms/baseline/accepted_values/fixture_added",
+        "/arms/baseline/persisted_values/fixture_added"
+      ],
+      "result": true
+    },
+    {
+      "label": "patched added remains unchanged across restart",
+      "source_id": "paired.excerpts",
+      "operation": "all equal",
+      "source_pointers": [
+        "/arms/patched/accepted_values/fixture_added",
+        "/arms/patched/persisted_values/fixture_added"
+      ],
+      "result": true
+    },
+    {
+      "label": "Before and after fix differ for added",
+      "source_id": "paired.excerpts",
+      "operation": "all distinct",
+      "source_pointers": [
+        "/arms/baseline/persisted_values/fixture_added",
+        "/arms/patched/persisted_values/fixture_added"
+      ],
+      "result": true
+    }
+  ],
+  "limits": [
+    "These are selected projections of retained experiments, curated on 2026-11-21; this producer performed offline evidence checks, with no new VS Code target run. Full private bench logs and local receipt ancestry are not public.",
+    "The 1.145.2 SDK trace, installed 1.146.0 persistence run and paired 1.148.0 self-host runs are separate experiments, not one cross-version transaction.",
+    "Ordinary user consent for a changed inputSchema remains unmeasured; the previous R03 schema case retains its original scope.",
+    "The measured stale-OK outcome leaves the added tool disabled. An expansion of authority was not established by these experiments.",
+    "A diagnostic call to disabled fixture_off succeeded in both self-host arms. It used the stock tool service with actual userSelectedTools and undefined context. This is a selection-versus-dispatch control, with no default-agent or LLM turn and no authorization finding. The removed-tool control stopped at diagnostic lookup before stock invocation.",
+    "The self-host runs used the same generated observation/invocation support in both arms; multiple server processes occurred. Matching official native binaries were reused where dependency versions matched. These are instrumented self-host runs.",
+    "The installed 1.146.0 binary was unchanged; a public-API observer/command-opener extension and an isolated profile were used. Its restart outcome has a false group and no explicit added entry: effective disabled is not a literal stored added=false.",
+    "VS Code remains the existing subject: this case adds no host and does not revise the 2026-10-25 snapshot or historical 12/12 and 8/8 counts.",
+    "Issue 349603 and PR 349608 were submitted on 2026-11-21. Acceptance, merge and release are separate events; this case does not claim them."
+  ],
+  "provenance": {
+    "work_receipt_ref": {
+      "logical_path": "work/vscode-toolset-ui/receipt.json",
+      "sha256": "5f941303a17566e620d912b581ec1f4e0cebc0a301a9a6e462ccf6cdaba9ee7a"
+    },
+    "work_receipt_sha256": "5f941303a17566e620d912b581ec1f4e0cebc0a301a9a6e462ccf6cdaba9ee7a",
+    "profile": "research",
+    "variant": null,
+    "contract_sha256": "b50abdc4b47673acc7e14f4de223dd845b6bfbbb3d3bb028767a1c84082a6ac3"
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "schema": "work-method-card/1",
+  "case_id": "matrix-r03-toolset-final-20261121",
+  "profile": "research",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90",
+    "version": "1.0.0"
+  },
+  "contract": {
+    "scope": "Evidence synthesis of retained version-bound tool catalog/picker experiments; no new target run.",
+    "completion": "verified",
+    "options": {
+      "mode": "experimental",
+      "matrix_cells": [
+        {
+          "case_id": "R03-VSCODE-TOOLSET-UI",
+          "topic": "R03",
+          "status": "measured_with_limits"
+        }
+      ],
+      "matrix_projection": "work/vscode-toolset-ui/matrix-projection.json"
+    },
+    "inputs": [
+      {
+        "logical_path": "work/vscode-toolset-ui/catalog-observations.json",
+        "sha256": "50582190e02a6ca311bbab2bada7dd21906c622ff455bd9aa2554d25addae69a"
+      },
+      {
+        "logical_path": "work/vscode-toolset-ui/installed-observations.json",
+        "sha256": "c0f7b7cdd6080958324192232c73acd770036d09bd5d51f3ec15c3d0a81ab0e5"
+      },
+      {
+        "logical_path": "work/vscode-toolset-ui/paired-observations.json",
+        "sha256": "26b2c75b9995ecc0b446ec608dbf62451e9b1418b9d236b4c01ebf9f072d0734"
+      },
+      {
+        "logical_path": "work/vscode-toolset-ui/controls.json",
+        "sha256": "c7d8404dfe01691a339ca1f6979e046c6041f144ed4b97f28980e4a28ca33d9c"
+      }
+    ],
+    "plans": [
+      {
+        "id": "question",
+        "purpose": "question",
+        "kind": "assessment"
+      },
+      {
+        "id": "method",
+        "purpose": "method",
+        "kind": "assessment"
+      },
+      {
+        "id": "controls",
+        "purpose": "controls",
+        "kind": "command"
+      },
+      {
+        "id": "observations",
+        "purpose": "observations",
+        "kind": "artifact"
+      },
+      {
+        "id": "conclusion",
+        "purpose": "conclusion",
+        "kind": "assessment"
+      }
+    ],
+    "exclusions": {}
+  },
+  "checks": [
+    {
+      "id": "question",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Retained experiments support the bounded case; offline projection controls are recorded separately.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/vscode-toolset-ui/catalog-observations.json",
+          "sha256": "50582190e02a6ca311bbab2bada7dd21906c622ff455bd9aa2554d25addae69a"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/installed-observations.json",
+          "sha256": "c0f7b7cdd6080958324192232c73acd770036d09bd5d51f3ec15c3d0a81ab0e5"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/paired-observations.json",
+          "sha256": "26b2c75b9995ecc0b446ec608dbf62451e9b1418b9d236b4c01ebf9f072d0734"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/controls.json",
+          "sha256": "c7d8404dfe01691a339ca1f6979e046c6041f144ed4b97f28980e4a28ca33d9c"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/CASE.md",
+          "sha256": "b7cf08f9ecaa4c1d6e647733e8411ce8ee0099cc1c8270b03b48105cc8d0ea97"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Retained experiments support the bounded case; offline projection controls are recorded separately.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/vscode-toolset-ui/catalog-observations.json",
+          "sha256": "50582190e02a6ca311bbab2bada7dd21906c622ff455bd9aa2554d25addae69a"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/installed-observations.json",
+          "sha256": "c0f7b7cdd6080958324192232c73acd770036d09bd5d51f3ec15c3d0a81ab0e5"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/paired-observations.json",
+          "sha256": "26b2c75b9995ecc0b446ec608dbf62451e9b1418b9d236b4c01ebf9f072d0734"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/controls.json",
+          "sha256": "c7d8404dfe01691a339ca1f6979e046c6041f144ed4b97f28980e4a28ca33d9c"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/CASE.md",
+          "sha256": "b7cf08f9ecaa4c1d6e647733e8411ce8ee0099cc1c8270b03b48105cc8d0ea97"
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "kind": "command",
+      "state": "passed",
+      "reason": "Retained experiments support the bounded case; offline projection controls are recorded separately.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/vscode-toolset-ui/catalog-observations.json",
+          "sha256": "50582190e02a6ca311bbab2bada7dd21906c622ff455bd9aa2554d25addae69a"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/installed-observations.json",
+          "sha256": "c0f7b7cdd6080958324192232c73acd770036d09bd5d51f3ec15c3d0a81ab0e5"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/paired-observations.json",
+          "sha256": "26b2c75b9995ecc0b446ec608dbf62451e9b1418b9d236b4c01ebf9f072d0734"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/controls.json",
+          "sha256": "c7d8404dfe01691a339ca1f6979e046c6041f144ed4b97f28980e4a28ca33d9c"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/CASE.md",
+          "sha256": "b7cf08f9ecaa4c1d6e647733e8411ce8ee0099cc1c8270b03b48105cc8d0ea97"
+        }
+      ]
+    },
+    {
+      "id": "observations",
+      "kind": "artifact",
+      "state": "passed",
+      "reason": "Retained experiments support the bounded case; offline projection controls are recorded separately.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/vscode-toolset-ui/catalog-observations.json",
+          "sha256": "50582190e02a6ca311bbab2bada7dd21906c622ff455bd9aa2554d25addae69a"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/installed-observations.json",
+          "sha256": "c0f7b7cdd6080958324192232c73acd770036d09bd5d51f3ec15c3d0a81ab0e5"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/paired-observations.json",
+          "sha256": "26b2c75b9995ecc0b446ec608dbf62451e9b1418b9d236b4c01ebf9f072d0734"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/controls.json",
+          "sha256": "c7d8404dfe01691a339ca1f6979e046c6041f144ed4b97f28980e4a28ca33d9c"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/CASE.md",
+          "sha256": "b7cf08f9ecaa4c1d6e647733e8411ce8ee0099cc1c8270b03b48105cc8d0ea97"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Retained experiments support the bounded case; offline projection controls are recorded separately.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/vscode-toolset-ui/catalog-observations.json",
+          "sha256": "50582190e02a6ca311bbab2bada7dd21906c622ff455bd9aa2554d25addae69a"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/installed-observations.json",
+          "sha256": "c0f7b7cdd6080958324192232c73acd770036d09bd5d51f3ec15c3d0a81ab0e5"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/paired-observations.json",
+          "sha256": "26b2c75b9995ecc0b446ec608dbf62451e9b1418b9d236b4c01ebf9f072d0734"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/controls.json",
+          "sha256": "c7d8404dfe01691a339ca1f6979e046c6041f144ed4b97f28980e4a28ca33d9c"
+        },
+        {
+          "logical_path": "work/vscode-toolset-ui/CASE.md",
+          "sha256": "b7cf08f9ecaa4c1d6e647733e8411ce8ee0099cc1c8270b03b48105cc8d0ea97"
+        }
+      ],
+      "verdict": "supported"
+    }
+  ],
+  "outcome": "assessed",
+  "limits": [
+    "These are selected projections of retained experiments, curated on 2026-11-21; this producer performed offline evidence checks, with no new VS Code target run. Full private bench logs and local receipt ancestry are not public.",
+    "The 1.145.2 SDK trace, installed 1.146.0 persistence run and paired 1.148.0 self-host runs are separate experiments, not one cross-version transaction.",
+    "Ordinary user consent for a changed inputSchema remains unmeasured; the previous R03 schema case retains its original scope.",
+    "The measured stale-OK outcome leaves the added tool disabled. An expansion of authority was not established by these experiments.",
+    "A diagnostic call to disabled fixture_off succeeded in both self-host arms. It used the stock tool service with actual userSelectedTools and undefined context. This is a selection-versus-dispatch control, with no default-agent or LLM turn and no authorization finding. The removed-tool control stopped at diagnostic lookup before stock invocation.",
+    "The self-host runs used the same generated observation/invocation support in both arms; multiple server processes occurred. Matching official native binaries were reused where dependency versions matched. These are instrumented self-host runs.",
+    "The installed 1.146.0 binary was unchanged; a public-API observer/command-opener extension and an isolated profile were used. Its restart outcome has a false group and no explicit added entry: effective disabled is not a literal stored added=false.",
+    "VS Code remains the existing subject: this case adds no host and does not revise the 2026-10-25 snapshot or historical 12/12 and 8/8 counts.",
+    "Issue 349603 and PR 349608 were submitted on 2026-11-21. Acceptance, merge and release are separate events; this case does not claim them."
+  ]
+}

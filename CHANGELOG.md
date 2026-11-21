@@ -1,5 +1,13 @@
 # Changes
 
+## 1.3.0
+
+[Live tool-set picker refresh](work/vscode-toolset-ui/CASE.md) adds a version-bound case for the existing VS Code subject under R03: catalog and open-picker observations on 1.145.2, installed 1.146.0 selection persistence, and paired 1.148.0 self-host observations before and after a local patch. The README now links the case beside the original R03 schema result.
+
+The original six R01-R06 cases and their receipts, the subjects catalog and the historical 12/12 and 8/8 counts remain unchanged. Ordinary user consent for a changed schema remains unmeasured.
+
+New-case coverage labels omit a redundant subject prefix. Import regression fixtures account for existing receipt-bound cases, and Git preserves the exact reproducer bytes through a path-specific text attribute.
+
 ## 1.2.0
 
 The [evidence grounds](grounds/README.md) reproduce the R01 revocation-window counts and the R04 bridge log sequence from the saved observations. The importer generates both reader statements from the computed results, and the validator checks the corresponding text on the grounds page. Window cohorts and event orders require a registered statement form for the case.

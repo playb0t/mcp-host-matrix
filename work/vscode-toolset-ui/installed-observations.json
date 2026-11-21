@@ -1,0 +1,145 @@
+{
+  "schema": "vscode-installed-excerpts/1",
+  "version": "1.146.0",
+  "commit": "69047191fc427f2f92828279aae1d90d8eeda7ab",
+  "procedure": {
+    "first_change_at": "2026-11-21T06:41:07.247Z",
+    "second_reset_at": "2026-11-21T06:46:24.839Z",
+    "second_change_at": "2026-11-21T06:47:09.858Z",
+    "reopened_at": "2026-11-21T06:42:46.285Z",
+    "accepted_at": "2026-11-21T06:49:12.046Z",
+    "persisted_ui_at": "2026-11-21T06:50:31.944Z",
+    "core_unchanged": true
+  },
+  "registry": [
+    {
+      "utc": "2026-11-21T06:26:48.862Z",
+      "names": []
+    },
+    {
+      "utc": "2026-11-21T06:40:22.237Z",
+      "names": [
+        "matching_keep",
+        "matching_removed"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:41:07.247Z",
+      "names": [
+        "matching_added",
+        "matching_keep"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:46:24.839Z",
+      "names": [
+        "matching_keep",
+        "matching_removed"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:47:09.858Z",
+      "names": [
+        "matching_added",
+        "matching_keep"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:49:39.014Z",
+      "names": []
+    },
+    {
+      "utc": "2026-11-21T06:49:41.671Z",
+      "names": [
+        "matching_added",
+        "matching_keep"
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "utc": "2026-11-21T06:40:55.765Z",
+      "phase": "pass 1: initial-expanded",
+      "checkbox_rows": [
+        "808 checkbox (check box) (settable, string) matching_keep, matching_keep ID: list_id_6_8",
+        "813 checkbox (check box) (settable, string) matching_removed, matching_removed ID: list_id_6_9"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:41:33.484Z",
+      "phase": "pass 1: after-notification-stale",
+      "checkbox_rows": [
+        "808 checkbox (check box) (settable, string) matching_keep, matching_keep ID: list_id_6_8",
+        "813 checkbox (check box) (settable, string) matching_removed, matching_removed ID: list_id_6_9"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:42:46.285Z",
+      "phase": "pass 1: reopened-current",
+      "checkbox_rows": [
+        "901 checkbox (check box) (settable, string) matching_added, matching_added ID: list_id_6_8",
+        "906 checkbox (check box) (settable, string) matching_keep, matching_keep ID: list_id_6_9"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:46:09.939Z",
+      "phase": "pass 2: explicit-ui-stop",
+      "checkbox_rows": []
+    },
+    {
+      "utc": "2026-11-21T06:46:39.488Z",
+      "phase": "pass 2: initial-expanded",
+      "checkbox_rows": [
+        "1229 checkbox (check box) (settable, string) matching_keep, matching_keep ID: list_id_6_8",
+        "1234 checkbox (check box) (settable, string) matching_removed, matching_removed ID: list_id_6_9"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:47:47.110Z",
+      "phase": "pass 2: after-notification-stale",
+      "checkbox_rows": [
+        "1229 checkbox (check box) (settable, string) matching_keep, matching_keep ID: list_id_6_8",
+        "1234 checkbox (check box) (settable, string) matching_removed, matching_removed ID: list_id_6_9"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:48:18.215Z",
+      "phase": "pass 2: keep-unchecked",
+      "checkbox_rows": [
+        "1229 checkbox (check box) (settable, string) matching_keep, matching_keep ID: list_id_6_8",
+        "1234 checkbox (check box) (settable, string) matching_removed, matching_removed ID: list_id_6_9"
+      ]
+    },
+    {
+      "utc": "2026-11-21T06:49:12.046Z",
+      "phase": "pass 2: accepted",
+      "checkbox_rows": []
+    },
+    {
+      "utc": "2026-11-21T06:50:10.957Z",
+      "phase": "pass 2: after-full-restart",
+      "checkbox_rows": []
+    },
+    {
+      "utc": "2026-11-21T06:50:31.944Z",
+      "phase": "pass 2: persisted-added-unchecked",
+      "checkbox_rows": [
+        "896 checkbox (check box) (settable, string) matching_added, matching_added ID: list_id_6_8",
+        "901 checkbox (check box) (settable, string) matching_keep, matching_keep ID: list_id_6_9"
+      ]
+    }
+  ],
+  "stored": {
+    "key": "chat/selectedTools",
+    "group_enabled": false,
+    "tools": {
+      "matching_keep": false,
+      "matching_removed": true
+    }
+  },
+  "effective_added_enabled": false,
+  "reset_control": {
+    "failed_helper_stop_credited": false,
+    "native_stop_then_start_verified": true
+  }
+}

@@ -24,6 +24,7 @@ The matrix sets documentation against versioned implementation and measured beha
 | R04 Metadata URL to executable boundary | Not measured | Not measured | Not measured | Not measured | Not measured | M |
 | R05 Refresh credential body across HTTP 307 | Not measured | Not measured | Not measured | Not measured | Not measured | M |
 | R06 Component update and prior authority | M | M | Not measured | Not measured | Not measured | M |
+| R03-VSCODE-TOOLSET-UI Live tool-set picker refresh | M | Not measured | Not measured | Not measured | Not measured | Not measured |
 <!-- matrix-coverage:end -->
 
 There are five native hosts and one bridge path. In R02, Claude Code CLI performs a configuration operation; the measured credential store belongs to mcp-remote. [Connectivity measurements](../hosts/bench/BENCH.en.md), including Continue's intercepted bridge attempts, form a separate prerequisite track.
@@ -157,3 +158,7 @@ Configuration removal, token/grant retirement, registration deletion, local stor
 A new version does not erase earlier evidence. Compare its reachable implementation change with the relevant case, controls and limits. The [regression selection map](REGRESSION.md) identifies bounded follow-ups; it does not claim those follow-ups have run.
 
 [Evidence policy](../docs/EVIDENCE-POLICY.md) · [Structured results](RESULTS.json) · [Source fingerprints](EVIDENCE.json).
+
+## R03 companion: live tool-set picker refresh
+
+[R03-VSCODE-TOOLSET-UI](../work/vscode-toolset-ui/CASE.md) adds version-bound catalog, picker and persisted-selection observations for the existing VS Code subject. [Bound receipt](receipts/R03-VSCODE-TOOLSET-UI.json). The original R03 schema-drift case above is retained.

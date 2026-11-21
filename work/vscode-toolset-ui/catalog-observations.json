@@ -1,0 +1,205 @@
+{
+  "schema": "vscode-catalog-excerpts/1",
+  "version": "1.145.2",
+  "commit": "c4453f8ea430795f941c1b2ff6c9321135a74a02",
+  "sdk": "1.32.2",
+  "server": [
+    {
+      "utc": "2026-11-18T16:45:29.030Z",
+      "event": "start",
+      "sdk": "@modelcontextprotocol/sdk",
+      "sdkVersion": "1.32.2",
+      "node": {
+        "prefix": "v",
+        "version": "26.13.0"
+      }
+    },
+    {
+      "utc": "2026-11-18T16:45:29.036Z",
+      "event": "wire.in",
+      "method": "initialize",
+      "protocolVersion": "2025-11-25",
+      "clientInfo": {
+        "name": "Visual Studio Code",
+        "version": "1.145.2"
+      }
+    },
+    {
+      "utc": "2026-11-18T16:45:29.041Z",
+      "event": "wire.out.written",
+      "request_method": "initialize",
+      "protocolVersion": "2025-11-25",
+      "tools_capability": {
+        "listChanged": true
+      }
+    },
+    {
+      "utc": "2026-11-18T16:45:29.044Z",
+      "event": "wire.in",
+      "method": "notifications/initialized"
+    },
+    {
+      "utc": "2026-11-18T16:45:29.044Z",
+      "event": "wire.in",
+      "method": "tools/list"
+    },
+    {
+      "utc": "2026-11-18T16:45:29.046Z",
+      "event": "wire.out.written",
+      "request_method": "tools/list",
+      "names": [
+        "catalog_base"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:46:58.036Z",
+      "event": "action.applied",
+      "action": "add",
+      "registered": [
+        "catalog_base",
+        "catalog_extra"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:46:58.036Z",
+      "event": "wire.out.written",
+      "method": "notifications/tools/list_changed"
+    },
+    {
+      "utc": "2026-11-18T16:46:58.039Z",
+      "event": "wire.in",
+      "method": "tools/list"
+    },
+    {
+      "utc": "2026-11-18T16:46:58.040Z",
+      "event": "wire.out.written",
+      "request_method": "tools/list",
+      "names": [
+        "catalog_base",
+        "catalog_extra"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:48:27.938Z",
+      "event": "action.applied",
+      "action": "remove",
+      "registered": [
+        "catalog_base"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:48:27.938Z",
+      "event": "wire.out.written",
+      "method": "notifications/tools/list_changed"
+    },
+    {
+      "utc": "2026-11-18T16:48:27.942Z",
+      "event": "wire.in",
+      "method": "tools/list"
+    },
+    {
+      "utc": "2026-11-18T16:48:27.942Z",
+      "event": "wire.out.written",
+      "request_method": "tools/list",
+      "names": [
+        "catalog_base"
+      ]
+    }
+  ],
+  "registry": [
+    {
+      "utc": "2026-11-18T16:45:29.072Z",
+      "names": [
+        "catalog_base"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:46:58.099Z",
+      "names": [
+        "catalog_base",
+        "catalog_extra"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:48:27.999Z",
+      "names": [
+        "catalog_base"
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "utc": "2026-11-18T16:46:42.400Z",
+      "phase": "baseline",
+      "intervention": "passive",
+      "names": [
+        "catalog_base"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:46:54.111Z",
+      "phase": "add-open",
+      "intervention": "passive",
+      "names": [
+        "catalog_base"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:47:44.838Z",
+      "phase": "add-open",
+      "intervention": "passive",
+      "names": [
+        "catalog_base"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:48:10.052Z",
+      "phase": "add-reopen",
+      "intervention": "reopen native picker",
+      "names": [
+        "catalog_base",
+        "catalog_extra"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:48:23.793Z",
+      "phase": "remove-open",
+      "intervention": "passive",
+      "names": [
+        "catalog_base",
+        "catalog_extra"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:49:18.968Z",
+      "phase": "remove-open",
+      "intervention": "passive",
+      "names": [
+        "catalog_base",
+        "catalog_extra"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:49:52.521Z",
+      "phase": "supplement",
+      "intervention": "settled filter before reopen",
+      "names": [
+        "catalog_extra"
+      ]
+    },
+    {
+      "utc": "2026-11-18T16:51:02.206Z",
+      "phase": "remove-reopen",
+      "intervention": "reopen native picker; settled state",
+      "names": [
+        "catalog_base"
+      ]
+    }
+  ],
+  "counts": {
+    "initialize": 1,
+    "list_notifications": 2,
+    "list_requests": 3,
+    "tool_calls": 0
+  }
+}
