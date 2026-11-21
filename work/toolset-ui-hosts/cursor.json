@@ -1,0 +1,160 @@
+{
+  "schema": "toolset-ui-observation/1",
+  "subject": "cursor",
+  "version": "3.24.18",
+  "commit": "be4c9e5350d77747b42cd467cbd3370a753d4640",
+  "executable_sha256": "982b7d93952d3b156abb7cc4f0204b9055b1dd0f3c273aef0d58ec7abe0e7510",
+  "platform": "Windows x64",
+  "authentication": "Manual login in a fresh isolated profile; owned STDIO fixture has no MCP authentication",
+  "surface": "Cursor Agents > Customize > MCPs > own server > Configure; Writes: Custom; Done",
+  "fixture_sha256": "6f424ba8e92d03ec52f13168731278705c1dc9b8a52586734563d0ec296a3e3a",
+  "timer_ms": 45000,
+  "passes": [
+    {
+      "pass": 1,
+      "initial": {
+        "observed_utc": "2026-11-21T14:22:30.390Z",
+        "tools": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      },
+      "open_after_change": {
+        "observed_utc": "2026-11-21T14:24:40.830Z",
+        "tools": [
+          "matching_keep",
+          "matching_added"
+        ]
+      }
+    },
+    {
+      "pass": 2,
+      "initial": {
+        "observed_utc": "2026-11-21T14:30:30.289Z",
+        "tools": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      },
+      "open_after_change": {
+        "observed_utc": "2026-11-21T14:32:02.644Z",
+        "tools": [
+          "matching_keep",
+          "matching_added"
+        ]
+      }
+    }
+  ],
+  "choice": {
+    "explicit": {
+      "matching_keep": false
+    },
+    "after_confirmation": {
+      "matching_keep": false,
+      "matching_added": true
+    },
+    "after_restart": {
+      "matching_keep": false,
+      "matching_added": true
+    }
+  },
+  "limits": [
+    "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+    "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+    "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+    "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+    "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+    "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+    "Cursor used several STDIO connections and inherited cached catalogs. Reload did not always request the initial list. The first Done after selecting Custom restarted the source; the second pass supplies the same-epoch reopen control.",
+    "A harmless environment marker reset the isolated server configuration before each measured pass; the unchanged fixture ignores it. No configuration write occurred during the measured open-window interval.",
+    "The final restart screenshot was displayed during execution but its temporary file was lost before archival. The exact timestamped native UIA switch labels were retained; earlier cycle screenshots are retained privately.",
+    "The physical selection storage key was not parsed. Choice retention is established through the fresh-process native interface.",
+    "The manually authenticated isolated profile was identified after the login callback; update.mode was set to none there and checked before later launches. All 15160 distribution files remained unchanged. No claim is made that an update was cancelled through the UI."
+  ],
+  "pass_1_wire": [
+    {
+      "utc": "2026-11-21T14:22:23.999Z",
+      "direction": "server_to_host",
+      "names": [
+        "matching_keep",
+        "matching_removed"
+      ]
+    },
+    {
+      "utc": "2026-11-21T14:23:09.003Z",
+      "direction": "server_to_host",
+      "method": "notifications/tools/list_changed"
+    },
+    {
+      "utc": "2026-11-21T14:23:09.004Z",
+      "direction": "server_to_host",
+      "names": [
+        "matching_keep",
+        "matching_added"
+      ]
+    }
+  ],
+  "pass_2_wire_connections": [
+    [
+      {
+        "utc": "2026-11-21T14:30:07.859Z",
+        "direction": "server_to_host",
+        "names": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      }
+    ],
+    [
+      {
+        "utc": "2026-11-21T14:31:03.227Z",
+        "direction": "server_to_host",
+        "method": "notifications/tools/list_changed"
+      },
+      {
+        "utc": "2026-11-21T14:31:03.228Z",
+        "direction": "server_to_host",
+        "names": [
+          "matching_keep",
+          "matching_added"
+        ]
+      }
+    ],
+    [
+      {
+        "utc": "2026-11-21T14:31:03.369Z",
+        "direction": "server_to_host",
+        "method": "notifications/tools/list_changed"
+      },
+      {
+        "utc": "2026-11-21T14:31:03.371Z",
+        "direction": "server_to_host",
+        "names": [
+          "matching_keep",
+          "matching_added"
+        ]
+      }
+    ]
+  ],
+  "reopened_after_confirmation": {
+    "observed_utc": "2026-11-21T14:32:49.370Z",
+    "tools": [
+      "matching_keep",
+      "matching_added"
+    ]
+  },
+  "restart": {
+    "observed_utc": "2026-11-21T14:43:09.575Z",
+    "observed_until_utc": "2026-11-21T14:43:09.679Z",
+    "native_uia_labels": [
+      "Enable matching_keep",
+      "Disable matching_added"
+    ],
+    "effective_choices": {
+      "matching_keep": false,
+      "matching_added": true
+    },
+    "screenshot_archived": false,
+    "physical_storage_key_inspected": false
+  }
+}

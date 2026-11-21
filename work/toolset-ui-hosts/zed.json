@@ -1,0 +1,144 @@
+{
+  "schema": "toolset-ui-observation/1",
+  "subject": "zed",
+  "version": "1.26.2",
+  "commit": "c4273271092b0287f7d181f616bd5171e0a2f70c",
+  "executable_sha256": "bb7cc52f917afbda3c2cd445f443121e1e77d243370d265a36c39416ba63a308",
+  "platform": "Windows x64",
+  "authentication": "No Zed account login; owned STDIO fixture has no MCP authentication",
+  "surface": "agent: manage profiles > Write > Configure MCP Tools; immediate persistence, Go Back",
+  "fixture_sha256": "6f424ba8e92d03ec52f13168731278705c1dc9b8a52586734563d0ec296a3e3a",
+  "timer_ms": 45000,
+  "passes": [
+    {
+      "pass": 1,
+      "initial": {
+        "observed_utc": "2026-11-21T13:28:08.401Z",
+        "tools": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      },
+      "open_after_change": {
+        "observed_utc": "2026-11-21T13:28:51.653Z",
+        "tools": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      },
+      "reopened": {
+        "observed_utc": "2026-11-21T13:29:13.507Z",
+        "tools": [
+          "matching_keep",
+          "matching_added"
+        ]
+      },
+      "wire": [
+        {
+          "utc": "2026-11-21T13:27:52.289Z",
+          "direction": "server_to_host",
+          "names": [
+            "matching_keep",
+            "matching_removed"
+          ]
+        },
+        {
+          "utc": "2026-11-21T13:28:37.292Z",
+          "direction": "server_to_host",
+          "method": "notifications/tools/list_changed"
+        },
+        {
+          "utc": "2026-11-21T13:28:37.294Z",
+          "direction": "server_to_host",
+          "names": [
+            "matching_keep",
+            "matching_added"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": 2,
+      "initial": {
+        "observed_utc": "2026-11-21T13:31:20.808Z",
+        "tools": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      },
+      "open_after_change": {
+        "observed_utc": "2026-11-21T13:32:34.612Z",
+        "tools": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      },
+      "reopened": {
+        "observed_utc": "2026-11-21T13:34:54.384Z",
+        "tools": [
+          "matching_keep",
+          "matching_added"
+        ]
+      },
+      "wire": [
+        {
+          "utc": "2026-11-21T13:31:12.309Z",
+          "direction": "server_to_host",
+          "names": [
+            "matching_keep",
+            "matching_removed"
+          ]
+        },
+        {
+          "utc": "2026-11-21T13:31:57.312Z",
+          "direction": "server_to_host",
+          "method": "notifications/tools/list_changed"
+        },
+        {
+          "utc": "2026-11-21T13:31:57.314Z",
+          "direction": "server_to_host",
+          "names": [
+            "matching_keep",
+            "matching_added"
+          ]
+        }
+      ]
+    }
+  ],
+  "choice": {
+    "explicit": {
+      "matching_keep": false
+    },
+    "after_confirmation": {
+      "matching_keep": false,
+      "matching_added": true
+    },
+    "after_restart": {
+      "matching_keep": false,
+      "matching_added": true
+    }
+  },
+  "limits": [
+    "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+    "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+    "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+    "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+    "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+    "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+    "The selector saves changes immediately. Go Back is the native completion action; there is no OK button.",
+    "The explicit stored entry is matching_keep=false. matching_added is enabled through inherited enable_all_context_servers=true, not a separately stored added=true entry.",
+    "The first native click materialized the inherited enabled state; a second click produced the observed disabled state. No root cause is inferred.",
+    "A custom user-data directory isolated configuration and data. Windows KnownFolder IPC is a separate limitation; no claim covers all system files.",
+    "All six retained distribution files remained unchanged."
+  ],
+  "restart": {
+    "observed_utc": "2026-11-21T13:40:23.543Z",
+    "effective_choices": {
+      "matching_keep": false,
+      "matching_added": true
+    },
+    "stored_keep": false,
+    "stored_added_entry_present": false,
+    "enable_all_context_servers": true
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "mcp-host-matrix-receipt/2",
+  "case_id": "R03-CURSOR-TOOLSET-UI",
+  "kind": "Retained native UI observation and curated excerpts",
+  "versions": {
+    "host": "3.24.18",
+    "commit": "be4c9e5350d77747b42cd467cbd3370a753d4640"
+  },
+  "sources": [
+    {
+      "id": "toolset-ui.cursor",
+      "sha256": "2990c15d4f38ec76a5cd572740c4ad12f50c322f2ed8a9402af79287e15fe920",
+      "format": "JSON"
+    }
+  ],
+  "excerpts": [
+    {
+      "source_id": "toolset-ui.cursor",
+      "source_pointer": "/choice",
+      "fields": {
+        "explicit": {
+          "matching_keep": false
+        },
+        "after_confirmation": {
+          "matching_keep": false,
+          "matching_added": true
+        },
+        "after_restart": {
+          "matching_keep": false,
+          "matching_added": true
+        }
+      }
+    }
+  ],
+  "derived_checks": [],
+  "limits": [
+    "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+    "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+    "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+    "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+    "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+    "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+    "Cursor used several STDIO connections and inherited cached catalogs. Reload did not always request the initial list. The first Done after selecting Custom restarted the source; the second pass supplies the same-epoch reopen control.",
+    "A harmless environment marker reset the isolated server configuration before each measured pass; the unchanged fixture ignores it. No configuration write occurred during the measured open-window interval.",
+    "The final restart screenshot was displayed during execution but its temporary file was lost before archival. The exact timestamped native UIA switch labels were retained; earlier cycle screenshots are retained privately.",
+    "The physical selection storage key was not parsed. Choice retention is established through the fresh-process native interface.",
+    "The manually authenticated isolated profile was identified after the login callback; update.mode was set to none there and checked before later launches. All 15160 distribution files remained unchanged. No claim is made that an update was cancelled through the UI."
+  ],
+  "provenance": {
+    "work_receipt_ref": {
+      "logical_path": "work/toolset-ui-hosts/receipt.json",
+      "sha256": "7a208b53093492a8201a77e011ff587657188ca467e9917c3cbf8936ec28a49f"
+    },
+    "work_receipt_sha256": "7a208b53093492a8201a77e011ff587657188ca467e9917c3cbf8936ec28a49f",
+    "profile": "research",
+    "variant": null,
+    "contract_sha256": "052d9053eda63a5615b2b34e09c8ffe67ab2345aa3b5eee5f8f2b7c0b062a542"
+  }
+}

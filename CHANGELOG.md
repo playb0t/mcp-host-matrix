@@ -1,5 +1,13 @@
 # Changes
 
+## 1.4.0
+
+Four R03 companion records follow the original tool-set picker case across the remaining host subjects. [Cursor](work/toolset-ui-hosts/cursor.md) refreshed its open list; [Zed](work/toolset-ui-hosts/zed.md) retained stale rows until reopening. Both retained an explicit disabled tool after normal full restart. The Cursor restart observation retains native UIA; its final screenshot archive is unavailable.
+
+[Claude Code](work/toolset-ui-hosts/claude-code.md) was measured after manual login: its open View tools list refreshed in two passes, with reopen and managed CLI restart observations. No individual availability selector was found in the inspected MCP screens, so the full choice/persistence chain remains not measured. [Cascade](work/toolset-ui-hosts/cascade.md) was obtained from the official Windsurf 2.3.15 archive, extracted and launched in an isolated profile. Application login did not complete, so the MCP cycle was not started and Cascade remains not measured. New per-case receipts bind reviewed deidentified excerpts; raw bench data stays private. No model turn, vendor submission or new product patch is claimed.
+
+The six directions, subjects catalog, six legacy cases, existing VS Code case, their receipts and figure bytes remain unchanged. Historical 12/12 and 8/8 counts retain their original scope.
+
 ## 1.3.0
 
 [Live tool-set picker refresh](work/vscode-toolset-ui/CASE.md) adds a version-bound case for the existing VS Code subject under R03: catalog and open-picker observations on 1.145.2, installed 1.146.0 selection persistence, and paired 1.148.0 self-host observations before and after a local patch. The README now links the case beside the original R03 schema result.

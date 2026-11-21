@@ -1,0 +1,31 @@
+{
+  "schema": "toolset-ui-preconditions/2",
+  "date": "2026-11-21",
+  "hosts": {
+    "claude-code": {
+      "version": "2.1.330",
+      "executable_sha256": "fa797c1bc7d4a3511da42622bae53a2b7f1276ae328c668f2bfef44635301caa",
+      "status": "not_measured",
+      "observed": "Authenticated native View tools refreshed in two passes; no individual selector found in inspected MCP screens",
+      "login_completed": true,
+      "mcp_cycle_attempted": true,
+      "tool_selection_surface": "No individual availability selector found in inspected MCP screens; application-wide status unknown",
+      "full_selection_lifecycle": "not_measured"
+    },
+    "cascade": {
+      "version": "2.3.15",
+      "base_editor_version": "1.110.1",
+      "commit": "c46c49e94b4d3f41181204d59809d8f1b2c48d68",
+      "executable_sha256": "661e49855a657ad00e9f168a52d105bef9c968864af1cbc3d49745a9288b866f",
+      "status": "not_measured",
+      "preflight_date": "2026-11-22",
+      "observed": "Official Windsurf 2.3.15 was downloaded, extracted and launched in an isolated profile. Application login did not complete; the MCP cycle was not started.",
+      "download_source": "https://docs.devin.ai/desktop/releases",
+      "application_installed": true,
+      "application_launched": true,
+      "login_completed": false,
+      "mcp_cycle_attempted": false,
+      "tool_selection_surface": "unknown"
+    }
+  }
+}

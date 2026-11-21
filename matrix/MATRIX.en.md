@@ -25,6 +25,10 @@ The matrix sets documentation against versioned implementation and measured beha
 | R05 Refresh credential body across HTTP 307 | Not measured | Not measured | Not measured | Not measured | Not measured | M |
 | R06 Component update and prior authority | M | M | Not measured | Not measured | Not measured | M |
 | R03-VSCODE-TOOLSET-UI Live tool-set picker refresh | M | Not measured | Not measured | Not measured | Not measured | Not measured |
+| R03-CURSOR-TOOLSET-UI Live tool-set picker refresh | Not measured | Not measured | M | Not measured | Not measured | Not measured |
+| R03-ZED-TOOLSET-UI Live tool-set picker refresh | Not measured | Not measured | Not measured | M | Not measured | Not measured |
+| R03-CLAUDE-CODE-TOOLSET-UI Live tool-set picker refresh | Not measured | Not measured | Not measured | Not measured | Not measured | Not measured |
+| R03-CASCADE-TOOLSET-UI Live tool-set picker refresh | Not measured | Not measured | Not measured | Not measured | Not measured | Not measured |
 <!-- matrix-coverage:end -->
 
 There are five native hosts and one bridge path. In R02, Claude Code CLI performs a configuration operation; the measured credential store belongs to mcp-remote. [Connectivity measurements](../hosts/bench/BENCH.en.md), including Continue's intercepted bridge attempts, form a separate prerequisite track.
@@ -162,3 +166,14 @@ A new version does not erase earlier evidence. Compare its reachable implementat
 ## R03 companion: live tool-set picker refresh
 
 [R03-VSCODE-TOOLSET-UI](../work/vscode-toolset-ui/CASE.md) adds version-bound catalog, picker and persisted-selection observations for the existing VS Code subject. [Bound receipt](receipts/R03-VSCODE-TOOLSET-UI.json). The original R03 schema-drift case above is retained.
+
+## R03 companion: remaining host observations
+
+| Host | Open tool selector after catalog change | Confirmation and normal full restart | Record |
+|---|---|---|---|
+| Cursor 3.24.18 | Refreshed in both retained passes | Explicit keep off retained; restart UIA retained, final JPEG unavailable | [Case](../work/toolset-ui-hosts/cursor.md) |
+| Zed 1.26.2 | Stale in both retained passes; reopening showed current tools | Immediate selection and Go Back; explicit keep off retained | [Case](../work/toolset-ui-hosts/zed.md) |
+| Claude Code 2.1.330 | Refreshed in two View tools passes | Individual choice/persistence not measured: selector not found in inspected screens | [Partial observation](../work/toolset-ui-hosts/claude-code.md) |
+| Cascade / Windsurf 2.3.15 | Not measured: application login incomplete after archive download and launch | MCP cycle not started | [Gap](../work/toolset-ui-hosts/cascade.md) |
+
+Each new record has its own bound receipt in the structured matrix. The measured host observations are separate experiments with the unchanged original 45-second fixture. Cascade remains a preflight gap. The private in-memory registry and authorization consequences remain unmeasured. The existing VS Code observations retain their separate versions and scope.

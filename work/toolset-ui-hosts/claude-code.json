@@ -1,0 +1,157 @@
+{
+  "schema": "toolset-ui-observation/1",
+  "subject": "claude-code",
+  "version": "2.1.330",
+  "executable_sha256": "fa797c1bc7d4a3511da42622bae53a2b7f1276ae328c668f2bfef44635301caa",
+  "platform": "Windows x64",
+  "authentication": "Manual login completed in isolated profile; owned STDIO has no MCP authentication",
+  "surface": "/mcp > catalog-repro > View tools > selected tool details",
+  "server_actions": [
+    "View tools",
+    "Reconnect",
+    "Disable in this project",
+    "Back"
+  ],
+  "tool_actions": [
+    "Enter to view",
+    "Esc to go back"
+  ],
+  "fixture_sha256": "6f424ba8e92d03ec52f13168731278705c1dc9b8a52586734563d0ec296a3e3a",
+  "timer_ms": 45000,
+  "full_selection_lifecycle_status": "not_measured",
+  "per_tool_selector": "Not found in inspected /mcp server/list/detail screens; no claim of application-wide absence",
+  "passes": [
+    {
+      "pass": 1,
+      "initial": {
+        "output_received_utc": "2026-11-21T15:57:39.743Z",
+        "tools": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      },
+      "notification_utc": "2026-11-21T15:57:49.043Z",
+      "wire_after": [
+        "matching_keep",
+        "matching_added"
+      ],
+      "open_after": {
+        "output_received_utc": "2026-11-21T15:58:15.789Z",
+        "tools": [
+          "matching_keep",
+          "matching_added"
+        ]
+      },
+      "reopened": {
+        "output_received_utc": "2026-11-21T15:59:07.511Z",
+        "tools": [
+          "matching_keep",
+          "matching_added"
+        ]
+      },
+      "wire_events": [
+        {
+          "utc": "2026-11-21T15:57:04.046Z",
+          "direction": "server_to_host",
+          "names": [
+            "matching_keep",
+            "matching_removed"
+          ]
+        },
+        {
+          "utc": "2026-11-21T15:57:49.043Z",
+          "direction": "server_to_host",
+          "method": "notifications/tools/list_changed"
+        },
+        {
+          "utc": "2026-11-21T15:57:49.052Z",
+          "direction": "server_to_host",
+          "names": [
+            "matching_keep",
+            "matching_added"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": 2,
+      "initial": {
+        "output_received_utc": "2026-11-21T15:59:59.975Z",
+        "tools": [
+          "matching_keep",
+          "matching_removed"
+        ]
+      },
+      "notification_utc": "2026-11-21T16:00:15.743Z",
+      "wire_after": [
+        "matching_keep",
+        "matching_added"
+      ],
+      "open_after": {
+        "output_received_utc": "2026-11-21T16:01:09.120Z",
+        "tools": [
+          "matching_keep",
+          "matching_added"
+        ]
+      },
+      "reopened": {
+        "output_received_utc": "2026-11-21T16:01:57.757Z",
+        "tools": [
+          "matching_keep",
+          "matching_added"
+        ]
+      },
+      "wire_events": [
+        {
+          "utc": "2026-11-21T15:59:30.735Z",
+          "direction": "server_to_host",
+          "names": [
+            "matching_keep",
+            "matching_removed"
+          ]
+        },
+        {
+          "utc": "2026-11-21T16:00:15.743Z",
+          "direction": "server_to_host",
+          "method": "notifications/tools/list_changed"
+        },
+        {
+          "utc": "2026-11-21T16:00:15.747Z",
+          "direction": "server_to_host",
+          "names": [
+            "matching_keep",
+            "matching_added"
+          ]
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "explicit_choice": null,
+    "after_confirmation": null,
+    "after_restart": null
+  },
+  "managed_cli_restart": {
+    "new_process": true,
+    "viewed_tools": [
+      "matching_keep",
+      "matching_added"
+    ],
+    "output_received_utc": "2026-11-21T16:05:24.127Z",
+    "operator_terminal_untouched": true
+  },
+  "fixture_tools_call_count": 0,
+  "limits": [
+    "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+    "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+    "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+    "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+    "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+    "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+    "Only catalog/view refresh was measured. No individual availability selector was found in the inspected /mcp server/list/detail screens; application-wide absence is not established.",
+    "Individual choice, confirmation and persistence remain unmeasured. Permission policy rules were not substituted for availability.",
+    "A new managed CLI process was observed after normal exit; the manually opened terminal was left untouched. This was not a restart of every process using the profile.",
+    "Evidence is incremental ANSI PTY output with manual field extraction. The initial launcher screen was not archived; subsequent UI and all three wire epochs were retained privately.",
+    "The inherited permission mode was unchanged. No fixture tools/call occurred. One specifically identified own session had zero assistant records and zero token usage; global account/network activity is unknown."
+  ]
+}

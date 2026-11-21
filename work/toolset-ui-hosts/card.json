@@ -1,0 +1,252 @@
+{
+  "schema": "work-method-card/1",
+  "case_id": "matrix-r03-cascade-note-20261122",
+  "profile": "research",
+  "variant": null,
+  "method_ref": {
+    "id": "work-evidence",
+    "logical_path": "method/v1/MANIFEST.json",
+    "sha256": "b86fad30cc32d60902b7d467dda8587700029a3e3bf2e789546c9eeab3550e90",
+    "version": "1.0.0"
+  },
+  "contract": {
+    "scope": "Retained three-host observations with corrected Cascade precondition: official archived Windsurf 2.3.15 obtained and launched; app login incomplete and MCP cycle not started.",
+    "completion": "verified",
+    "options": {
+      "mode": "experimental",
+      "matrix_cells": [
+        {
+          "case_id": "R03-CURSOR-TOOLSET-UI",
+          "topic": "R03",
+          "status": "measured_with_limits"
+        },
+        {
+          "case_id": "R03-ZED-TOOLSET-UI",
+          "topic": "R03",
+          "status": "measured_with_limits"
+        },
+        {
+          "case_id": "R03-CLAUDE-CODE-TOOLSET-UI",
+          "topic": "R03",
+          "status": "not_measured"
+        },
+        {
+          "case_id": "R03-CASCADE-TOOLSET-UI",
+          "topic": "R03",
+          "status": "not_measured"
+        }
+      ],
+      "matrix_projection": "work/toolset-ui-hosts/matrix-projection.json"
+    },
+    "inputs": [
+      {
+        "logical_path": "work/toolset-ui-hosts/cursor.json",
+        "sha256": "2990c15d4f38ec76a5cd572740c4ad12f50c322f2ed8a9402af79287e15fe920"
+      },
+      {
+        "logical_path": "work/toolset-ui-hosts/zed.json",
+        "sha256": "a21aa92fa7d48e204404a2d4c5251555a0677298d2758ce2c502470b4981f520"
+      },
+      {
+        "logical_path": "work/toolset-ui-hosts/preconditions.json",
+        "sha256": "e1988aaeaa489d677c1d8f9656738339284dc465ea72d920a6fd0523d769240a"
+      },
+      {
+        "logical_path": "work/toolset-ui-hosts/claude-code.json",
+        "sha256": "d9475cd9b86e9baf4de2e0c1eed2aa663fa2293241e719c501d39254073b1a1c"
+      },
+      {
+        "logical_path": "work/toolset-ui-hosts/controls.json",
+        "sha256": "f054d1dc45770430b88c36ec927e62902b4324a7d0dc006678f35244f30713ee"
+      }
+    ],
+    "plans": [
+      {
+        "id": "question",
+        "purpose": "question",
+        "kind": "assessment"
+      },
+      {
+        "id": "method",
+        "purpose": "method",
+        "kind": "assessment"
+      },
+      {
+        "id": "controls",
+        "purpose": "controls",
+        "kind": "command"
+      },
+      {
+        "id": "observations",
+        "purpose": "observations",
+        "kind": "artifact"
+      },
+      {
+        "id": "conclusion",
+        "purpose": "conclusion",
+        "kind": "assessment"
+      }
+    ],
+    "exclusions": {}
+  },
+  "checks": [
+    {
+      "id": "question",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Current Cascade precondition equals retained installation/launch/auth evidence. False no-launch, invented MCP cycle and edits to other host results rejected.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/toolset-ui-hosts/cursor.json",
+          "sha256": "2990c15d4f38ec76a5cd572740c4ad12f50c322f2ed8a9402af79287e15fe920"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/zed.json",
+          "sha256": "a21aa92fa7d48e204404a2d4c5251555a0677298d2758ce2c502470b4981f520"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/preconditions.json",
+          "sha256": "e1988aaeaa489d677c1d8f9656738339284dc465ea72d920a6fd0523d769240a"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/claude-code.json",
+          "sha256": "d9475cd9b86e9baf4de2e0c1eed2aa663fa2293241e719c501d39254073b1a1c"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/controls.json",
+          "sha256": "f054d1dc45770430b88c36ec927e62902b4324a7d0dc006678f35244f30713ee"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Current Cascade precondition equals retained installation/launch/auth evidence. False no-launch, invented MCP cycle and edits to other host results rejected.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/toolset-ui-hosts/cursor.json",
+          "sha256": "2990c15d4f38ec76a5cd572740c4ad12f50c322f2ed8a9402af79287e15fe920"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/zed.json",
+          "sha256": "a21aa92fa7d48e204404a2d4c5251555a0677298d2758ce2c502470b4981f520"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/preconditions.json",
+          "sha256": "e1988aaeaa489d677c1d8f9656738339284dc465ea72d920a6fd0523d769240a"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/claude-code.json",
+          "sha256": "d9475cd9b86e9baf4de2e0c1eed2aa663fa2293241e719c501d39254073b1a1c"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/controls.json",
+          "sha256": "f054d1dc45770430b88c36ec927e62902b4324a7d0dc006678f35244f30713ee"
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "kind": "command",
+      "state": "passed",
+      "reason": "Current Cascade precondition equals retained installation/launch/auth evidence. False no-launch, invented MCP cycle and edits to other host results rejected.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/toolset-ui-hosts/cursor.json",
+          "sha256": "2990c15d4f38ec76a5cd572740c4ad12f50c322f2ed8a9402af79287e15fe920"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/zed.json",
+          "sha256": "a21aa92fa7d48e204404a2d4c5251555a0677298d2758ce2c502470b4981f520"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/preconditions.json",
+          "sha256": "e1988aaeaa489d677c1d8f9656738339284dc465ea72d920a6fd0523d769240a"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/claude-code.json",
+          "sha256": "d9475cd9b86e9baf4de2e0c1eed2aa663fa2293241e719c501d39254073b1a1c"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/controls.json",
+          "sha256": "f054d1dc45770430b88c36ec927e62902b4324a7d0dc006678f35244f30713ee"
+        }
+      ]
+    },
+    {
+      "id": "observations",
+      "kind": "artifact",
+      "state": "passed",
+      "reason": "Current Cascade precondition equals retained installation/launch/auth evidence. False no-launch, invented MCP cycle and edits to other host results rejected.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/toolset-ui-hosts/cursor.json",
+          "sha256": "2990c15d4f38ec76a5cd572740c4ad12f50c322f2ed8a9402af79287e15fe920"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/zed.json",
+          "sha256": "a21aa92fa7d48e204404a2d4c5251555a0677298d2758ce2c502470b4981f520"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/preconditions.json",
+          "sha256": "e1988aaeaa489d677c1d8f9656738339284dc465ea72d920a6fd0523d769240a"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/claude-code.json",
+          "sha256": "d9475cd9b86e9baf4de2e0c1eed2aa663fa2293241e719c501d39254073b1a1c"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/controls.json",
+          "sha256": "f054d1dc45770430b88c36ec927e62902b4324a7d0dc006678f35244f30713ee"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "kind": "assessment",
+      "state": "passed",
+      "reason": "Current Cascade precondition equals retained installation/launch/auth evidence. False no-launch, invented MCP cycle and edits to other host results rejected.",
+      "evidence_refs": [
+        {
+          "logical_path": "work/toolset-ui-hosts/cursor.json",
+          "sha256": "2990c15d4f38ec76a5cd572740c4ad12f50c322f2ed8a9402af79287e15fe920"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/zed.json",
+          "sha256": "a21aa92fa7d48e204404a2d4c5251555a0677298d2758ce2c502470b4981f520"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/preconditions.json",
+          "sha256": "e1988aaeaa489d677c1d8f9656738339284dc465ea72d920a6fd0523d769240a"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/claude-code.json",
+          "sha256": "d9475cd9b86e9baf4de2e0c1eed2aa663fa2293241e719c501d39254073b1a1c"
+        },
+        {
+          "logical_path": "work/toolset-ui-hosts/controls.json",
+          "sha256": "f054d1dc45770430b88c36ec927e62902b4324a7d0dc006678f35244f30713ee"
+        }
+      ],
+      "verdict": "supported"
+    }
+  ],
+  "outcome": "assessed",
+  "limits": [
+    "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+    "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+    "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+    "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+    "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+    "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+    "Only catalog/view refresh was measured. No individual availability selector was found in the inspected /mcp server/list/detail screens; application-wide absence is not established.",
+    "Individual choice, confirmation and persistence remain unmeasured. Permission policy rules were not substituted for availability.",
+    "A new managed CLI process was observed after normal exit; the manually opened terminal was left untouched. This was not a restart of every process using the profile.",
+    "Evidence is incremental ANSI PTY output with manual field extraction. The initial launcher screen was not archived; subsequent UI and all three wire epochs were retained privately.",
+    "The inherited permission mode was unchanged. No fixture tools/call occurred. One specifically identified own session had zero assistant records and zero token usage; global account/network activity is unknown.",
+    "This is an offline public projection of accepted private field evidence. Parent receipt ancestry and raw PTY/wire records remain private.",
+    "Claude full individual-selection criterion remains INCONCLUSIVE / not measured. The two positive live view passes are partial evidence, not a full lifecycle PASS.",
+    "Cascade remains not measured. Its setup reason is corrected from retained preflight records; the three other host results are unchanged. No new target, login or model operation was performed for this correction."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "kind": "Offline projection controls, not native runs",
+  "checks": [
+    "Cursor/Zed observations and Cascade gap preserved",
+    "Claude selected fields equal retained native layers",
+    "Invented choice/full-lifecycle/global-usage assertions rejected"
+  ],
+  "native_runs_added": 0
+}

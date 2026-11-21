@@ -1,0 +1,9 @@
+{
+  "schema": "work-method-export/1",
+  "receipt_logical_path": "work/toolset-ui-hosts/receipt.json",
+  "card_ref": {
+    "logical_path": "work/toolset-ui-hosts/card.json",
+    "sha256": "3c10699fd1cc63842cbb1a3d709a9ef583502de30f35b9920c0a7e12596e504d"
+  },
+  "parents": []
+}

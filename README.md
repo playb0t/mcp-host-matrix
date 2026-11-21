@@ -17,6 +17,8 @@ Six directions, each measured on a controlled bench. A local synthetic provider 
 - **Tool schemas change inside a session.** VS Code 1.143.1 refreshed a tool's inputSchema mid-session on a server-sent change notice. Five server-side call validations are recorded. ([R03](matrix/MATRIX.en.md#r03))
 
   **A stale tools picker can persist a disabled new tool.** The [version-bound VS Code case](work/vscode-toolset-ui/CASE.md) follows catalog refresh, picker confirmation and selection after restart, with separate installed and paired self-host observations.
+
+  **The same lifecycle differs across hosts.** [Cursor refreshes the open list](work/toolset-ui-hosts/cursor.md); [Zed refreshes it after reopening](work/toolset-ui-hosts/zed.md). Both retained the explicit selection after normal restart. [Claude Code refreshed its viewed list](work/toolset-ui-hosts/claude-code.md) after manual login, while individual selection and persistence remain unmeasured; [Cascade](work/toolset-ui-hosts/cascade.md) was launched from the official Windsurf 2.3.15 archive, but application login did not complete and the MCP cycle was not started. These follow-ups preserve the original VS Code case.
 - **A server-supplied URL reaches the executable boundary.** The authorization URL taken from server metadata reached the Windows opener path, where an inert recorder stood in for the real handler. An unsupported URI was rejected before it. ([R04](matrix/MATRIX.en.md#r04))
 - **A refresh body follows an HTTP 307 to another origin.** The redirect carried the synthetic credential body to a second owned origin. That origin refused the exchange. ([R05](matrix/MATRIX.en.md#r05))
 - **Updates keep prior authority. 8 of 8 cells.** After a controlled build replacement the provider kept accepting the authority granted to the previous build. The two native rows reused their prior refresh credentials; the four bridge cells asked for new authorization. ([R06](matrix/MATRIX.en.md#r06))
@@ -100,6 +102,6 @@ The matrix measures selected implementations and operations. Every result holds 
 
 ## Citation
 
-Alex Gercog, *MCP Host Matrix*, version 1.3.0, original evidence snapshot 25 October 2026, R03 tool-set case 21 November 2026. [CITATION.cff](CITATION.cff) · [Changes](CHANGELOG.md).
+Alex Gercog, *MCP Host Matrix*, version 1.4.0, original evidence snapshot 25 October 2026, R03 tool-set case 21 November 2026. [CITATION.cff](CITATION.cff) · [Changes](CHANGELOG.md).
 
 Text and data: [CC BY 4.0](LICENSE). Code in `tools/` and `.github/`: [MIT](LICENSE-CODE). Embedded figure fonts retain their [original license](figures/THIRD-PARTY-NOTICES.md).

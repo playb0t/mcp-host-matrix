@@ -1,0 +1,406 @@
+{
+  "schema": "mcp-matrix-projection/1",
+  "matrix_cells": [
+    {
+      "case_id": "R03-CURSOR-TOOLSET-UI",
+      "topic": "R03",
+      "status": "measured_with_limits"
+    },
+    {
+      "case_id": "R03-ZED-TOOLSET-UI",
+      "topic": "R03",
+      "status": "measured_with_limits"
+    },
+    {
+      "case_id": "R03-CLAUDE-CODE-TOOLSET-UI",
+      "topic": "R03",
+      "status": "not_measured"
+    },
+    {
+      "case_id": "R03-CASCADE-TOOLSET-UI",
+      "topic": "R03",
+      "status": "not_measured"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "kind": "host"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "kind": "host"
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "kind": "host"
+    },
+    {
+      "id": "cascade",
+      "name": "Cascade",
+      "kind": "host"
+    }
+  ],
+  "cases": [
+    {
+      "id": "R03-CURSOR-TOOLSET-UI",
+      "topic": "R03",
+      "title": "Cursor live tool-set picker refresh",
+      "status": "measured_with_limits",
+      "subject_id": "cursor",
+      "versions": {
+        "host": "3.24.18",
+        "commit": "be4c9e5350d77747b42cd467cbd3370a753d4640"
+      },
+      "native_hosts": [
+        "Cursor"
+      ],
+      "components": [],
+      "observations": [
+        "Open tool selector refreshed from keep/removed to keep/added in two retained passes.",
+        "Explicit keep=false remained after Done/reopen and normal full restart; restart evidence is native UIA."
+      ],
+      "controls": [
+        "Same original 45-second fixture; server reset before the second pass.",
+        "Reopen and normal full restart checked separately.",
+        "Offline source equality, altered-choice rejection and gap-preservation controls."
+      ],
+      "limits": [
+        "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+        "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+        "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+        "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+        "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+        "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+        "Cursor used several STDIO connections and inherited cached catalogs. Reload did not always request the initial list. The first Done after selecting Custom restarted the source; the second pass supplies the same-epoch reopen control.",
+        "A harmless environment marker reset the isolated server configuration before each measured pass; the unchanged fixture ignores it. No configuration write occurred during the measured open-window interval.",
+        "The final restart screenshot was displayed during execution but its temporary file was lost before archival. The exact timestamped native UIA switch labels were retained; earlier cycle screenshots are retained privately.",
+        "The physical selection storage key was not parsed. Choice retention is established through the fresh-process native interface.",
+        "The manually authenticated isolated profile was identified after the login callback; update.mode was set to none there and checked before later launches. All 15160 distribution files remained unchanged. No claim is made that an update was cancelled through the UI."
+      ],
+      "evidence_ids": [
+        "toolset-ui.cursor"
+      ],
+      "details": "work/toolset-ui-hosts/cursor.md",
+      "related_cases": [
+        "R03",
+        "R03-VSCODE-TOOLSET-UI"
+      ]
+    },
+    {
+      "id": "R03-ZED-TOOLSET-UI",
+      "topic": "R03",
+      "title": "Zed live tool-set picker refresh",
+      "status": "measured_with_limits",
+      "subject_id": "zed",
+      "versions": {
+        "host": "1.26.2",
+        "commit": "c4273271092b0287f7d181f616bd5171e0a2f70c"
+      },
+      "native_hosts": [
+        "Zed"
+      ],
+      "components": [],
+      "observations": [
+        "Open selector retained keep/removed after the client received keep/added in two passes.",
+        "Reopen showed the new list; immediate selection and full restart retained keep=false, inherited added=true."
+      ],
+      "controls": [
+        "Same original 45-second fixture; server reset before the second pass.",
+        "Reopen and normal full restart checked separately.",
+        "Offline source equality, altered-choice rejection and gap-preservation controls."
+      ],
+      "limits": [
+        "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+        "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+        "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+        "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+        "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+        "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+        "The selector saves changes immediately. Go Back is the native completion action; there is no OK button.",
+        "The explicit stored entry is matching_keep=false. matching_added is enabled through inherited enable_all_context_servers=true, not a separately stored added=true entry.",
+        "The first native click materialized the inherited enabled state; a second click produced the observed disabled state. No root cause is inferred.",
+        "A custom user-data directory isolated configuration and data. Windows KnownFolder IPC is a separate limitation; no claim covers all system files.",
+        "All six retained distribution files remained unchanged."
+      ],
+      "evidence_ids": [
+        "toolset-ui.zed"
+      ],
+      "details": "work/toolset-ui-hosts/zed.md",
+      "related_cases": [
+        "R03",
+        "R03-VSCODE-TOOLSET-UI"
+      ]
+    },
+    {
+      "id": "R03-CLAUDE-CODE-TOOLSET-UI",
+      "topic": "R03",
+      "title": "Claude Code live tool-set picker refresh",
+      "status": "not_measured",
+      "subject_id": "claude-code",
+      "versions": {
+        "host": "2.1.330"
+      },
+      "native_hosts": [
+        "Claude Code"
+      ],
+      "components": [],
+      "observations": [
+        "After manual login, native View tools refreshed from keep/removed to keep/added while open in two retained passes.",
+        "Reopen and a new managed CLI process showed the current list. No individual availability selector found in inspected MCP screens; choice confirmation/persistence remain unmeasured."
+      ],
+      "controls": [
+        "Original 45-second fixture reset by native Reconnect before second pass.",
+        "Reopen controls and normal managed CLI restart, operator terminal untouched.",
+        "Offline source equality and invented-choice/full-lifecycle/usage rejection."
+      ],
+      "limits": [
+        "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+        "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+        "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+        "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+        "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+        "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+        "Only catalog/view refresh was measured. No individual availability selector was found in the inspected /mcp server/list/detail screens; application-wide absence is not established.",
+        "Individual choice, confirmation and persistence remain unmeasured. Permission policy rules were not substituted for availability.",
+        "A new managed CLI process was observed after normal exit; the manually opened terminal was left untouched. This was not a restart of every process using the profile.",
+        "Evidence is incremental ANSI PTY output with manual field extraction. The initial launcher screen was not archived; subsequent UI and all three wire epochs were retained privately.",
+        "The inherited permission mode was unchanged. No fixture tools/call occurred. One specifically identified own session had zero assistant records and zero token usage; global account/network activity is unknown."
+      ],
+      "evidence_ids": [
+        "toolset-ui.claude-code"
+      ],
+      "details": "work/toolset-ui-hosts/claude-code.md",
+      "related_cases": [
+        "R03",
+        "R03-VSCODE-TOOLSET-UI"
+      ]
+    },
+    {
+      "id": "R03-CASCADE-TOOLSET-UI",
+      "topic": "R03",
+      "title": "Cascade live tool-set picker refresh",
+      "status": "not_measured",
+      "subject_id": "cascade",
+      "versions": {
+        "host": "2.3.15",
+        "base_editor": "1.110.1",
+        "commit": "c46c49e94b4d3f41181204d59809d8f1b2c48d68"
+      },
+      "native_hosts": [],
+      "components": [],
+      "observations": [
+        "Official Windsurf 2.3.15 was downloaded, extracted and launched in an isolated profile. Application login did not complete; the MCP cycle was not started."
+      ],
+      "controls": [
+        "Precondition recorded without inferring product UI behavior."
+      ],
+      "limits": [
+        "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+        "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+        "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+        "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+        "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+        "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+        "Official archived Windsurf 2.3.15 was downloaded, extracted and launched in an isolated profile. Login in the application did not complete; no native MCP cycle began.",
+        "The cause of the login failure and a vendor-wide outage were not established. Tool-selection UI, refresh and persistence remain unmeasured; no inference about current Devin Local is made."
+      ],
+      "evidence_ids": [
+        "toolset-ui.cascade"
+      ],
+      "details": "work/toolset-ui-hosts/cascade.md",
+      "related_cases": [
+        "R03",
+        "R03-VSCODE-TOOLSET-UI"
+      ]
+    }
+  ],
+  "receipts": [
+    {
+      "case_id": "R03-CURSOR-TOOLSET-UI",
+      "kind": "Retained native UI observation and curated excerpts",
+      "versions": {
+        "host": "3.24.18",
+        "commit": "be4c9e5350d77747b42cd467cbd3370a753d4640"
+      },
+      "sources": [
+        {
+          "id": "toolset-ui.cursor",
+          "sha256": "2990c15d4f38ec76a5cd572740c4ad12f50c322f2ed8a9402af79287e15fe920",
+          "format": "JSON"
+        }
+      ],
+      "excerpts": [
+        {
+          "source_id": "toolset-ui.cursor",
+          "source_pointer": "/choice",
+          "fields": {
+            "explicit": {
+              "matching_keep": false
+            },
+            "after_confirmation": {
+              "matching_keep": false,
+              "matching_added": true
+            },
+            "after_restart": {
+              "matching_keep": false,
+              "matching_added": true
+            }
+          }
+        }
+      ],
+      "derived_checks": [],
+      "limits": [
+        "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+        "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+        "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+        "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+        "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+        "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+        "Cursor used several STDIO connections and inherited cached catalogs. Reload did not always request the initial list. The first Done after selecting Custom restarted the source; the second pass supplies the same-epoch reopen control.",
+        "A harmless environment marker reset the isolated server configuration before each measured pass; the unchanged fixture ignores it. No configuration write occurred during the measured open-window interval.",
+        "The final restart screenshot was displayed during execution but its temporary file was lost before archival. The exact timestamped native UIA switch labels were retained; earlier cycle screenshots are retained privately.",
+        "The physical selection storage key was not parsed. Choice retention is established through the fresh-process native interface.",
+        "The manually authenticated isolated profile was identified after the login callback; update.mode was set to none there and checked before later launches. All 15160 distribution files remained unchanged. No claim is made that an update was cancelled through the UI."
+      ]
+    },
+    {
+      "case_id": "R03-ZED-TOOLSET-UI",
+      "kind": "Retained native UI observation and curated excerpts",
+      "versions": {
+        "host": "1.26.2",
+        "commit": "c4273271092b0287f7d181f616bd5171e0a2f70c"
+      },
+      "sources": [
+        {
+          "id": "toolset-ui.zed",
+          "sha256": "a21aa92fa7d48e204404a2d4c5251555a0677298d2758ce2c502470b4981f520",
+          "format": "JSON"
+        }
+      ],
+      "excerpts": [
+        {
+          "source_id": "toolset-ui.zed",
+          "source_pointer": "/choice",
+          "fields": {
+            "explicit": {
+              "matching_keep": false
+            },
+            "after_confirmation": {
+              "matching_keep": false,
+              "matching_added": true
+            },
+            "after_restart": {
+              "matching_keep": false,
+              "matching_added": true
+            }
+          }
+        }
+      ],
+      "derived_checks": [],
+      "limits": [
+        "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+        "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+        "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+        "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+        "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+        "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+        "The selector saves changes immediately. Go Back is the native completion action; there is no OK button.",
+        "The explicit stored entry is matching_keep=false. matching_added is enabled through inherited enable_all_context_servers=true, not a separately stored added=true entry.",
+        "The first native click materialized the inherited enabled state; a second click produced the observed disabled state. No root cause is inferred.",
+        "A custom user-data directory isolated configuration and data. Windows KnownFolder IPC is a separate limitation; no claim covers all system files.",
+        "All six retained distribution files remained unchanged."
+      ]
+    },
+    {
+      "case_id": "R03-CLAUDE-CODE-TOOLSET-UI",
+      "kind": "Partial native catalog/view observation; full individual-selection lifecycle not measured",
+      "versions": {
+        "host": "2.1.330"
+      },
+      "sources": [
+        {
+          "id": "toolset-ui.claude-code",
+          "sha256": "d9475cd9b86e9baf4de2e0c1eed2aa663fa2293241e719c501d39254073b1a1c",
+          "format": "JSON"
+        }
+      ],
+      "excerpts": [
+        {
+          "source_id": "toolset-ui.claude-code",
+          "source_pointer": "/selection",
+          "fields": {
+            "explicit_choice": null,
+            "after_confirmation": null,
+            "after_restart": null
+          }
+        }
+      ],
+      "derived_checks": [],
+      "limits": [
+        "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+        "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+        "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+        "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+        "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+        "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+        "Only catalog/view refresh was measured. No individual availability selector was found in the inspected /mcp server/list/detail screens; application-wide absence is not established.",
+        "Individual choice, confirmation and persistence remain unmeasured. Permission policy rules were not substituted for availability.",
+        "A new managed CLI process was observed after normal exit; the manually opened terminal was left untouched. This was not a restart of every process using the profile.",
+        "Evidence is incremental ANSI PTY output with manual field extraction. The initial launcher screen was not archived; subsequent UI and all three wire epochs were retained privately.",
+        "The inherited permission mode was unchanged. No fixture tools/call occurred. One specifically identified own session had zero assistant records and zero token usage; global account/network activity is unknown."
+      ]
+    },
+    {
+      "case_id": "R03-CASCADE-TOOLSET-UI",
+      "kind": "Retained precondition gap; native MCP lifecycle not measured",
+      "versions": {
+        "host": "2.3.15",
+        "base_editor": "1.110.1",
+        "commit": "c46c49e94b4d3f41181204d59809d8f1b2c48d68"
+      },
+      "sources": [
+        {
+          "id": "toolset-ui.cascade",
+          "sha256": "e1988aaeaa489d677c1d8f9656738339284dc465ea72d920a6fd0523d769240a",
+          "format": "JSON"
+        }
+      ],
+      "excerpts": [
+        {
+          "source_id": "toolset-ui.cascade",
+          "source_pointer": "/hosts/cascade",
+          "fields": {
+            "version": "2.3.15",
+            "base_editor_version": "1.110.1",
+            "commit": "c46c49e94b4d3f41181204d59809d8f1b2c48d68",
+            "executable_sha256": "661e49855a657ad00e9f168a52d105bef9c968864af1cbc3d49745a9288b866f",
+            "status": "not_measured",
+            "preflight_date": "2026-11-22",
+            "observed": "Official Windsurf 2.3.15 was downloaded, extracted and launched in an isolated profile. Application login did not complete; the MCP cycle was not started.",
+            "download_source": "https://docs.devin.ai/desktop/releases",
+            "application_installed": true,
+            "application_launched": true,
+            "login_completed": false,
+            "mcp_cycle_attempted": false,
+            "tool_selection_surface": "unknown"
+          }
+        }
+      ],
+      "derived_checks": [],
+      "limits": [
+        "Selected deidentified excerpts of retained native observations, not a self-contained replay. Raw journals, private images and local receipt ancestry remain author-held.",
+        "The wire catalog and visible interface are separate observations. The private in-memory client registry was not inspected.",
+        "No model turn or paid request was initiated. No fixture tool was invoked; model dispatch and authorization expansion were not tested.",
+        "Normal confirmation and full application restart do not establish crash durability, atomic writes or concurrent-writer behavior.",
+        "These cases add no subjects or directions and do not change the legacy snapshot, its historical 12/12 and 8/8 counts, or the existing VS Code case.",
+        "Internal independent review is not external peer review or independent reproduction. PASS/FAIL of a local UI criterion is not a product safety grade.",
+        "Official archived Windsurf 2.3.15 was downloaded, extracted and launched in an isolated profile. Login in the application did not complete; no native MCP cycle began.",
+        "The cause of the login failure and a vendor-wide outage were not established. Tool-selection UI, refresh and persistence remain unmeasured; no inference about current Devin Local is made."
+      ]
+    }
+  ]
+}
