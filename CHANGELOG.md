@@ -1,5 +1,11 @@
 # Changes
 
+## 1.5.0
+
+[Regression selection](matrix/REGRESSION.md#integration-state-selectors) gains six integration-state selectors for changes that sit beside the six directions: retained state after a migration, the resource finally addressed, object ownership under a shared executor, error representations, cancellation and concurrent persistence. Each names what to keep separate, the smallest controls and its boundary. Four public pull requests are linked as worked examples; the sixth selector has none.
+
+The selectors are selection hints. The six directions, subjects catalog, cases, receipts, coverage and the historical 12/12 and 8/8 counts remain unchanged. No new measurement, vendor acceptance, merge or release is claimed.
+
 ## 1.4.0
 
 Four R03 companion records follow the original tool-set picker case across the remaining host subjects. [Cursor](work/toolset-ui-hosts/cursor.md) refreshed its open list; [Zed](work/toolset-ui-hosts/zed.md) retained stale rows until reopening. Both retained an explicit disabled tool after normal full restart. The Cursor restart observation retains native UIA; its final screenshot archive is unavailable.

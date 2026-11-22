@@ -102,6 +102,6 @@ The matrix measures selected implementations and operations. Every result holds 
 
 ## Citation
 
-Alex Gercog, *MCP Host Matrix*, version 1.4.0, original evidence snapshot 25 October 2026, R03 tool-set case 21 November 2026. [CITATION.cff](CITATION.cff) · [Changes](CHANGELOG.md).
+Alex Gercog, *MCP Host Matrix*, version 1.5.0, original evidence snapshot 25 October 2026, R03 tool-set case 21 November 2026, integration-state selectors 22 November 2026. [CITATION.cff](CITATION.cff) · [Changes](CHANGELOG.md).
 
 Text and data: [CC BY 4.0](LICENSE). Code in `tools/` and `.github/`: [MIT](LICENSE-CODE). Embedded figure fonts retain their [original license](figures/THIRD-PARTY-NOTICES.md).

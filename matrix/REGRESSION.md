@@ -13,6 +13,34 @@ This is a proposed selection map, not an executed campaign.
 | R05 | Token fetch, redirects, form handling, bundled SDK or runtime | Selected PUBLIC 307 cross-origin refresh with direct and receiver controls | Trigger versus attempts; exact body/recipient; valid/invalid refresh; bootstrap versus new issuance; receiver denial; separate Location authority |
 | R06 | Selectors, migration, registration or cross-build refresh reuse | Affected old/new pair and PUBLIC/DCR profile; separate native-first-connection and controller observations | Natural expiry; fresh baseline; late-store timing; wrong-client/management/revoke/fresh controls; official installer separate |
 
+## Integration-state selectors
+
+Six selectors cover changes that sit beside the R01-R06 directions. Each one names what to keep separate after a change and the smallest useful controls. They are selection hints. They add no directions, subjects, rows, counts or outcomes, and no selector inherits a verdict from a direction.
+
+| Selector | Change after which a check is useful | Keep separate | Smallest controls | Boundary |
+|---|---|---|---|---|
+| `IG01` | Authorization flow, migration, writer, storage backend or access policy | New, retained and mixed state; file metadata and effective access | Fresh and retained state; same-owner success and an independent reader; mode readback after the change | A readable synthetic token does not establish that a real credential is valid |
+| `IG02` | Parser, encoder, resolver or reference form | The validated field and the resource finally addressed | An ordinary allowed resource; boundary, alias and normalization forms; the final request target | A different path at a recorder does not establish backend acceptance |
+| `IG03` | Principal, object-key provenance or delegation | The logical owner of an object and the authority of the shared executor | The same trusted subject continues; another subject with the same known identifier; forged and expired proofs refused before downstream effects | An identifier or a synthetic label does not establish a trusted identity |
+| `IG04` | Error, event, serialization or telemetry mapping | Transport, protocol, application and persisted outcomes | Ordinary success; partial and empty failure; the emitted events against the saved representation | A saved marker does not establish that every log is complete |
+| `IG05` | Cancellation, asynchronous acquisition or resource lifecycle | Cancellation, completion, resource release and authority revocation | Ordinary completion; early and late cancellation with a late acquisition; completion before the fixture is retired | A closed local socket or session is not a provider revocation |
+| `IG06` | Concurrent persistence, retry, versioning or a replacement contract | Request order, the storage contract and the final backend state | A controlled order and overlap; the authoritative version or append contract where one exists | Request order and a described contract do not establish the final state or atomicity |
+
+`IG01` can select an R02 follow-up and `IG05` an R01 lifecycle follow-up. R06 migration and reuse need their own evidence that the authority is still valid; readable saved data is not enough.
+
+### Worked examples
+
+Each selector below was applied to one open-source change. The links lead to the filed pull requests, which carry the code and the regression tests. A filed pull request is not a vendor acceptance, a merge or a release.
+
+| Selector | Change | Pull request |
+|---|---|---|
+| `IG01` | An OAuth-only setup stopped writing tokens and, in automatic mode, kept earlier token files with their public modes. On one filesystem a chmod that reported success left the mode unchanged. | [sanity-io/cli 2257](https://github.com/sanity-io/cli/pull/2257) |
+| `IG02` | A path parameter that is exactly a dot segment passed encoding and was normalized into another request path. | [sanity-io/client 1417](https://github.com/sanity-io/client/pull/1417) |
+| `IG03` | A shared organization writer took the conversation identifier chosen by the browser. The change scopes it to a signed anonymous session. | [sanity-io/context 304](https://github.com/sanity-io/context/pull/304) |
+| `IG04`, `IG05` | An in-band stream error ended through the finish hooks without a failure marker. Request cancellation did not reach the model call or the pending connection. | [sanity-io/context 303](https://github.com/sanity-io/context/pull/303) |
+
+`IG06` has no worked example. The order of outgoing snapshot requests was observed; the backend outcome was not measured.
+
 ## Recording a follow-up
 
 Apply the [future observation fields](../docs/EVIDENCE-POLICY.md#future-observation-records) to each new follow-up. Freeze the full client/version, server, endpoint and authentication-profile identity, then name the affected connection step. Keep connection and tool-boundary checks in separate linked records under the applicable existing R01-R06 scope. For registration changes, retain the selected method, authorization-server metadata and specification revision. Unmeasured steps remain explicit.
