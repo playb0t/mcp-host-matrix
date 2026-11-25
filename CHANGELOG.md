@@ -1,5 +1,11 @@
 # Changes
 
+## 1.6.0
+
+[Regression selection](matrix/REGRESSION.md#integration-state-selectors) gains a seventh integration-state selector, `IG07`, for calls that share one session, client or connection. It asks whether progress, server requests and errors reach the call that caused them when two calls overlap. It also asks whether a fix that stops the mixing still allows the parallel and nested calls the contract promises.
+
+The selector is a selection hint with no worked example. The six directions, subjects catalog, cases, receipts, coverage and the historical 12/12 and 8/8 counts remain unchanged. No new measurement is claimed.
+
 ## 1.5.0
 
 [Regression selection](matrix/REGRESSION.md#integration-state-selectors) gains six integration-state selectors for changes that sit beside the six directions: retained state after a migration, the resource finally addressed, object ownership under a shared executor, error representations, cancellation and concurrent persistence. Each names what to keep separate, the smallest controls and its boundary. Four public pull requests are linked as worked examples; the sixth selector has none.

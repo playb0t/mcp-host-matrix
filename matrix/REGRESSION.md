@@ -15,7 +15,7 @@ This is a proposed selection map, not an executed campaign.
 
 ## Integration-state selectors
 
-Six selectors cover changes that sit beside the R01-R06 directions. Each one names what to keep separate after a change and the smallest useful controls. They are selection hints. They add no directions, subjects, rows, counts or outcomes, and no selector inherits a verdict from a direction.
+Seven selectors cover changes that sit beside the R01-R06 directions. Each one names what to keep separate after a change and the smallest useful controls. They are selection hints. They add no directions, subjects, rows, counts or outcomes, and no selector inherits a verdict from a direction.
 
 | Selector | Change after which a check is useful | Keep separate | Smallest controls | Boundary |
 |---|---|---|---|---|
@@ -25,8 +25,11 @@ Six selectors cover changes that sit beside the R01-R06 directions. Each one nam
 | `IG04` | Error, event, serialization or telemetry mapping | Transport, protocol, application and persisted outcomes | Ordinary success; partial and empty failure; the emitted events against the saved representation | A saved marker does not establish that every log is complete |
 | `IG05` | Cancellation, asynchronous acquisition or resource lifecycle | Cancellation, completion, resource release and authority revocation | Ordinary completion; early and late cancellation with a late acquisition; completion before the fixture is retired | A closed local socket or session is not a provider revocation |
 | `IG06` | Concurrent persistence, retry, versioning or a replacement contract | Request order, the storage contract and the final backend state | A controlled order and overlap; the authoritative version or append contract where one exists | Request order and a described contract do not establish the final state or atomicity |
+| `IG07` | A session, client or connection shared by several calls; event routing, multiplexing or a lock | The session and the single call; the result of a call and what arrives beside it: progress, server requests and errors | Two overlapping calls on one session, each with its own handler, where every progress message and server request must reach the call that caused it; a nested call where the contract allows one; cancelling one call while the other finishes | Correct results do not establish that the events reached the right call |
 
 `IG01` can select an R02 follow-up and `IG05` an R01 lifecycle follow-up. R06 migration and reuse need their own evidence that the authority is still valid; readable saved data is not enough.
+
+For `IG07`, run the calls at the same time. Calls made one after another can pass while overlapping calls still mix. If a fix stops the mixing by making calls wait for each other, check that parallel and nested calls still work where the contract promises them. When an event carries nothing that ties it to a call, record its owner as unknown and do not assign it to the latest call.
 
 ### Worked examples
 
@@ -40,6 +43,8 @@ Each selector below was applied to one open-source change. The links lead to the
 | `IG04`, `IG05` | An in-band stream error ended through the finish hooks without a failure marker. Request cancellation did not reach the model call or the pending connection. | [sanity-io/context 303](https://github.com/sanity-io/context/pull/303) |
 
 `IG06` has no worked example. The order of outgoing snapshot requests was observed; the backend outcome was not measured.
+
+`IG07` has no worked example.
 
 ## Recording a follow-up
 
