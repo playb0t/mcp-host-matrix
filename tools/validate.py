@@ -219,6 +219,11 @@ def prose_issues(text: str, markdown: bool = False) -> list[str]:
     text = mask_code(text) if markdown else text
     if not markdown and "_" in text and IDENTIFIER.fullmatch(text):
         return []
+    if not markdown and re.fullmatch(
+        r"rfc8414|w[0-9]{2}-(?:rfc8414|oidc)-(?:public|dcr)-(?:remove|logout|clear)"
+        r"|c[0-9]{2}-(?:rfc8414|oidc)-revoke-control", text
+    ):
+        return []
     text = re.sub(r"\[[A-Za-z0-9_./-]+\]\([^)]*\)", " ", text)
     text = re.sub(r"<[^>]*>", " ", text)
     text = re.sub(r"\]\([^)\n]*\)", "]", text)

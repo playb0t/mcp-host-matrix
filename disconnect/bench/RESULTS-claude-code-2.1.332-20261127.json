@@ -1,0 +1,350 @@
+{
+ "schema": "revoke-mini/1",
+ "generated_utc": "2026-11-27T08:24:21Z",
+ "conditions": {
+  "provider": "synthetic loopback OAuth authorization server and MCP resource server, one process (fixture.py)",
+  "tokens": "synthetic",
+  "access_lifetime_seconds": 3600,
+  "refresh_rotation": false,
+  "revocation_endpoint_declared": "in the one metadata document the mode serves (RFC 8414 document, or OpenID document only)",
+  "client_profile": "isolated CLAUDE_CONFIG_DIR per window; no account, no model call",
+  "authorization": "claude mcp login --no-browser in a pseudo-terminal; consent given by a scripted stand-in",
+  "replay_initiator": "controller, with the grant's own client_id; public client, no secret",
+  "window_after_action_seconds": 60,
+  "same_fixture_as_october_bench": false
+ },
+ "windows": [
+  {
+   "window": "w01-rfc8414-public-remove",
+   "discovery": "rfc8414",
+   "profile": "public",
+   "action": "remove",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:28:30Z",
+   "verdict_sha256": "7bdca9ffc71213c4ca2b9775ae07911f1b11b6982604a35694aedd722f79f32c",
+   "journal_sha256": "10611e12dbd94afbb8ed57d17710f9196b7f2bd79de9b1f4c8be050369c16bd5",
+   "revocation_request": "none",
+   "revocation_requests": 0,
+   "revocation_hints": [],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "token issued",
+   "registration_delete": "n/a",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": false
+  },
+  {
+   "window": "w02-rfc8414-dcr-remove",
+   "discovery": "rfc8414",
+   "profile": "dcr",
+   "action": "remove",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:29:47Z",
+   "verdict_sha256": "7252e6bf0ffae8391375a6dc051a6d64f0403cc0f9beeb8172d9c681cd8b59ab",
+   "journal_sha256": "1e8516fdeee93f24a36d4719bf03a74ae4a99c269f3d72c8ed487925cc5ae4b9",
+   "revocation_request": "none",
+   "revocation_requests": 0,
+   "revocation_hints": [],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "token issued",
+   "registration_delete": "none",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": false
+  },
+  {
+   "window": "w03-rfc8414-public-logout",
+   "discovery": "rfc8414",
+   "profile": "public",
+   "action": "logout",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:30:53Z",
+   "verdict_sha256": "3a582328047b530982c6237a0467171edb12142b51783c7ab31184972a891ca4",
+   "journal_sha256": "97d41d2a143bf8392d11e5c27ac0cb0957c5fe1081e3e04d19b09907f2aa6c95",
+   "revocation_request": "sent",
+   "revocation_requests": 2,
+   "revocation_hints": [
+    "access_token",
+    "refresh_token"
+   ],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "refused: invalid_grant",
+   "registration_delete": "n/a",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": false
+  },
+  {
+   "window": "w04-rfc8414-dcr-logout",
+   "discovery": "rfc8414",
+   "profile": "dcr",
+   "action": "logout",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:32:00Z",
+   "verdict_sha256": "c6fc27b4ad74c1e4ee93b3542ae7b51dc12e3ea874a89e26ea99b029d3a3e9a1",
+   "journal_sha256": "9f5f0041e573634c87aba105786fe10e3f47a373fc906887df471760f30e0cef",
+   "revocation_request": "sent",
+   "revocation_requests": 2,
+   "revocation_hints": [
+    "access_token",
+    "refresh_token"
+   ],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "refused: invalid_grant",
+   "registration_delete": "none",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": false
+  },
+  {
+   "window": "w05-oidc-public-logout",
+   "discovery": "oidc",
+   "profile": "public",
+   "action": "logout",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:33:07Z",
+   "verdict_sha256": "edb060bb58ead4d69f7a5d27ba37dd26764fba77277a77b0c49ea0f1540cecd0",
+   "journal_sha256": "0bf9462d379074d6c5a9318a8c083709439af71ceec9da03283777f766d0b8d7",
+   "revocation_request": "none",
+   "revocation_requests": 0,
+   "revocation_hints": [],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "token issued",
+   "registration_delete": "n/a",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": false
+  },
+  {
+   "window": "w06-oidc-dcr-logout",
+   "discovery": "oidc",
+   "profile": "dcr",
+   "action": "logout",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:34:15Z",
+   "verdict_sha256": "427de20e845b5ea75dfe0e4b5cabec379fa2ea834e7ef412c9dcdaeef846db3d",
+   "journal_sha256": "a58eeaa2770baaf10dbe8cd1240f85c6ea5697bd15ad5db34b6951246f6b45a4",
+   "revocation_request": "none",
+   "revocation_requests": 0,
+   "revocation_hints": [],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "token issued",
+   "registration_delete": "none",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": false
+  },
+  {
+   "window": "w07-oidc-public-remove",
+   "discovery": "oidc",
+   "profile": "public",
+   "action": "remove",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:35:22Z",
+   "verdict_sha256": "3b76946e082c393494ac2296c88ccda15c7fc4a4bee56a918d0a6da8e8cc87cf",
+   "journal_sha256": "f6ce642aca851bf1061179d158e433a192fa2493ce5cb9c5c28c3d92cee5f192",
+   "revocation_request": "none",
+   "revocation_requests": 0,
+   "revocation_hints": [],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "token issued",
+   "registration_delete": "n/a",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": false
+  },
+  {
+   "window": "w08-oidc-dcr-remove",
+   "discovery": "oidc",
+   "profile": "dcr",
+   "action": "remove",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:36:29Z",
+   "verdict_sha256": "a553cb23a5e0aa4f8e7c0ad25fd95d11a7908081b90c5b3f14b53efbb935fc88",
+   "journal_sha256": "b9084fa63e66b7bf8c7bbd490aa96b07a82c1dbbc09870fe62f1a3baf5a02e36",
+   "revocation_request": "none",
+   "revocation_requests": 0,
+   "revocation_hints": [],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "token issued",
+   "registration_delete": "none",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": false
+  },
+  {
+   "window": "w09-rfc8414-public-clear",
+   "discovery": "rfc8414",
+   "profile": "public",
+   "action": "clear",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:35:29Z",
+   "verdict_sha256": "a9b88639ceb7abf6d83ae71df0740b1856d99b4db095158cbda9d149a0f8233e",
+   "journal_sha256": "ca2fef0cc97ee790d71e7cc5bc1e86d2b12106c235d52422c518a937f7948da5",
+   "revocation_request": "sent",
+   "revocation_requests": 2,
+   "revocation_hints": [
+    "access_token",
+    "refresh_token"
+   ],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "refused: invalid_grant",
+   "registration_delete": "n/a",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": true
+  },
+  {
+   "window": "w10-rfc8414-dcr-clear",
+   "discovery": "rfc8414",
+   "profile": "dcr",
+   "action": "clear",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:38:08Z",
+   "verdict_sha256": "3d2a88e49f897238833abf1dd21481258667cb16884c9acf5304f9e76e3aac78",
+   "journal_sha256": "e4ac2b24949e4db2083ad4dd97e9ce065a12ab5bb770b1d08d6ca79b92f717f6",
+   "revocation_request": "sent",
+   "revocation_requests": 2,
+   "revocation_hints": [
+    "access_token",
+    "refresh_token"
+   ],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "refused: invalid_grant",
+   "registration_delete": "none",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": true
+  },
+  {
+   "window": "w11-oidc-public-clear",
+   "discovery": "oidc",
+   "profile": "public",
+   "action": "clear",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:40:15Z",
+   "verdict_sha256": "9d300d532219e73a7e91578f00529c4e6b264cc41f842bdaad1f407179c692f9",
+   "journal_sha256": "95bd510a639777d445f93a992791364c2909e2a33945e43022b1646f12b30498",
+   "revocation_request": "none",
+   "revocation_requests": 0,
+   "revocation_hints": [],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "token issued",
+   "registration_delete": "n/a",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": true
+  },
+  {
+   "window": "w12-oidc-dcr-clear",
+   "discovery": "oidc",
+   "profile": "dcr",
+   "action": "clear",
+   "client_version": "2.1.332 (Claude Code)",
+   "outcome": "measured",
+   "action_started_utc": "2026-11-27T07:42:22Z",
+   "verdict_sha256": "df0506c5849b43c5920f3c35389e48d04bccca1d0bc68e21fdba96e32b66f4a5",
+   "journal_sha256": "9cb0d1e21911d05f47193f620e6b797e77d01494cb436884073094aefb5afe76",
+   "revocation_request": "none",
+   "revocation_requests": 0,
+   "revocation_hints": [],
+   "prior_refresh_before": "token issued",
+   "prior_refresh_after": "token issued",
+   "registration_delete": "none",
+   "client_revocations_after_window": 0,
+   "local_refresh_before": true,
+   "local_refresh_after": false,
+   "local_entry_after": true
+  }
+ ],
+ "controls": [
+  {
+   "control": "c01-oidc-revoke-control",
+   "discovery": "oidc",
+   "discovery_responses": {
+    "openid": {
+     "body_sha256": "5931d5c93b17dafd3a3f4cb6aca418908a45ca96887845014b3e627bbe13f145",
+     "http": 200,
+     "revocation_endpoint": "http://127.0.0.1:48761/revoke"
+    },
+    "rfc8414": {
+     "body_sha256": "442382ccc7e785caee0f26ebc4f061713d4cd1a2eeb1ae79b3994f9d8878964d",
+     "http": 404,
+     "revocation_endpoint": null
+    }
+   },
+   "passed": true,
+   "port": 48761,
+   "replay_after": {
+    "access_token_issued": false,
+    "error": "invalid_grant",
+    "http": 400
+   },
+   "replay_before": {
+    "access_token_issued": true,
+    "error": null,
+    "http": 200
+   },
+   "revocation": {
+    "endpoint_taken_from": "openid",
+    "http": 200
+   },
+   "control_sha256": "f4db62cb6b4f263b2ff95bee779f8dc2b5cfab9ac37e18835c0daa45a0e76de7"
+  },
+  {
+   "control": "c02-rfc8414-revoke-control",
+   "discovery": "rfc8414",
+   "discovery_responses": {
+    "openid": {
+     "body_sha256": "442382ccc7e785caee0f26ebc4f061713d4cd1a2eeb1ae79b3994f9d8878964d",
+     "http": 404,
+     "revocation_endpoint": null
+    },
+    "rfc8414": {
+     "body_sha256": "91d324df5201cb4d0de52b0f17308cfe8efaea40307e25fd165c0fc869d17057",
+     "http": 200,
+     "revocation_endpoint": "http://127.0.0.1:48762/revoke"
+    }
+   },
+   "passed": true,
+   "port": 48762,
+   "replay_after": {
+    "access_token_issued": false,
+    "error": "invalid_grant",
+    "http": 400
+   },
+   "replay_before": {
+    "access_token_issued": true,
+    "error": null,
+    "http": 200
+   },
+   "revocation": {
+    "endpoint_taken_from": "rfc8414",
+    "http": 200
+   },
+   "control_sha256": "b8b9e8f1db57afdcc3142d46273e8e7138a6ddf6afb0886e8d5ae2564724a441"
+  }
+ ]
+}

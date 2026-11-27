@@ -1,5 +1,11 @@
 # Changes
 
+## 1.7.0
+
+The [disconnection page](disconnect/MATRIX.en.md#separate-bench-claude-code-21332-27-november-2026) adds 12 windows from a separate bench for Claude Code 2.1.332 on Windows. With RFC 8414 metadata, logout and Clear authentication revoked access and refresh tokens. In all six OpenID-only windows, the bench recorded no revocation request and the provider accepted the prior refresh token. The [bench notes](disconnect/bench/BENCH-claude-code-2.1.332-20261127.en.md) describe the fixture and its two separate controls. The README names the separate bench beside the R01 result.
+
+The October counts of 12/12 disconnection base windows and 8/8 update cells remain unchanged.
+
 ## 1.6.0
 
 [Regression selection](matrix/REGRESSION.md#integration-state-selectors) gains a seventh integration-state selector, `IG07`, for calls that share one session, client or connection. It asks whether progress, server requests and errors reach the call that caused them when two calls overlap. It also asks whether a fix that stops the mixing still allows the parallel and nested calls the contract promises.

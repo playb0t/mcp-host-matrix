@@ -82,6 +82,29 @@ Native Cursor Remove was not measured in the pinned build's MCP panel. In the re
 
 The [bench summary](bench/BENCH.en.md) and [public results](bench/RESULTS.json) sit next to this page in the package. The JSON projection lists all 23 run IDs, including the 3 timing windows, outcomes and the SHA-256 of each raw verdict, without tokens or private local paths. A [deidentified R01 receipt](bench/receipts/R01.json) exposes the twelve base windows and working revocation controls. Full per-run originals remain author-held and may be requested through the [repository's issue tracker](https://github.com/playb0t/mcp-host-matrix/issues). The fixture implementation is not bundled; the package supports tracing the outcomes rather than a self-contained rerun.
 
+### Separate bench: Claude Code 2.1.332 (27 November 2026)
+
+**Different bench.** Claude Code 2.1.332, Windows, synthetic loopback provider, 60 s after the action, one window per discovery mode, client profile, and action. The 12 windows below form a separate measurement.
+
+| Window | Discovery | OAuth client | Action | Revocation requests recorded | Prior refresh token after | DCR registration DELETE |
+|---|---|---|---|---|---|---|
+| w01 | RFC 8414 | Public, preregistered | `mcp remove` | 0 | Accepted, new access token issued | N/A |
+| w02 | RFC 8414 | Public, DCR | `mcp remove` | 0 | Accepted, new access token issued | None recorded |
+| w03 | RFC 8414 | Public, preregistered | `mcp logout` | 2 (access and refresh) | Refused (`invalid_grant`) | N/A |
+| w04 | RFC 8414 | Public, DCR | `mcp logout` | 2 (access and refresh) | Refused (`invalid_grant`) | None recorded |
+| w09 | RFC 8414 | Public, preregistered | Clear authentication | 2 (access and refresh) | Refused (`invalid_grant`) | N/A |
+| w10 | RFC 8414 | Public, DCR | Clear authentication | 2 (access and refresh) | Refused (`invalid_grant`) | None recorded |
+| w07 | OpenID only | Public, preregistered | `mcp remove` | 0 | Accepted, new access token issued | N/A |
+| w08 | OpenID only | Public, DCR | `mcp remove` | 0 | Accepted, new access token issued | None recorded |
+| w05 | OpenID only | Public, preregistered | `mcp logout` | 0 | Accepted, new access token issued | N/A |
+| w06 | OpenID only | Public, DCR | `mcp logout` | 0 | Accepted, new access token issued | None recorded |
+| w11 | OpenID only | Public, preregistered | Clear authentication | 0 | Accepted, new access token issued | N/A |
+| w12 | OpenID only | Public, DCR | Clear authentication | 0 | Accepted, new access token issued | None recorded |
+
+In all six OpenID-only windows, the bench recorded no revocation request and the provider accepted the prior refresh token in the controller check. Successful OpenID discovery and a 404 for RFC 8414 were recorded in all six. Two separate fixture controls without Claude Code verified that revocation through the endpoint advertised by each mode led to `invalid_grant`. The client windows support the observed outcome for this setup; the internal cause in Claude Code was undetermined.
+
+[Results](bench/RESULTS-claude-code-2.1.332-20261127.json) · [Bench notes](bench/BENCH-claude-code-2.1.332-20261127.en.md)
+
 ## Measured outcomes: after a component update
 
 [Eight-cell update data · PUBLIC/DCR](bench/UPDATE-RESULTS.json) · [R06](../matrix/MATRIX.en.md#r06)

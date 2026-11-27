@@ -13,6 +13,8 @@ Research by **Alex Gercog** ([playb0t](https://github.com/playb0t); impact recor
 Six directions, each measured on a controlled bench. A local synthetic provider plays both the OAuth authorization server and the MCP resource server, so the record shows what reached it.
 
 - **Disconnect does not revoke. 12 of 12 base windows.** Uninstall, remove or toggle in VS Code, Claude Code, Cursor, Zed and Cascade; configuration removal and session exit on the bridge path. Each window stayed healthy for at least 60 seconds after the action. The provider received no revocation request, and it still accepted the prior refresh token in a separate replay with the client's own credentials. The client knows how to revoke: logout and Clear authentication in Claude Code sent the request, and the provider refused that token. Remove did not send it. ([R01](matrix/MATRIX.en.md#r01))
+
+  **The revoking actions depend on how the provider is discovered.** A [separate bench on 27 November 2026](disconnect/MATRIX.en.md#separate-bench-claude-code-21332-27-november-2026) repeated the Claude Code actions on 2.1.332. With RFC 8414 metadata the result was the same. With a provider that publishes its revocation endpoint only in the OpenID discovery document, the bench recorded no revocation request after remove, logout or Clear authentication, and the provider accepted the prior refresh token in all six windows.
 - **Removing the configuration keeps the credentials.** `claude mcp remove` in Claude Code deleted the entry and left the bridge's cached refresh token on disk, ACL intact. A reader at the known path exchanged it for HTTP 200. Where the drive's permissions were inherited, a reader under a different local account did the same. A private-style ACL stopped it. ([R02](matrix/MATRIX.en.md#r02))
 - **Tool schemas change inside a session.** VS Code 1.143.1 refreshed a tool's inputSchema mid-session on a server-sent change notice. Five server-side call validations are recorded. ([R03](matrix/MATRIX.en.md#r03))
 
@@ -102,6 +104,6 @@ The matrix measures selected implementations and operations. Every result holds 
 
 ## Citation
 
-Alex Gercog, *MCP Host Matrix*, version 1.6.0, original evidence snapshot 25 October 2026, R03 tool-set case 21 November 2026, integration-state selectors 22 and 25 November 2026. [CITATION.cff](CITATION.cff) · [Changes](CHANGELOG.md).
+Alex Gercog, *MCP Host Matrix*, version 1.7.0, original evidence snapshot 25 October 2026, R03 tool-set case 21 November 2026, integration-state selectors 22 and 25 November 2026, separate Claude Code bench 27 November 2026. [CITATION.cff](CITATION.cff) · [Changes](CHANGELOG.md).
 
 Text and data: [CC BY 4.0](LICENSE). Code in `tools/` and `.github/`: [MIT](LICENSE-CODE). Embedded figure fonts retain their [original license](figures/THIRD-PARTY-NOTICES.md).
